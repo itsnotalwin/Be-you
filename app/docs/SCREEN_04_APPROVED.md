@@ -20,4 +20,4 @@
 
 ## Current verification limit
 
-Source is committed to the `main` branch. Actual deployed Pages content and fresh genuine running-UI screenshots need independent confirmation. Screen 05 remains **pending**.
+Source is committed to the `main` branch. Actual deployed Pages content and fresh genuine running-UI screenshots need independent confirmation. Screen 05 is now approved and published to source; see `SCREEN_05_APPROVED.md`. Screen 06 remains pending.
