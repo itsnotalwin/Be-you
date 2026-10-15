@@ -348,3 +348,44 @@ body.theme-light .mood-v2 .mooditem.sel .moodface{background:#24282b;color:#edea
 body.theme-light .mood-v2-next{background:#282e31;color:#f1ede5}
 @media (min-width:700px){.mood-v2 h1{font-size:76px}.mood-v2-art{height:450px}.mood-v2{padding:8px 0 70px}}
 @media (max-width:370px){.mood-v2-options{gap:3px}.mood-v2-art{height:300px}.mood-v2 .eyebrow{font-size:9px}.mood-v2-next{min-height:53px}}
+
+/* Approved Screen 06 — spacious, artwork-led optional mood details. */
+.device[data-page="mood-details"] .toprow{margin-bottom:8px!important}
+.mood-details-v2{width:100%;max-width:760px;margin:0 auto;padding:8px 0 40px;color:var(--white)}
+.mood-details-v2 .eyebrow{font-size:10px;letter-spacing:.25em;margin-bottom:13px}
+.mood-details-v2 h1{font:400 clamp(44px,11.4vw,67px)/.95 var(--font-serif);letter-spacing:-.045em;margin:0 0 14px}
+.mood-details-lede{font:400 clamp(21px,5.7vw,26px)/1.2 var(--font-serif);color:var(--cream);margin:0 0 17px}
+.mood-details-hero{height:clamp(320px,94vw,485px);background:var(--cream);overflow:hidden;border-radius:9px 9px 0 0}
+.mood-details-hero img{display:block;height:100%;width:100%;object-fit:cover;object-position:center 40%;filter:grayscale(1)}
+.mood-details-current{display:flex;align-items:center;gap:14px;padding:15px 0 22px;margin-bottom:22px;border-bottom:1px solid var(--stroke)}
+.mood-details-selected-face{display:grid;place-items:center;flex:none;width:52px;height:52px;border-radius:50%;border:2px solid var(--cream);color:var(--cream)}
+.mood-details-selected-face svg{width:35px;height:35px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round}
+.mood-details-current strong{display:block;font:400 31px/1 var(--font-serif)}
+.mood-details-current small{display:block;margin-top:8px;font-size:9px;letter-spacing:.21em;color:var(--muted)}
+.mood-details-current button{margin-left:auto;min-width:55px;padding:12px 2px;color:var(--muted);border:0;background:transparent;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.mood-details-tags{border:0;padding:0;margin:0 0 24px;min-width:0}
+.mood-details-tags legend,.mood-details-caption{display:block;font:400 clamp(25px,7vw,32px)/1.15 var(--font-serif);padding:0;margin:0 0 15px;color:var(--white)}
+.mood-details-tags legend small,.mood-details-caption small{font:400 12px var(--font-ui);color:var(--muted);vertical-align:middle}
+.mood-details-pills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mood-details-pills .pill{min-height:45px;border:1px solid var(--stroke);border-radius:26px;background:transparent;color:var(--cream);font:400 15px/1 var(--font-serif);cursor:pointer;padding:8px 6px}
+.mood-details-pills .pill.active{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.mood-details-energy{display:flex;align-items:center;gap:14px;margin:5px 0 24px}
+.mood-details-energy span{color:var(--muted);font-size:12px}
+.mood-details-energy input{width:100%;min-width:0;flex:1;accent-color:var(--cream)}
+.mood-details-note-label{margin-bottom:14px}
+.mood-details-note{display:block;width:100%;height:94px;resize:vertical;min-height:90px;padding:16px 15px;background:var(--surface3);color:var(--white);border:1px solid var(--stroke);border-radius:10px;font:400 14px/1.6 var(--font-ui)}
+.mood-details-actions{margin-top:22px}
+.mood-details-actions .primary{width:100%;min-height:57px;background:var(--cream);color:var(--ink);font:400 22px var(--font-serif);border-radius:8px}
+.mood-details-privacy{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--muted2);font-size:11px;margin:14px 0 0}
+.mood-details-privacy svg{width:14px;height:14px}
+.mood-details-v2 button:focus-visible,.mood-details-v2 input:focus-visible,.mood-details-v2 textarea:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+body.theme-light .mood-details-v2 h1,body.theme-light .mood-details-tags legend,body.theme-light .mood-details-caption{color:#21272b}
+body.theme-light .mood-details-lede{color:#3c4246}
+body.theme-light .mood-details-current strong{color:#25292b}
+body.theme-light .mood-details-selected-face{color:#25292b;border-color:#25292b}
+body.theme-light .mood-details-pills .pill{color:#25292b;border-color:#b4b5b2}
+body.theme-light .mood-details-pills .pill.active{color:#f3f0ea;background:#25292b}
+body.theme-light .mood-details-note{color:#25292b;background:#e5e2dd;border-color:#c5c2be}
+body.theme-light .mood-details-actions .primary{background:#25292b;color:#f3f0ea}
+@media(max-width:370px){.mood-details-v2 h1{font-size:40px}.mood-details-hero{height:315px}.mood-details-pills{gap:7px}.mood-details-pills .pill{font-size:13px}}
+@media(min-width:700px){.mood-details-v2{padding-bottom:78px}.mood-details-v2 h1{font-size:73px}.mood-details-hero{height:455px}.mood-details-pills .pill{font-size:18px;min-height:52px}}
