@@ -1,0 +1,261 @@
+{
+  "app": "BE YOU",
+  "files": [
+    {
+      "path": "README.md",
+      "size": 4167
+    },
+    {
+      "path": "app.css",
+      "size": 20212
+    },
+    {
+      "path": "assets/brand/EBGaramond-Regular.woff",
+      "size": 249060
+    },
+    {
+      "path": "assets/brand/flower-line.png",
+      "size": 74113
+    },
+    {
+      "path": "assets/brand/flower-line.svg",
+      "size": 1052
+    },
+    {
+      "path": "assets/brand/koi-botanical.png",
+      "size": 87720
+    },
+    {
+      "path": "assets/brand/koi-botanical.svg",
+      "size": 1743
+    },
+    {
+      "path": "assets/brand/wordmark.svg",
+      "size": 431
+    },
+    {
+      "path": "assets/icons/apple-touch-icon.png",
+      "size": 43290
+    },
+    {
+      "path": "assets/icons/favicon.svg",
+      "size": 246
+    },
+    {
+      "path": "assets/icons/icon-192.png",
+      "size": 48532
+    },
+    {
+      "path": "assets/icons/icon-512.png",
+      "size": 235766
+    },
+    {
+      "path": "assets/icons/maskable-512.png",
+      "size": 144150
+    },
+    {
+      "path": "assets/manga/cat-window.webp",
+      "size": 53536
+    },
+    {
+      "path": "assets/manga/city-night.webp",
+      "size": 75538
+    },
+    {
+      "path": "assets/manga/exercise-breathe.webp",
+      "size": 72114
+    },
+    {
+      "path": "assets/manga/flowers.webp",
+      "size": 47660
+    },
+    {
+      "path": "assets/manga/insights-reflection.webp",
+      "size": 44698
+    },
+    {
+      "path": "assets/manga/journal-quiet.webp",
+      "size": 118810
+    },
+    {
+      "path": "assets/manga/journey-letting-go.webp",
+      "size": 111276
+    },
+    {
+      "path": "assets/manga/journey-loneliness.webp",
+      "size": 66406
+    },
+    {
+      "path": "assets/manga/journey-travel.webp",
+      "size": 48198
+    },
+    {
+      "path": "assets/manga/journey-unsent.webp",
+      "size": 60612
+    },
+    {
+      "path": "assets/manga/portrait-affirm.webp",
+      "size": 68954
+    },
+    {
+      "path": "assets/manga/portrait-reflect.webp",
+      "size": 75610
+    },
+    {
+      "path": "assets/manga/welcome-be-you.webp",
+      "size": 88052
+    },
+    {
+      "path": "assets/manga/welcome-grow.webp",
+      "size": 95204
+    },
+    {
+      "path": "assets/manga/welcome-notice.webp",
+      "size": 60064
+    },
+    {
+      "path": "assets/manga/you-portrait.webp",
+      "size": 64018
+    },
+    {
+      "path": "docs/AGENT_HANDOFF.md",
+      "size": 1713
+    },
+    {
+      "path": "docs/IMPLEMENTATION_NOTES.md",
+      "size": 2004
+    },
+    {
+      "path": "docs/PRODUCT_DESIGN_SPEC.md",
+      "size": 33804
+    },
+    {
+      "path": "functional.js",
+      "size": 33311
+    },
+    {
+      "path": "index.html",
+      "size": 1498
+    },
+    {
+      "path": "manifest.webmanifest",
+      "size": 603
+    },
+    {
+      "path": "package.json",
+      "size": 217
+    },
+    {
+      "path": "reference/NEW_AI_ART_DIRECTION_BOARD.png",
+      "size": 2117582
+    },
+    {
+      "path": "reference/original_reference.jpg",
+      "size": 97048
+    },
+    {
+      "path": "screenshots/01_today.png",
+      "size": 397008
+    },
+    {
+      "path": "screenshots/02_mood.png",
+      "size": 263952
+    },
+    {
+      "path": "screenshots/03_mood_saved.png",
+      "size": 562725
+    },
+    {
+      "path": "screenshots/04_journal_empty.png",
+      "size": 149031
+    },
+    {
+      "path": "screenshots/05_journal_with_entry.png",
+      "size": 107261
+    },
+    {
+      "path": "screenshots/06_insights.png",
+      "size": 90391
+    },
+    {
+      "path": "screenshots/07_heal.png",
+      "size": 273094
+    },
+    {
+      "path": "screenshots/08_journey.png",
+      "size": 346666
+    },
+    {
+      "path": "screenshots/09_exercise.png",
+      "size": 274547
+    },
+    {
+      "path": "screenshots/10_you.png",
+      "size": 396184
+    },
+    {
+      "path": "screenshots/11_settings.png",
+      "size": 98533
+    },
+    {
+      "path": "screenshots/12_affirmations.png",
+      "size": 277043
+    },
+    {
+      "path": "screenshots/13_breathe.png",
+      "size": 315343
+    },
+    {
+      "path": "screenshots/14_welcome.png",
+      "size": 583138
+    },
+    {
+      "path": "screenshots/15_onboard.png",
+      "size": 495260
+    },
+    {
+      "path": "screenshots/16_onboard_grow.png",
+      "size": 762121
+    },
+    {
+      "path": "screenshots/17_home.png",
+      "size": 443427
+    },
+    {
+      "path": "screenshots/18_journal_editor.png",
+      "size": 69119
+    },
+    {
+      "path": "screenshots/19_offline.png",
+      "size": 510804
+    },
+    {
+      "path": "screenshots/20_install.png",
+      "size": 476607
+    },
+    {
+      "path": "screenshots/21_journey_complete.png",
+      "size": 415997
+    },
+    {
+      "path": "screenshots/CONTACT_SHEET.png",
+      "size": 1847023
+    },
+    {
+      "path": "server.mjs",
+      "size": 1402
+    },
+    {
+      "path": "styles.css",
+      "size": 9598
+    },
+    {
+      "path": "sw.js",
+      "size": 1471
+    },
+    {
+      "path": "ui-primitives.js",
+      "size": 25058
+    }
+  ]
+}
