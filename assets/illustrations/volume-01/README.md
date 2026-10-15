@@ -1,10 +1,17 @@
-# BE YOU Illustration Library — Volume 01
+# BE YOU illustration library — Volume 01
 
-Four standalone original illustrations in our approved minimal black-and-ivory manga art direction, 1122 × 1402 source dimensions. WebP files are high-quality optimized exports for app use.
+**Art direction:** minimal black-and-ivory manga, consistent short-haired protagonist, flowing ink lines, koi and sakura motifs.
 
-- **contemplative_koi_and_sakura_portrait.webp** — main protagonist / onboarding hero with koi and blossoms.
-- **monochrome_koi_and_blossom_reverie.webp** — alternate protagonist hero portrait / onboarding.
-- **contemplative_letter_beneath_blossoms.webp** — Unsent Letter journey artwork.
-- **serene_windblown_blossom_portrait.webp** — Letting Go / breathing artwork.
+These are **four standalone original illustrated assets**, not screenshots or crops from the concept boards.
 
-These are standalone illustrations, not crops from design boards. Maintain their proportions and generous negative space; do not embed UI text into the artwork.
+| Artwork | Intended use |
+| --- | --- |
+| contemplative_koi_and_sakura_portrait | Onboarding / welcome hero |
+| monochrome_koi_and_blossom_reverie | Alternate hero, moods |
+| contemplative_letter_beneath_blossoms | Unsent Letter journey |
+| serene_windblown_blossom_portrait | Letting Go / mindful breathing |
+
+- `masters/`: original PNG files as generated (1122 × 1402 px).
+- This folder: visually optimized WebP versions (same 1122 × 1402 px), suitable for app UI.
+
+Keep masters unchanged. Add further artwork as separately approved assets. These are generated illustrations and may need editorial cleanup and character-consistency review before final production.
