@@ -10,6 +10,6 @@
 
 **Run:** `cd app && npm start`. **Verify:** `cd app && npm test`. **Publish:** GitHub Actions deploys `app/` to [GitHub Pages](https://itsnotalwin.github.io/Be-you/).
 
-**Design approval (2026-10-15):** Screen 03 onboarding and Screen 04 Today are approved. Screen 04 is implemented in the runtime code: large Travel Journal hero, subdued Letting Go card, check-in first, generous breathing room. Screen 05 is under visual review and must not be shipped before approval.
+**Design approval (2026-10-15):** Screen 03 onboarding and Screen 04 Today are approved. Screen 04 is implemented in the runtime code: large Travel Journal hero, subdued Letting Go card, check-in first, generous breathing room. Screen 05 mood selection is also approved and implemented with a large illustration. Screen 06 mood details is under visual review and must not be finalized before approval.
 
 **Verification status:** Code pushed to `main`. Latest Pages build and actual browser screenshots must be verified; no claim that unconfirmed deploy is live. Current design notes are in `app/DESIGN.md`.
