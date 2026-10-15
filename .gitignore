@@ -1,11 +1,10 @@
-node_modules/
+# Editor and operating-system debris
 .DS_Store
 Thumbs.db
-.env
-.env.*
-!.env.example
-*.log
-.cache/
+.vscode/
+.idea/
+# Node temporary files
+node_modules/
 coverage/
-.tmp/
-dist/
+*.log
+*.tmp

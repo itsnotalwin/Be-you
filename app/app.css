@@ -186,3 +186,4 @@ body.large-type .action-card strong,body.large-type .journal-info strong {font-s
 body.large-type .story-name,body.large-type .fine,body.large-type .label,
 body.large-type .action-card small {font-size:14px;}
 @media(prefers-reduced-motion:reduce){.story-tile img{transition:none;}}
+

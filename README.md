@@ -1,109 +1,59 @@
 # BE YOU
 
-**A private, manga-illustrated space to notice, reflect, heal and grow.**
+**A beautifully illustrated, local-first wellbeing journal.** Track moods, write privately, and explore guided reflection journeys in a minimalist black-and-ivory manga interface.
 
-[![BE YOU — updated screens after UI refinement](docs/previews/UI_REFINEMENT_GALLERY.webp)](docs/previews/UI_REFINEMENT_GALLERY.webp)
+> **One application. One approved reference library.** The current runnable app is in [`app/`](app/). Approved image boards and original visual inspiration are in [`references/`](references/). There are no parallel app implementations, experimental art folders, or separate design-preview directories.
 
-**Status:** working local-first PWA prototype · **Art direction:** approved minimal black-and-ivory editorial manga · **UI refinement:** 15 October 2026; browser-rendered in isolated test harness (see QA notes below).
+## Current app — screen gallery
 
-> **Start here:** The app lives in [`app/`](app/). The previous `pwa/` copy has been consolidated. The approved images live in [`assets/illustrations/`](assets/illustrations/), and visual direction lives in [`references/approved/`](references/approved/). This is an actively developed prototype, **not** a clinical service or production deployment.
+These are screenshots from the UI refinement of the running prototype, preserved from the latest unified app ZIP. They are **not new captures after repository consolidation**.
 
-## Screen gallery — revised mobile interface
-
-The gallery shows the approved UI refinement visuals from the preceding iteration; the unified app retains the same designs and artwork, now with one runtime screen registry and stylesheet. They are not AI-generated mockups. A fresh browser capture is still needed after this consolidation. The smaller screen tiles below are the earlier Phase 1 HTTP captures; they remain useful for before/after review until a full served-app capture is completed.
-
-| Welcome | Onboarding | Today |
+| Welcome | Today | Mood Check-In |
 |:--:|:--:|:--:|
-| [![Welcome](docs/previews/screens/welcome.webp)](docs/previews/screens/welcome.webp) | [![Onboarding](docs/previews/screens/onboarding.webp)](docs/previews/screens/onboarding.webp) | [![Today](docs/previews/screens/today.webp)](docs/previews/screens/today.webp) |
-| **Mood Check-in** | **Journal** | **Heal & Grow** |
-| [![Mood check-in](docs/previews/screens/mood-check-in.webp)](docs/previews/screens/mood-check-in.webp) | [![Journal](docs/previews/screens/journal.webp)](docs/previews/screens/journal.webp) | [![Heal & Grow](docs/previews/screens/heal-and-grow.webp)](docs/previews/screens/heal-and-grow.webp) |
-| **Journey detail** | **Home** | **Your profile** |
-| [![Journey detail](docs/previews/screens/journey-detail.webp)](docs/previews/screens/journey-detail.webp) | [![Home](docs/previews/screens/home.webp)](docs/previews/screens/home.webp) | [![Profile](docs/previews/screens/profile.webp)](docs/previews/screens/profile.webp) |
+| [![Welcome](app/screenshots/refined/welcome.webp)](app/screenshots/refined/welcome.webp) | [![Today](app/screenshots/refined/today.webp)](app/screenshots/refined/today.webp) | [![Mood](app/screenshots/refined/mood.webp)](app/screenshots/refined/mood.webp) |
+| Journal | Heal & Grow | Journey Detail |
+| [![Journal](app/screenshots/refined/journal.webp)](app/screenshots/refined/journal.webp) | [![Heal](app/screenshots/refined/heal.webp)](app/screenshots/refined/heal.webp) | [![Journey](app/screenshots/refined/journey-detail.webp)](app/screenshots/refined/journey-detail.webp) |
+| Home | You | Breathing |
+| [![Home](app/screenshots/refined/home.webp)](app/screenshots/refined/home.webp) | [![You](app/screenshots/refined/you.webp)](app/screenshots/refined/you.webp) | [![Breathing](app/screenshots/refined/breathe.webp)](app/screenshots/refined/breathe.webp) |
 
-New visuals: [UI refinement contact sheet](docs/previews/UI_REFINEMENT_GALLERY.webp) · [UI refinement notes](docs/UI_REFINEMENT.md). Earlier captures: [Phase 01 contact sheet](app/screenshots/PHASE_01_CONTACT_SHEET.jpg) · [UI-to-mockup review](docs/UI_PARITY.md).
+[Affirmations screenshot](app/screenshots/refined/affirmations.webp) · [App source and usage](app/README.md)
 
-## Approved design references
+## Approved art direction
 
-The **reference boards are creative direction**, whereas the gallery above shows the actual implemented UI. They must not be confused with export-ready individual artwork.
-
-| Character & expressions | Illustration vocabulary | App screen concept |
+| Character sheet | Illustration library | Updated UI concept |
 |:--:|:--:|:--:|
-| [![Character sheet](references/approved/01-character-sheet.png)](references/approved/01-character-sheet.png) | [![Illustration library](references/approved/02-illustration-library.png)](references/approved/02-illustration-library.png) | [![Revised app concept](references/approved/03-updated-app-screens.png)](references/approved/03-updated-app-screens.png) |
+| [![Character](references/approved/01-character-sheet.png)](references/approved/01-character-sheet.png) | [![Illustrations](references/approved/02-illustration-library.png)](references/approved/02-illustration-library.png) | [![UI design](references/approved/03-updated-app-screens.png)](references/approved/03-updated-app-screens.png) |
 
-[Original reference image](references/inspiration/00-original-visual-reference.jpg) · [Style guide](docs/STYLE_GUIDE.md) · [Approved standalone assets, Vol. 01](assets/illustrations/volume-01/) · [Vol. 02](assets/illustrations/volume-02/).
+[Original design inspiration](references/inspiration/00-original-visual-reference.jpg) · [Reference guide](references/README.md)
 
-**Design contract:** near-black charcoal surfaces; warm ivory art panels; refined serif headings and unobtrusive sans-serif controls; graphic black ink with expressive, restrained manga linework; quiet spacing; minimal three-tab navigation. Original artwork is treated as a standalone asset, never a screenshot background. See [UI parity & intentional differences](docs/UI_PARITY.md).
+The **eight approved standalone illustrations** used at runtime live inside [`app/assets/approved/`](app/assets/approved/). The reference boards are visual guidance, not separate production-ready images.
 
-## Complete, current application in GitHub
+## Run locally
 
-**The unified functional application is committed under [`app/`](app/)** — HTML, CSS, JavaScript, PWA manifest/service worker, app icons, all eight approved illustration assets, brand artwork and a 10-screen refined screenshot gallery. [Browse the full UI screenshots](app/screenshots/refined/) and [read the application README](app/README.md).
-
-Prior versions remain available in Git history, rather than scattered across duplicate runnable directories. The `pwa/` location is a compatibility note only. See [repository source-of-truth policy](docs/APP_SOURCE_OF_TRUTH.md).
-
-## Run the application
-
-Requires **Node.js 18+**. No npm install or third-party runtime dependencies.
+Requires **Node.js 18+**, with no third-party runtime packages.
 
 ```bash
 cd app
 npm start
 ```
 
-Visit **http://localhost:4173**. For visual review, use `?screen=welcome`, `?screen=today`, `?screen=mood`, `?screen=journal`, `?screen=heal`, or `?screen=journey-detail`.
+Open [http://localhost:4173](http://localhost:4173). To verify the bundled app:
 
 ```bash
 cd app
 npm test
 ```
 
-`npm test` checks the single screen registry, the single stylesheet, approved images, PWA shell and **real state transitions for mood, journaling and journeys** in a dependency-free smoke test. It does **not** replace browser/device accessibility and offline QA.
+The prototype includes onboarding, daily moods and notes, private journal entries, four guided journeys, personal insights, affirmations, breathing, and PWA install/offline support. Browser data is stored **unencrypted in localStorage**, not synced to an account. Back up important writing and avoid shared devices; this is not medical care.
 
-### Currently implemented
-
-- Mobile onboarding, Today/Home/You navigation and 4 guided, saved-progress journeys.
-- Real mood check-ins with tags, optional writing and energy; locally persisted.
-- Journal create/edit/search/delete; insights based on **your own entries**, not invented statistics.
-- Breathing timer, affirmation rotation/favourites, and appearance/accessibility preferences.
-- Data export/import/delete; local-first PWA shell and cached images for offline use.
-
-**Privacy:** writings and mood data are stored in this browser's unencrypted `localStorage`. Shared devices, browser data clearing and missing backups pose real risks. There is no account, sync, or medical diagnosis. Export your data routinely. [Limitations and production checklist](docs/ROADMAP.md).
-
-## Repository map
+## Repository structure
 
 ```text
 Be-you/
-├── README.md                      ← this visual project homepage
-├── app/                           ← single runnable PWA source (no duplicate app)
-│   ├── index.html
-│   ├── app.css                       ← one canonical stylesheet
-│   ├── ui-primitives.js, functional.js
-│   ├── assets/approved/           ← 8 approved, local WebP runtime assets
-│   ├── manifest.webmanifest, sw.js
-│   ├── scripts/verify.mjs
-│   └── docs/
-├── assets/illustrations/
-│   ├── volume-01/                 ← approved individual masters (4)
-│   └── volume-02/                 ← approved individual masters (4)
-├── references/
-│   ├── approved/                  ← character, illustration and UI reference boards
-│   └── inspiration/               ← original reference (design guidance only)
-├── docs/
-│   ├── previews/                  ← readable real-screen gallery for README
-│   ├── UI_PARITY.md               ← screen-by-screen reference comparison
-│   ├── REPOSITORY_GUIDE.md        ← where new work belongs
-│   ├── ROADMAP.md                 ← what's not launch-ready
-│   └── STYLE_GUIDE.md
-└── pwa/README.md                  ← redirect for anyone following old links
+├── README.md              # Project overview and screenshots
+├── .gitignore
+├── app/                   # Only runnable PWA: source, assets, tests, refined screenshots
+└── references/            # Approved character/UI boards and original inspiration
 ```
 
-**Single source of truth:** Edit `app/`. Add approved art masters to `assets/illustrations/volume-XX/`, then copy optimized production variants into `app/assets/approved/`. Update `APPROVED_ART` in `app/ui-primitives.js` and the service worker cache list. Don't add a second app folder. See [repository conventions](docs/REPOSITORY_GUIDE.md).
-
-## Next milestone
-
-Phase 01 integrates the eight approved standalone images. The UI refinement pass is committed with tighter spacing, higher text contrast, intentional image crops, improved nav semantics, and an updated visual gallery. Next: approve the revised UI gallery, complete more diverse *independent* art assets (environment-only scenes, poses and decorative motifs), then run full device, privacy, accessibility and installation QA before deployment.
-
-[Contributing / asset checklist](CONTRIBUTING.md) · [Asset inventory](docs/ASSET_INVENTORY.md) · [Production notes](docs/PRODUCTION_NOTES.md)
-
-## Unified functional app
-
-All screens (including onboarding) are now implemented in **[`app/functional.js`](app/functional.js)**; [`app/ui-primitives.js`](app/ui-primitives.js) contains only shared UI elements and approved artwork routing. **[`app/app.css`](app/app.css)** is the sole runtime stylesheet. The `app/assets/manga/` placeholder scenes are retired; the app uses the eight approved manga illustrations exclusively. No local mood or journal data formats were changed. [Implementation and QA notes](docs/UNIFIED_APP.md).
+This branch is intentionally minimal. Older experiments and earlier UI captures remain accessible in Git history. **Not yet production-ready:** a served-browser/device installation pass, accessibility review and security/privacy audit are still required.
