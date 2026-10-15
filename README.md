@@ -10,7 +10,7 @@
 
 ## Screen gallery — revised mobile interface
 
-The refreshed gallery above was rendered with the actual BE YOU screen templates, images, and CSS in an isolated browser harness. It is not AI-generated artwork. The smaller screen tiles below are the earlier Phase 1 HTTP captures; they remain useful for before/after review until a full served-app capture is completed.
+The gallery shows the approved UI refinement visuals from the preceding iteration; the unified app retains the same designs and artwork, now with one runtime screen registry and stylesheet. They are not AI-generated mockups. A fresh browser capture is still needed after this consolidation. The smaller screen tiles below are the earlier Phase 1 HTTP captures; they remain useful for before/after review until a full served-app capture is completed.
 
 | Welcome | Onboarding | Today |
 |:--:|:--:|:--:|
@@ -36,7 +36,7 @@ The **reference boards are creative direction**, whereas the gallery above shows
 
 ## Complete, current application in GitHub
 
-**Everything required to run the latest PWA is committed under [`app/`](app/)** — HTML, CSS, JavaScript, PWA manifest/service worker, app icons, all eight approved illustration assets, brand artwork and a 10-screen refined screenshot gallery. [Browse the full UI screenshots](app/screenshots/refined/) and [read the application README](app/README.md).
+**The unified functional application is committed under [`app/`](app/)** — HTML, CSS, JavaScript, PWA manifest/service worker, app icons, all eight approved illustration assets, brand artwork and a 10-screen refined screenshot gallery. [Browse the full UI screenshots](app/screenshots/refined/) and [read the application README](app/README.md).
 
 Prior versions remain available in Git history, rather than scattered across duplicate runnable directories. The `pwa/` location is a compatibility note only. See [repository source-of-truth policy](docs/APP_SOURCE_OF_TRUTH.md).
 
@@ -56,7 +56,7 @@ cd app
 npm test
 ```
 
-`npm test` checks project files, screen destinations, image references, PWA manifest and precache paths. It does **not** replace browser/device accessibility and offline QA.
+`npm test` checks the single screen registry, the single stylesheet, approved images, PWA shell and **real state transitions for mood, journaling and journeys** in a dependency-free smoke test. It does **not** replace browser/device accessibility and offline QA.
 
 ### Currently implemented
 
@@ -75,10 +75,9 @@ Be-you/
 ├── README.md                      ← this visual project homepage
 ├── app/                           ← single runnable PWA source (no duplicate app)
 │   ├── index.html
-│   ├── styles.css, app.css, refinement.css
+│   ├── app.css                       ← one canonical stylesheet
 │   ├── ui-primitives.js, functional.js
 │   ├── assets/approved/           ← 8 approved, local WebP runtime assets
-│   ├── assets/manga/              ← documented fallback artwork (2 scenes)
 │   ├── manifest.webmanifest, sw.js
 │   ├── scripts/verify.mjs
 │   └── docs/
@@ -104,3 +103,7 @@ Be-you/
 Phase 01 integrates the eight approved standalone images. The UI refinement pass is committed with tighter spacing, higher text contrast, intentional image crops, improved nav semantics, and an updated visual gallery. Next: approve the revised UI gallery, complete more diverse *independent* art assets (environment-only scenes, poses and decorative motifs), then run full device, privacy, accessibility and installation QA before deployment.
 
 [Contributing / asset checklist](CONTRIBUTING.md) · [Asset inventory](docs/ASSET_INVENTORY.md) · [Production notes](docs/PRODUCTION_NOTES.md)
+
+## Unified functional app
+
+All screens (including onboarding) are now implemented in **[`app/functional.js`](app/functional.js)**; [`app/ui-primitives.js`](app/ui-primitives.js) contains only shared UI elements and approved artwork routing. **[`app/app.css`](app/app.css)** is the sole runtime stylesheet. The `app/assets/manga/` placeholder scenes are retired; the app uses the eight approved manga illustrations exclusively. No local mood or journal data formats were changed. [Implementation and QA notes](docs/UNIFIED_APP.md).

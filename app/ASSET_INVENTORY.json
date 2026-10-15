@@ -1,7 +1,7 @@
 {
   "project": "BE YOU",
-  "status": "Phase 01 approved art integrated; reviewed PWA prototype",
-  "asset_count": 20,
+  "status": "Unified actual PWA with approved manga art",
+  "asset_count": 18,
   "assets": [
     {
       "path": "assets/approved/volume-01/01-contemplative-koi-and-sakura.webp",
@@ -110,19 +110,6 @@
       "bytes": 144150,
       "sha256": "0e2c5ec7f96459292f83b4dd3ee45b5511a4c6ab5e87e99249f4280e3ce3fac9",
       "category": "brand_or_icon"
-    },
-    {
-      "path": "assets/manga/cat-window.webp",
-      "bytes": 53536,
-      "sha256": "319b1311fa6a942506884530ff751b310387756a2d9e7cad6bcb4ed42fcc3ebf",
-      "category": "fallback"
-    },
-    {
-      "path": "assets/manga/city-night.webp",
-      "bytes": 75538,
-      "sha256": "e9738100ed8eba2feb0e2bbbe82a243a17d7d2d12982d7b6d9cadc005ce5da16",
-      "category": "fallback"
     }
-  ],
-  "important": "Source illustration masters and approval history live at repo root under assets/illustrations. Scene and UI mockups are distinct."
+  ]
 }
