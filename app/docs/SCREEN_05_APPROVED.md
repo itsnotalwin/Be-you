@@ -9,7 +9,7 @@
 - Headline: “How are you feeling today?” and calm supporting line: “There is no right answer. Just yours.”
 - Keep five evenly spaced tappable mood icons: Good, Calm, Okay, Anxious, Low. The selected option is visibly and accessibly marked.
 - Full-width pale Continue action; no cluttered tags, sliders, or writing fields on Screen 05 itself.
-- Preserve the real mood journaling workflow: Continue opens the existing optional tags/energy/note step (provisional Screen 06), Save stores the check-in locally. Screen 06 design is *not approved* yet.
+- Preserve the real mood journaling workflow: Continue opens the existing optional tags/energy/note step (provisional Screen 06), Save stores the check-in locally. Screen 06 design was approved subsequently; see `SCREEN_06_APPROVED.md`.
 
 ## Implementation
 
