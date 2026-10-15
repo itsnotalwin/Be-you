@@ -1,17 +1,18 @@
-# BE YOU illustration library — Volume 01
+# BE YOU — Illustration Library, Volume 01
 
-**Art direction:** minimal black-and-ivory manga, consistent short-haired protagonist, flowing ink lines, koi and sakura motifs.
+**Approved direction:** minimal black-and-ivory editorial manga, short-haired protagonist, flowing ink lines, koi and cherry blossoms.
 
-These are **four standalone original illustrated assets**, not screenshots or crops from the concept boards.
+These are four *standalone* AI-generated illustrations, not crops from concept boards.
 
-| Artwork | Intended use |
-| --- | --- |
-| contemplative_koi_and_sakura_portrait | Onboarding / welcome hero |
-| monochrome_koi_and_blossom_reverie | Alternate hero, moods |
-| contemplative_letter_beneath_blossoms | Unsent Letter journey |
-| serene_windblown_blossom_portrait | Letting Go / mindful breathing |
+| Artwork | Intended use | Original PNG | Optimized WebP |
+| --- | --- | --- | --- |
+| Koi & Sakura Portrait | Welcome / splash | [PNG](masters/01-contemplative-koi-and-sakura.png) | [WebP](01-contemplative-koi-and-sakura.webp) |
+| Koi & Blossom Reverie | Onboarding / reflection | [PNG](masters/02-koi-and-blossom-reverie.png) | [WebP](02-koi-and-blossom-reverie.webp) |
+| Unsent Letter | Journaling journey | [PNG](masters/03-unsent-letter.png) | [WebP](03-unsent-letter.webp) |
+| Letting Go | Healing journey / breathing | [PNG](masters/04-letting-go.png) | [WebP](04-letting-go.webp) |
 
-- `masters/`: original PNG files as generated (1122 × 1402 px).
-- This folder: visually optimized WebP versions (same 1122 × 1402 px), suitable for app UI.
+**Formats:** all original PNG artwork is 1122 × 1402 pixels. The WebP images use the same dimensions with lighter file sizes for app performance.
 
-Keep masters unchanged. Add further artwork as separately approved assets. These are generated illustrations and may need editorial cleanup and character-consistency review before final production.
+**Production notes:** Keep original PNGs unchanged. Load optimized versions in the PWA. UI text and buttons should be native HTML and not baked into artwork. These images are generated illustrations and still require character-consistency checks and editorial review before production use.
+
+See the [approved character sheet](../../../references/approved/01-character-sheet.png) and [style guide](../../../docs/STYLE_GUIDE.md).
