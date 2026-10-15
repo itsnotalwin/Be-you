@@ -1,0 +1,191 @@
+{
+  "style": "BE YOU / volume 03 sunset-sakura manga illustrated editorial",
+  "license": "Original generated for BE YOU; preserve provenance; do not redistribute as standalone commercial stock",
+  "assets": [
+    {
+      "file": "01-sakura-evening-portrait.webp",
+      "source": "wistful_sakura_sunset_by_the_lake.png",
+      "treatment": "full",
+      "roles": [
+        "welcome",
+        "today",
+        "home"
+      ],
+      "dimensions": [
+        1120,
+        1400
+      ],
+      "bytes": 184812,
+      "sha256": "803a306cd1f07ae2227fc2bb24a719cbb19bd75fb904bc30e4091e6b3480de56",
+      "generation_id": "1c9951c1-2810-4614-869f-8b7ad5b3406c",
+      "source_asset_path": "ChatGPT conversation artwork / wistful_sakura_sunset_by_the_lake.png",
+      "process": "Pillow resize to max 1260×1400 / WebP quality 79"
+    },
+    {
+      "file": "02-reflection-at-dusk.webp",
+      "source": "twilight_sakura_by_the_lakeside.png",
+      "treatment": "full",
+      "roles": [
+        "mood",
+        "insights",
+        "you"
+      ],
+      "dimensions": [
+        1120,
+        1400
+      ],
+      "bytes": 216578,
+      "sha256": "a30a910474308218ee5be264ff482f31f83b17a81a2edb82d015908e46fd287d",
+      "generation_id": "097c431b-a4dd-45c5-83dd-38671514238f",
+      "source_asset_path": "ChatGPT conversation artwork / twilight_sakura_by_the_lakeside.png",
+      "process": "Pillow resize to max 1260×1400 / WebP quality 79"
+    },
+    {
+      "file": "03-soft-reflection.webp",
+      "source": "sepia_sakura_sunset_daydream.png",
+      "treatment": "full",
+      "roles": [
+        "onboarding",
+        "affirmation"
+      ],
+      "dimensions": [
+        1120,
+        1400
+      ],
+      "bytes": 173208,
+      "sha256": "f7e3c920850ff60b8d1a39b5098f2285e695fc5257817ec8c7757f1e0b2c4cf2",
+      "generation_id": "dd6dd297-7a3c-4bf7-a1b4-7e615f4cce29",
+      "source_asset_path": "ChatGPT conversation artwork / sepia_sakura_sunset_daydream.png",
+      "process": "Pillow resize to max 1260×1400 / WebP quality 79"
+    },
+    {
+      "file": "04-unsent-words.webp",
+      "source": "sepia_sunset_letters_among_blossoms.png",
+      "treatment": "full",
+      "roles": [
+        "journal",
+        "journal-editor",
+        "unsent-journey"
+      ],
+      "dimensions": [
+        1120,
+        1400
+      ],
+      "bytes": 199440,
+      "sha256": "ac6475a4869349f12de7926c3909a3e7deb3cedcc545c3fa36c9b7abb3493e56",
+      "generation_id": "a20af65e-c787-4b94-821b-9f462228bb20",
+      "source_asset_path": "ChatGPT conversation artwork / sepia_sunset_letters_among_blossoms.png",
+      "process": "Pillow resize to max 1260×1400 / WebP quality 79"
+    },
+    {
+      "file": "05-rest-among-blossoms.webp",
+      "source": "serene_cherry_blossom_sunset_veranda.png",
+      "treatment": "full",
+      "roles": [
+        "breathe",
+        "healing"
+      ],
+      "dimensions": [
+        1260,
+        709
+      ],
+      "bytes": 145304,
+      "sha256": "2f739e4c584342613e64198f39f8f808cd345b4312539a5086ca4a6c9914c8ba",
+      "generation_id": "4946419c-5d21-4f05-8310-4383753594a5",
+      "source_asset_path": "ChatGPT conversation artwork / serene_cherry_blossom_sunset_veranda.png",
+      "process": "Pillow resize to max 1260×1400 / WebP quality 79"
+    },
+    {
+      "file": "06-writing-on-veranda.webp",
+      "source": "unsent_letter_at_sunset.png",
+      "treatment": "full",
+      "roles": [
+        "journal-list",
+        "affirmation"
+      ],
+      "dimensions": [
+        1260,
+        709
+      ],
+      "bytes": 158156,
+      "sha256": "c3afaf120fef61df0e8f82271cef513dd768ef55899d7d3ab3e100f65ab1f217",
+      "generation_id": "7da60e82-842c-41f8-9cc2-f8ff1ebdec40",
+      "source_asset_path": "ChatGPT conversation artwork / unsent_letter_at_sunset.png",
+      "process": "Pillow resize to max 1260×1400 / WebP quality 79"
+    },
+    {
+      "file": "07-wander-beyond.webp",
+      "source": "manga_sunset_over_a_coastal_town.png",
+      "treatment": "full",
+      "roles": [
+        "travel",
+        "grow"
+      ],
+      "dimensions": [
+        1260,
+        709
+      ],
+      "bytes": 169648,
+      "sha256": "0da5844f188dea9a1b8dad444e70f21539fd6ef9d0572500a23219437700ac80",
+      "generation_id": "ae79595f-d9ed-462f-8010-f75972cee2ad",
+      "source_asset_path": "ChatGPT conversation artwork / manga_sunset_over_a_coastal_town.png",
+      "process": "Pillow resize to max 1260×1400 / WebP quality 79"
+    },
+    {
+      "file": "08-sakura-morning-crop.webp",
+      "source": "wistful_sakura_sunset_by_the_lake.png",
+      "treatment": "crop_top",
+      "roles": [
+        "onboarding-notice"
+      ],
+      "dimensions": [
+        965,
+        1037
+      ],
+      "bytes": 133936,
+      "sha256": "fd4a30c304296d1dc42c9e5d0832154659b1a2715c305cd056368f984ccf7529",
+      "generation_id": "1c9951c1-2810-4614-869f-8b7ad5b3406c",
+      "source_asset_path": "ChatGPT conversation artwork / wistful_sakura_sunset_by_the_lake.png",
+      "process": "Pillow resize to max 1260×1400 / WebP quality 79 / derivative crop"
+    },
+    {
+      "file": "09-petals-and-light.webp",
+      "source": "serene_cherry_blossom_sunset_veranda.png",
+      "treatment": "crop_right",
+      "roles": [
+        "letting-go",
+        "mood-success"
+      ],
+      "dimensions": [
+        1071,
+        941
+      ],
+      "bytes": 119888,
+      "sha256": "2d96b3536f32bd25df8bb9401b38ad7af2227aaba58c84b0765c85ce9d4ceec6",
+      "generation_id": "4946419c-5d21-4f05-8310-4383753594a5",
+      "source_asset_path": "ChatGPT conversation artwork / serene_cherry_blossom_sunset_veranda.png",
+      "process": "Pillow resize to max 1260×1400 / WebP quality 79 / derivative crop"
+    },
+    {
+      "file": "10-evening-letters-detail.webp",
+      "source": "unsent_letter_at_sunset.png",
+      "treatment": "crop_left",
+      "roles": [
+        "journal-entry"
+      ],
+      "dimensions": [
+        1153,
+        941
+      ],
+      "bytes": 182314,
+      "sha256": "6e5bbacaee7f208320208c4d0836680a950dfc02ed7b82c228adf204fef91efb",
+      "generation_id": "7da60e82-842c-41f8-9cc2-f8ff1ebdec40",
+      "source_asset_path": "ChatGPT conversation artwork / unsent_letter_at_sunset.png",
+      "process": "Pillow resize to max 1260×1400 / WebP quality 79 / derivative crop"
+    }
+  ],
+  "version": "3.0",
+  "date": "2026-10-15",
+  "status": "active app illustration library",
+  "generation_note": "Generation IDs identify the original image-gen result. Crops are derivatives of the same ID; no new AI generation occurred for derivatives. Exact original generation prompts are not available; do not invent them."
+}

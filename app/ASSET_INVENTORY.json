@@ -1,55 +1,55 @@
 {
   "project": "BE YOU",
-  "status": "Unified actual PWA with approved manga art",
-  "asset_count": 18,
+  "status": "Volume 03 is the active artwork system; volume 01/02 retained as historical versions",
+  "asset_count": 28,
   "assets": [
     {
       "path": "assets/approved/volume-01/01-contemplative-koi-and-sakura.webp",
       "bytes": 167096,
       "sha256": "ff7a93d87f247b7ff903ebd1577fcda340a943fda76bf39d60682edd3a55f807",
-      "category": "approved"
+      "category": "historical_art_not_used_in_runtime"
     },
     {
       "path": "assets/approved/volume-01/02-koi-and-blossom-reverie.webp",
       "bytes": 172614,
       "sha256": "f3500788750fb56092d887e7567e0e9c74c4a6befc94f525edde9b0b725e9dab",
-      "category": "approved"
+      "category": "historical_art_not_used_in_runtime"
     },
     {
       "path": "assets/approved/volume-01/03-unsent-letter.webp",
       "bytes": 123396,
       "sha256": "76f2726de2d37e0ca1978feef498e47364f01b3a51b82aaf82f16034f394d929",
-      "category": "approved"
+      "category": "historical_art_not_used_in_runtime"
     },
     {
       "path": "assets/approved/volume-01/04-letting-go.webp",
       "bytes": 143342,
       "sha256": "93d8bb81bd1fd20a1c7a3062cf206d77d6aae55c01d8d455b0d7e6f271e6bcde",
-      "category": "approved"
+      "category": "historical_art_not_used_in_runtime"
     },
     {
       "path": "assets/approved/volume-02/01-travel-journal.webp",
       "bytes": 209576,
       "sha256": "2cd40aee4fc16f57f21363a5c1b0ee0d44c5fb4a3f6a0ccbf53a9b24df022c58",
-      "category": "approved"
+      "category": "historical_art_not_used_in_runtime"
     },
     {
       "path": "assets/approved/volume-02/02-rethinking-loneliness.webp",
       "bytes": 213892,
       "sha256": "0131f6c7d2906e7d7f5f867f73e0d8273beb17bd8af21fc0dbdb73559230e7a1",
-      "category": "approved"
+      "category": "historical_art_not_used_in_runtime"
     },
     {
       "path": "assets/approved/volume-02/03-calm-koi.webp",
       "bytes": 222008,
       "sha256": "87553cb2d4afa6d22132cc28b6e21b92b870ecdf19eeecf6905fc57923669105",
-      "category": "approved"
+      "category": "historical_art_not_used_in_runtime"
     },
     {
       "path": "assets/approved/volume-02/04-hopeful-blooms.webp",
       "bytes": 197406,
       "sha256": "3a92cdf640bb10bc3faa2a89883fe00c39f03e5b4038375cf29bd4efaa94f85c",
-      "category": "approved"
+      "category": "historical_art_not_used_in_runtime"
     },
     {
       "path": "assets/brand/flower-line.png",
@@ -110,6 +110,93 @@
       "bytes": 144150,
       "sha256": "0e2c5ec7f96459292f83b4dd3ee45b5511a4c6ab5e87e99249f4280e3ce3fac9",
       "category": "brand_or_icon"
+    },
+    {
+      "path": "assets/approved/volume-03/01-sakura-evening-portrait.webp",
+      "bytes": 184812,
+      "sha256": "803a306cd1f07ae2227fc2bb24a719cbb19bd75fb904bc30e4091e6b3480de56",
+      "category": "active_art",
+      "generation_id": "1c9951c1-2810-4614-869f-8b7ad5b3406c",
+      "derived_from": "wistful_sakura_sunset_by_the_lake.png"
+    },
+    {
+      "path": "assets/approved/volume-03/02-reflection-at-dusk.webp",
+      "bytes": 216578,
+      "sha256": "a30a910474308218ee5be264ff482f31f83b17a81a2edb82d015908e46fd287d",
+      "category": "active_art",
+      "generation_id": "097c431b-a4dd-45c5-83dd-38671514238f",
+      "derived_from": "twilight_sakura_by_the_lakeside.png"
+    },
+    {
+      "path": "assets/approved/volume-03/03-soft-reflection.webp",
+      "bytes": 173208,
+      "sha256": "f7e3c920850ff60b8d1a39b5098f2285e695fc5257817ec8c7757f1e0b2c4cf2",
+      "category": "active_art",
+      "generation_id": "dd6dd297-7a3c-4bf7-a1b4-7e615f4cce29",
+      "derived_from": "sepia_sakura_sunset_daydream.png"
+    },
+    {
+      "path": "assets/approved/volume-03/04-unsent-words.webp",
+      "bytes": 199440,
+      "sha256": "ac6475a4869349f12de7926c3909a3e7deb3cedcc545c3fa36c9b7abb3493e56",
+      "category": "active_art",
+      "generation_id": "a20af65e-c787-4b94-821b-9f462228bb20",
+      "derived_from": "sepia_sunset_letters_among_blossoms.png"
+    },
+    {
+      "path": "assets/approved/volume-03/05-rest-among-blossoms.webp",
+      "bytes": 145304,
+      "sha256": "2f739e4c584342613e64198f39f8f808cd345b4312539a5086ca4a6c9914c8ba",
+      "category": "active_art",
+      "generation_id": "4946419c-5d21-4f05-8310-4383753594a5",
+      "derived_from": "serene_cherry_blossom_sunset_veranda.png"
+    },
+    {
+      "path": "assets/approved/volume-03/06-writing-on-veranda.webp",
+      "bytes": 158156,
+      "sha256": "c3afaf120fef61df0e8f82271cef513dd768ef55899d7d3ab3e100f65ab1f217",
+      "category": "active_art",
+      "generation_id": "7da60e82-842c-41f8-9cc2-f8ff1ebdec40",
+      "derived_from": "unsent_letter_at_sunset.png"
+    },
+    {
+      "path": "assets/approved/volume-03/07-wander-beyond.webp",
+      "bytes": 169648,
+      "sha256": "0da5844f188dea9a1b8dad444e70f21539fd6ef9d0572500a23219437700ac80",
+      "category": "active_art",
+      "generation_id": "ae79595f-d9ed-462f-8010-f75972cee2ad",
+      "derived_from": "manga_sunset_over_a_coastal_town.png"
+    },
+    {
+      "path": "assets/approved/volume-03/08-sakura-morning-crop.webp",
+      "bytes": 133936,
+      "sha256": "fd4a30c304296d1dc42c9e5d0832154659b1a2715c305cd056368f984ccf7529",
+      "category": "active_art",
+      "generation_id": "1c9951c1-2810-4614-869f-8b7ad5b3406c",
+      "derived_from": "wistful_sakura_sunset_by_the_lake.png"
+    },
+    {
+      "path": "assets/approved/volume-03/09-petals-and-light.webp",
+      "bytes": 119888,
+      "sha256": "2d96b3536f32bd25df8bb9401b38ad7af2227aaba58c84b0765c85ce9d4ceec6",
+      "category": "active_art",
+      "generation_id": "4946419c-5d21-4f05-8310-4383753594a5",
+      "derived_from": "serene_cherry_blossom_sunset_veranda.png"
+    },
+    {
+      "path": "assets/approved/volume-03/10-evening-letters-detail.webp",
+      "bytes": 182314,
+      "sha256": "6e5bbacaee7f208320208c4d0836680a950dfc02ed7b82c228adf204fef91efb",
+      "category": "active_art",
+      "generation_id": "7da60e82-842c-41f8-9cc2-f8ff1ebdec40",
+      "derived_from": "unsent_letter_at_sunset.png"
     }
+  ],
+  "active_illustration_volume": "volume-03",
+  "active_artwork_count": 10,
+  "generation_registry": "assets/approved/volume-03/ASSET-MANIFEST.json",
+  "face_sheets": [
+    "assets/approved/volume-03/FACE-SHEET.webp",
+    "assets/approved/volume-03/CHARACTER-FACE-SHEET.webp"
   ]
 }

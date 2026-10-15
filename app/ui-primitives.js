@@ -1,24 +1,25 @@
 /* BE YOU UI primitives: icons, navigation and approved artwork routing.
    Every actual screen is implemented in functional.js. */
-/* Phase 01 — approved illustration routing.
-   All primary journeys and editorial surfaces now use reviewed Volume 01/02 artwork.
-   Legacy assets remain available for secondary scenes that do not yet have a new replacement.
-   File names match the approved image libraries in the itsnotalwin/Be-you GitHub repository. */
+/* Active Volume 03 art. Original IDs and derivatives: assets/approved/volume-03/ASSET-MANIFEST.json. */
 const APPROVED_ART = Object.freeze({
-  'welcome-be-you': 'volume-01/01-contemplative-koi-and-sakura.webp',
-  'welcome-notice': 'volume-02/02-rethinking-loneliness.webp',
-  'welcome-grow': 'volume-02/04-hopeful-blooms.webp',
-  'journey-travel': 'volume-02/01-travel-journal.webp',
-  'journey-unsent': 'volume-01/03-unsent-letter.webp',
-  'journey-loneliness': 'volume-02/02-rethinking-loneliness.webp',
-  'journey-letting-go': 'volume-01/04-letting-go.webp',
-  'journal-quiet': 'volume-01/03-unsent-letter.webp',
-  'portrait-reflect': 'volume-01/02-koi-and-blossom-reverie.webp',
-  'portrait-affirm': 'volume-02/03-calm-koi.webp',
-  'insights-reflection': 'volume-01/02-koi-and-blossom-reverie.webp',
-  'exercise-breathe': 'volume-02/03-calm-koi.webp',
-  'you-portrait': 'volume-01/02-koi-and-blossom-reverie.webp',
-  'flowers': 'volume-02/04-hopeful-blooms.webp'
+  'welcome-be-you': 'volume-03/01-sakura-evening-portrait.webp',
+  'welcome-notice': 'volume-03/08-sakura-morning-crop.webp',
+  'welcome-grow': 'volume-03/03-soft-reflection.webp',
+  'journey-travel': 'volume-03/07-wander-beyond.webp',
+  'journey-unsent': 'volume-03/04-unsent-words.webp',
+  'journey-loneliness': 'volume-03/02-reflection-at-dusk.webp',
+  'journey-letting-go': 'volume-03/09-petals-and-light.webp',
+  'journal-quiet': 'volume-03/04-unsent-words.webp',
+  'portrait-reflect': 'volume-03/03-soft-reflection.webp',
+  'portrait-affirm': 'volume-03/02-reflection-at-dusk.webp',
+  'insights-reflection': 'volume-03/08-sakura-morning-crop.webp',
+  'exercise-breathe': 'volume-03/05-rest-among-blossoms.webp',
+  'you-portrait': 'volume-03/03-soft-reflection.webp',
+  'flowers': 'volume-03/09-petals-and-light.webp',
+  'journal-writing': 'volume-03/06-writing-on-veranda.webp',
+  'journal-entry': 'volume-03/10-evening-letters-detail.webp',
+  'hero-main': 'volume-03/01-sakura-evening-portrait.webp',
+  'home-bloom': 'volume-03/08-sakura-morning-crop.webp'
 });
 const artwork = n => `assets/approved/${APPROVED_ART[n] || APPROVED_ART['welcome-be-you']}`;
 const SVG={
@@ -26,7 +27,7 @@ const SVG={
 const ico = (name,sty='') => `<svg viewBox="0 0 24 24" aria-hidden="true" style="${sty}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${SVG[name]||SVG.arrow}</svg>`;
 const status=()=>`<div class="status"><span>9:41</span><span class="statusright">▴▴  ◖◖  ▰</span></div>`;
 const homeind=()=>`<div class="homeindicator"></div>`;
-const nav=(which='today')=>`<nav class="screenfooter" aria-label="Primary navigation">${[['home','home','Home'],['today','calendar','Today'],['you','user','You']].map(([id,ic,lab])=>`<button type="button" data-screen="${id}" class="${which===id?'active':''}" ${which===id?'aria-current="page"':''}>${ico(ic)}<span>${lab}</span></button>`).join('')}</nav>`;
+const nav=(which='today')=>`<nav class="screenfooter" aria-label="Primary navigation">${[['today','home','Today'],['journal','book','Journal'],['heal','leaf','Grow'],['you','user','You']].map(([id,ic,lab])=>`<button type="button" data-screen="${id}" class="${which===id?'active':''}" ${which===id?'aria-current="page"':''}>${ico(ic)}<span>${lab}</span></button>`).join('')}</nav>`;
 const headerRow=(text,back='today',right='')=>`<div class="toprow" style="margin-bottom:20px"><button class="iconbtn" data-screen="${back}" aria-label="Back">${ico('back')}</button><span style="font-size:12px">${text}</span>${right||'<div style="width:36px"></div>'}</div>`;
 const tile=(img,t,s='journey-detail')=>`<div class="arttile" data-screen="${s}"><div class="art"><img src="${artwork(img)}" alt=""></div><label>${t}</label></div>`;
 const button=(text,dest='today',type='primary',extra='')=>`<button class="${type}" data-screen="${dest}" ${extra}>${text}</button>`;
