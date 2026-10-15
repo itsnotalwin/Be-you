@@ -4,6 +4,18 @@
 
 > **One application. One approved reference library.** The current runnable app is in [`app/`](app/). Approved image boards and original visual inspiration are in [`references/`](references/). There are no parallel app implementations, experimental art folders, or separate design-preview directories.
 
+## Live application — PC and mobile
+
+**[Open BE YOU PWA](https://itsnotalwin.github.io/Be-you/)** · [Launch source](app/) · [Latest release notes](app/docs/DESKTOP_MOBILE_RELEASE.md)
+
+BE YOU is a **working installable Progressive Web App**, not a static illustration. Use it in a browser on your computer or phone. On desktop the app has full-width navigation; on mobile it keeps the approved manga-inspired design. Your check-ins and reflections are stored locally on each device and do **not** sync automatically.
+
+| Desktop application | Mobile application |
+|:--:|:--:|
+| [![Desktop app](app/screenshots/release/desktop-final.webp)](app/screenshots/release/desktop-final.webp) | [![Mobile app](app/screenshots/release/mobile-today.webp)](app/screenshots/release/mobile-today.webp) |
+
+The screenshots were captured from the running UI logic in an isolated Chromium renderer, not from the deployed site. [How to run and test](app/README.md).
+
 ## Current app — screen gallery
 
 These are screenshots from the UI refinement of the running prototype, preserved from the latest unified app ZIP. They are **not new captures after repository consolidation**.

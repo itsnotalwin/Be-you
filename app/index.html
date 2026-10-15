@@ -4,10 +4,29 @@
 <meta name="theme-color" content="#1a1d22"><meta name="description" content="BE YOU — a private illustrated space to notice, reflect, heal and grow.">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Be You">
 <link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="app.css"><link rel="stylesheet" href="responsive.css">
 <title>Be You · A little space for you</title>
 </head><body>
-<div class="desktop-scene" aria-hidden="true"><div class="brand-caption"><span class="eyebrow">AN ILLUSTRATED PERSONAL JOURNAL</span><h1>Be You<span class="brand-period">.</span></h1><p>A quiet space to notice how you feel.<br>To write. To heal. To grow.</p><div class="brand-rule"></div><span class="eyebrow">MADE FOR REAL LIFE · PRIVATE BY DESIGN</span></div><div class="decor-art"><img src="assets/approved/volume-02/02-rethinking-loneliness.webp" alt="" /></div></div>
+<a class="skip-link" href="#app">Skip to main content</a>
+<aside class="desktop-sidebar" aria-label="App navigation">
+  <div class="desktop-logo"><strong>Be You<span class="fullstop">.</span></strong><span>YOUR SPACE TO GROW</span></div>
+  <nav class="desktop-links" aria-label="Main pages">
+    <button type="button" data-screen="home" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m3 10 9-7 9 7v11H3z"/><path d="M9 21v-8h6v8"/></svg>Home</button>
+    <button type="button" data-screen="today">◷ &nbsp; Today</button>
+    <button type="button" data-screen="mood">◉ &nbsp; Mood check-in</button>
+    <button type="button" data-screen="journal">✎ &nbsp; My journal</button>
+    <button type="button" data-screen="heal">✦ &nbsp; Heal & Grow</button>
+    <button type="button" data-screen="insights">▥ &nbsp; Insights</button>
+    <div class="nav-divider" role="separator"></div>
+    <button type="button" data-screen="affirmations">♡ &nbsp; Affirmations</button>
+    <button type="button" data-screen="breathe">◎ &nbsp; Breathing</button>
+    <div class="nav-divider" role="separator"></div>
+    <button type="button" data-screen="you">◯ &nbsp; You</button>
+    <button type="button" data-screen="settings">⚙ &nbsp; Settings</button>
+  </nav>
+  <p class="desktop-bottom">A little space for you, every day.<br>Private on this device · Export regular backups.</p>
+</aside>
 <div class="app-frame"><div id="app" aria-live="polite"></div></div><div id="toast" role="status" aria-live="polite"></div>
 <script src="ui-primitives.js"></script><script src="functional.js"></script>
+<script src="responsive-nav.js"></script>
 </body></html>

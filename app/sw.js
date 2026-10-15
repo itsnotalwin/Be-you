@@ -1,6 +1,6 @@
 /* Offline shell. No analytics and no network calls made for private data. */
-const CACHE='be-you-v2-unified-app';
-const ASSETS=['./','./index.html','./ui-primitives.js','./functional.js','./app.css','./manifest.webmanifest',
+const CACHE='be-you-v3-responsive-app';
+const ASSETS=['./','./index.html','./ui-primitives.js','./functional.js','./app.css','./responsive.css','./responsive-nav.js','./manifest.webmanifest',
 './assets/icons/favicon.svg','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/icons/apple-touch-icon.png',
 ...['volume-01/01-contemplative-koi-and-sakura.webp',
 'volume-01/02-koi-and-blossom-reverie.webp',
@@ -12,4 +12,4 @@ const ASSETS=['./','./index.html','./ui-primitives.js','./functional.js','./app.
 'volume-02/04-hopeful-blooms.webp'].map(n=>'./assets/approved/'+n)];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;e.respondWith((async()=>{const cache=await caches.open(CACHE);const match=await cache.match(e.request,{ignoreSearch:true});if(match)return match;try{const response=await fetch(e.request);if(response.ok)cache.put(e.request,response.clone());return response}catch{return (await cache.match('./index.html'))||Response.error()}})())});
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;e.respondWith((async()=>{const cache=await caches.open(CACHE);const match=await cache.match(e.request,{ignoreSearch:true});if(match)return match;try{const response=await fetch(e.request);if(response.ok)cache.put(e.request,response.clone());return response}catch{return e.request.mode==='navigate' ? ((await cache.match('./index.html'))||Response.error()) : Response.error()}})())});

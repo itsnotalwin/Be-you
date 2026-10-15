@@ -1,40 +1,45 @@
-# BE YOU — Unified App
+# BE YOU — Responsive PWA
 
-This directory is the **only runnable BE YOU application**. It is taken from the newest approved unified app ZIP, with earlier nonessential screenshot archives removed from the repository.
+This is the **actual installable app**, not a phone mockup or illustration board.
+It works in modern desktop and mobile browsers from the same source.
 
-Run from this directory:
+## Run and test
 
 ```bash
 npm start
-# http://localhost:4173
+# Open http://localhost:4173
 npm test
 ```
 
-Node.js 18+ is required; no dependency installation is needed. `npm test` checks the asset and source integrity and runs the mood/journal/journey smoke tests.
+No package install or backend is needed. Requires Node.js 18 or newer for the local preview server.
 
-## Runtime files
+## Features
 
-- `index.html` — entry point.
-- `app.css` — **one** design-system stylesheet.
-- `ui-primitives.js` — shared UI components and routing of approved images.
-- `functional.js` — screen templates, local persistence, and interactions.
-- `sw.js` and `manifest.webmanifest` — installable/offline PWA shell.
-- `assets/approved/volume-01/` and `volume-02/` — **eight approved standalone manga illustrations**.
-- `assets/icons/` and `assets/brand/` — icons and branding.
-- `scripts/verify.mjs` and `scripts/smoke.mjs` — integrity tests.
-- `screenshots/refined/` — ten UI screenshots from the prior refinement review; not freshly re-rendered.
-- `docs/` — original product and technical notes bundled with the unified ZIP.
+- Responsive desktop workspace with persistent navigation, phone layout with bottom tabs, and a tablet-friendly layout.
+- Mood check-ins and optional notes, saved on this device.
+- Private journal creation, search, edit and deletion.
+- Four guided reflection journeys with saved progress.
+- Insight charts calculated from recorded data, affirmations, breathing timer and appearance preferences.
+- Export/import JSON backups, and erase stored data from Settings.
+- Installable PWA with a manifest and a service worker that caches the interface and approved illustrations for offline use after first load.
 
-## Refined screen previews
+## Deploy
 
-| Today | Mood | Journal | Heal & Grow |
-|:--:|:--:|:--:|:--:|
-| ![Today](screenshots/refined/today.webp) | ![Mood](screenshots/refined/mood.webp) | ![Journal](screenshots/refined/journal.webp) | ![Heal](screenshots/refined/heal.webp) |
+GitHub Actions publishes the `app/` directory directly to GitHub Pages.
+The repository is at https://github.com/itsnotalwin/Be-you.
+The live URL is https://itsnotalwin.github.io/Be-you/.
 
-[Full screen gallery](../README.md) · [Approved design references](../references/README.md)
+## Important privacy and availability limits
 
-## State and limitations
+The app stores entries **unencrypted in browser localStorage** on each device. They are not synchronized between your PC and phone. Clearing storage or changing browsers can delete entries; **export a backup** from Settings first. BE YOU does not provide medical or crisis support.
 
-The prototype uses browser **localStorage without encryption or cloud backup**. It has no account sync, device-to-device continuity or clinical interpretation. Browser cleanup can erase data. Please export backups and complete live-browser/offline/device/accessibility testing before public release.
+Chromium UI automation validates multiple screen sizes and major interactions; production verification should additionally cover real iOS Safari, Android Chrome, offline first-install behaviour, screen readers, and a privacy/security review.
 
-The reference boards are stored only in `../references/`, rather than duplicated within the app. No second runnable app or unused `assets/manga/` placeholder folder is maintained.
+## Files
+
+- `index.html`, `app.css` — screen markup and editorial visual identity.
+- `responsive.css`, `responsive-nav.js` — adaptive desktop, tablet and mobile workspace navigation.
+- `functional.js`, `ui-primitives.js` — actual screen content, navigation, persistence and UI elements.
+- `assets/approved/` — eight approved manga images.
+- `sw.js`, `manifest.webmanifest` — offline PWA installation files.
+- `scripts/verify.mjs`, `scripts/smoke.mjs` — source and data-flow checks.

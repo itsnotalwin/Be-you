@@ -1,0 +1,111 @@
+/* BE YOU — responsive production shell. The desktop experience is a real
+   navigable workspace; the phone layout retains the approved editorial art. */
+:root { --desktop-rail: 240px; }
+.desktop-scene { display:none !important; }
+.desktop-sidebar { display:none; }
+.skip-link { position:fixed; top:-100px; left:16px; z-index:100; padding:12px 18px;
+  background:var(--cream); color:#171c21; border-radius:7px; font-weight:650; }
+.skip-link:focus { top:12px; }
+/* Never imitate browser/phone operating-system chrome. */
+.status,.topstatus,.homeindicator { display:none !important; }
+.content,.content.no-nav { height:calc(100% - 76px); overflow-y:auto; overflow-x:hidden;
+  padding-bottom:calc(36px + env(safe-area-inset-bottom,0px)); scrollbar-width:thin;
+  scrollbar-color:#50585f transparent; }
+.content.no-nav { height:100%; }
+#app,.device { min-height:0; }
+input, textarea { max-width:100%; }
+button, a, input, textarea { touch-action:manipulation; }
+button[data-screen],button[data-action],button[data-journey],button[data-edit],button[data-mood],button[data-tag] { -webkit-tap-highlight-color:transparent; }
+input[type='search'] { appearance:none; }
+/* Use available width rather than squeezing tablets into a 390px phone. */
+@media(min-width:700px) {
+  html,body { width:100%;height:100%;max-width:none;overflow:hidden; }
+  body { background:#171b20; border:0; }
+  .app-frame { position:relative;top:auto;left:auto;transform:none;width:100%;max-width:none;
+    height:100dvh;min-height:0; margin:0; border:0;border-radius:0; box-shadow:none;
+    background:#1a1d22; overflow:hidden; }
+  .device { max-height:none;height:100%;width:100%;min-height:0;overflow:hidden; }
+  .content,.content.no-nav { width:100%; height:100%; padding:42px clamp(32px,5vw,84px) 85px; }
+  .content > * { max-width:1040px; }
+  .title { font-size:clamp(53px,5vw,73px); }
+  .main-headline { font-size:clamp(52px,5vw,70px); }
+  .page-title { font-size:clamp(39px,4vw,56px); }
+  .section-heading h2 { font-size:36px; }
+  .body-copy { max-width:650px; font-size:15px; }
+  .action-card { min-height:93px; }
+  .story-grid { grid-template-columns:repeat(4,minmax(0,1fr));gap:18px; }
+  .story-tile .art { height:clamp(152px,17vw,230px); }
+  .story-name { font-size:14px; }
+  .mini-jump { min-height:83px; }
+  .mood-illustration { height:240px;max-width:700px; }
+  .mood-fieldset, .range-row, .textarea, .input-field,.privacy-note,.button-space,
+  .search-box,.journal-meta,#journal-results,.journal-area { max-width:760px; }
+  .button-space .primary { max-width:760px; }
+  .mood-options { max-width:625px;gap:12px; }
+  .mooditem { font-size:13px; }
+  .moodface { width:59px;height:59px; }
+  .journey-stack { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px; }
+  .journey-row { min-height:125px; }
+  .journey-art { width:104px;height:107px; }
+  .journey-hero { max-width:770px; height:390px; }
+  .journey-about,.step-list,.stephead,.stepper,.exercise-image { max-width:770px; }
+  .home-hero { height:330px;max-width:780px; }
+  .home-counters { max-width:780px; }
+  .you-hero,.affirmation-art,.affirmation-paper,.breath-scene,
+  .insight-hero,.real-chart,.breakdown,.insight-note,.settings-group { max-width:760px; }
+  .you-hero { height:420px; }
+  .screenfooter { display:none; }
+  /* A real onboarding view, not a simulated phone rendered in the browser. */
+  .welcome { display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr); }
+  .welcomeart { height:100%; }
+  .welcomefooter { position:relative;inset:auto;justify-content:center;padding:50px clamp(30px,6vw,110px); }
+  .welcomefooter h1 { font-size:clamp(76px,10vw,130px); }
+  .welcomeaction { margin:52px 0 0;max-width:420px; }
+  .welcome::after { display:none; }
+  .onboard { display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,1fr); }
+  .onboardart { height:100%; grid-column:1;grid-row:1; }
+  .onboardcontent { grid-column:2;grid-row:1;height:100%;justify-content:center;
+    padding:clamp(36px,6vw,120px); }
+  .onboardcontent h2 { font-size:clamp(54px,6vw,90px); }
+  .onboardcontent p { font-size:16px; max-width:460px; }
+  .onboardcontent .bottom { margin-top:65px;max-width:460px;width:100%; }
+}
+@media(min-width:1024px) {
+  body:not(.is-onboarding) .desktop-sidebar { position:fixed;z-index:20;inset:0 auto 0 0;
+    width:var(--desktop-rail);background:#20262c;border-right:1px solid #353b41;
+    display:flex;flex-direction:column;gap:20px;padding:38px 19px 22px;overflow-y:auto; }
+  body:not(.is-onboarding) .app-frame { width:calc(100% - var(--desktop-rail));margin-left:var(--desktop-rail); }
+  .desktop-logo { padding:4px 15px 20px;border-bottom:1px solid #3b4147; }
+  .desktop-logo strong { display:block;font:400 43px/1 Georgia,serif;letter-spacing:-.04em; }
+  .desktop-logo span { display:block;margin-top:10px;font-size:10px;letter-spacing:.13em;color:#acb4b8; }
+  .desktop-links { display:flex;flex-direction:column;gap:4px; }
+  .desktop-links button { display:flex;align-items:center;gap:13px;width:100%;text-align:left;
+    font-size:14px;color:#b9c0c4;background:transparent;border:1px solid transparent;
+    border-radius:8px;padding:13px 13px;min-height:46px; }
+  .desktop-links button:hover { background:#2d343b;color:#fff; }
+  .desktop-links button.active { background:#343b42;border-color:#48515a;color:#faf7f1; }
+  .desktop-links svg { width:20px;height:20px;flex:none; }
+  .desktop-links .nav-divider {height:1px;background:#3b4147;margin:15px 8px;}
+  .desktop-bottom { margin-top:auto;border-top:1px solid #3b4147;padding:20px 14px 0;
+    color:#acb4b8;font-size:11px;line-height:1.8; }
+  .content,.content.no-nav { padding-left:clamp(42px,6vw,112px);padding-right:clamp(42px,6vw,112px); }
+}
+@media(max-width:699px) {
+  .content { height:calc(100% - 76px); padding-top:max(20px,env(safe-area-inset-top,0px)); }
+  .content.no-nav { height:100%; padding-top:max(20px,env(safe-area-inset-top,0px)); }
+  .device { height:100dvh; }
+  .welcomefooter { bottom:18px; }
+  .welcomeaction { margin-bottom:22px; }
+  .onboardart { height:55%; }
+  .onboardcontent { height:45%; }
+  .screenfooter { padding-bottom:max(12px,env(safe-area-inset-bottom,12px)); }
+}
+@media(max-width:370px) { .screenfooter button{min-width:65px;} .mood-options{gap:2px;} }
+/* Make loading state and text fields readable in both themes. */
+body.theme-light .desktop-sidebar{background:#d9d4cc;border-color:#bbb5ac;}
+body.theme-light .desktop-logo span, body.theme-light .desktop-bottom{color:#4d565d;}
+body.theme-light .desktop-links button{color:#364049;}
+body.theme-light .desktop-links button.active{background:#c4bdb3;color:#151b1e;border-color:#a69c90;}
+body.theme-light .desktop-links button:hover{background:#cbc5bc;}
+body.theme-light .content {color:#272b30;}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;}}
