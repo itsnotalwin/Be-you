@@ -34,6 +34,12 @@ The **reference boards are creative direction**, whereas the gallery above shows
 
 **Design contract:** near-black charcoal surfaces; warm ivory art panels; refined serif headings and unobtrusive sans-serif controls; graphic black ink with expressive, restrained manga linework; quiet spacing; minimal three-tab navigation. Original artwork is treated as a standalone asset, never a screenshot background. See [UI parity & intentional differences](docs/UI_PARITY.md).
 
+## Complete, current application in GitHub
+
+**Everything required to run the latest PWA is committed under [`app/`](app/)** — HTML, CSS, JavaScript, PWA manifest/service worker, app icons, all eight approved illustration assets, brand artwork and a 10-screen refined screenshot gallery. [Browse the full UI screenshots](app/screenshots/refined/) and [read the application README](app/README.md).
+
+Prior versions remain available in Git history, rather than scattered across duplicate runnable directories. The `pwa/` location is a compatibility note only. See [repository source-of-truth policy](docs/APP_SOURCE_OF_TRUTH.md).
+
 ## Run the application
 
 Requires **Node.js 18+**. No npm install or third-party runtime dependencies.

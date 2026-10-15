@@ -25,5 +25,13 @@ for(const [,name,rel] of approved)if(!sw.includes(rel)) failures.push('Service w
 for(const f of ['city-night','cat-window'])if(!sw.includes(f))failures.push('Service worker missing fallback artwork '+f);
 for(const f of ['index.html','functional.js','app.css','refinement.css'])if(!sw.includes(f))failures.push('Service worker missing core asset '+f);
 for(const f of ['screenshots/PHASE_01_CONTACT_SHEET.jpg','docs/PHASE_01_ART_INTEGRATION.md']) requireFile(f);
+// Full GitHub checkout completeness: assets and current reviewed screen captures.
+for (const f of ['assets/brand/flower-line.png','assets/brand/koi-botanical.png','assets/brand/flower-line.svg','assets/brand/koi-botanical.svg','assets/brand/wordmark.svg']) requireFile(f);
+const refinedScreens=['welcome','today','mood','journal','heal','journey-detail','home','you','breathe','affirmations'];
+for (const name of refinedScreens){
+  const f=`screenshots/refined/${name}.webp`;
+  requireFile(f);
+  if(existsSync(path.join(root,f))){const b=readFileSync(path.join(root,f));if(b.toString('ascii',0,4)!=='RIFF'||b.toString('ascii',8,12)!=='WEBP')failures.push('Invalid refined screenshot: '+f)}
+}
 if(failures.length){console.error('BE YOU verification failed:\n'+failures.map(x=>' - '+x).join('\n'));process.exit(1)}
 console.log(`BE YOU verified: ${approved.length} approved art roles, ${new Set(approved.map(x=>x[2])).size} unique illustrations, PWA files and manifest present.`);
