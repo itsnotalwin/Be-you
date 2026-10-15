@@ -32,14 +32,81 @@
         "journal"
       ],
       "status": "committed-needs-design-review"
+    },
+    {
+      "id": "solo-01",
+      "title": "Koi and Sakura Portrait",
+      "path": "masters/contemplative_koi_and_sakura_portrait.png",
+      "type": "image/png",
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "sha256": "837003d571375a3e2b3479303aa1ab7f9a3fd264bfde7c3dfd2c36b93b215cf5",
+      "role": [
+        "onboarding",
+        "hero",
+        "splash"
+      ],
+      "status": "approved-reference-master",
+      "background": "warm ivory"
+    },
+    {
+      "id": "solo-02",
+      "title": "Koi and Blossom Reverie",
+      "path": "masters/monochrome_koi_and_blossom_reverie.png",
+      "type": "image/png",
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "sha256": "178e7253734ef2e048aaac2bab1c3e64eaf17202197831f82369de84aff1fdc7",
+      "role": [
+        "onboarding",
+        "hero",
+        "reflection"
+      ],
+      "status": "approved-reference-master",
+      "background": "warm ivory"
+    },
+    {
+      "id": "solo-03",
+      "title": "Unsent Letter — Under Blossoms",
+      "path": "masters/contemplative_letter_beneath_blossoms.png",
+      "type": "image/png",
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "sha256": "99016e82250c1032daeb71718f02129293a5d407fe6e17b76e9aff82f5b99e92",
+      "role": [
+        "journey",
+        "unsent-letter",
+        "journaling"
+      ],
+      "status": "approved-reference-master",
+      "background": "warm ivory"
+    },
+    {
+      "id": "solo-04",
+      "title": "Letting Go — Windblown Blossoms",
+      "path": "masters/serene_windblown_blossom_portrait.png",
+      "type": "image/png",
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "sha256": "09796a0f62ddb625d7acb45839fab65a324d50fffc235ea597e291a5fc6626ca",
+      "role": [
+        "journey",
+        "letting-go",
+        "breathing"
+      ],
+      "status": "approved-reference-master",
+      "background": "warm ivory"
     }
   ],
   "planned": [
-    {
-      "id": "protagonist-splash",
-      "path": "characters/protagonist-splash.png",
-      "status": "generating-not-committed"
-    },
     {
       "id": "expressions",
       "path": "characters/expressions/",
