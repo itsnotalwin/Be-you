@@ -6,6 +6,8 @@
 
 **Approved Screen 05 (Mood, 2026-10-15):** The check-in begins with large original manga illustration and spacious “How are you feeling today?” header. Five semantic selectable mood options with clear selection lead to a cream Continue action. Optional factors, energy and journal note remain functional on the next screen, whose final design is pending user review. Implemented in `functional.js` and scoped `responsive.css` as `.mood-v2`; art is an approved existing file, not a generated raster UI.
 
+**Approved Screen 06 (Mood Details, 2026-10-15):** Use charcoal/ivory with a prominent original manga illustration and restrained serif heading. Show the previously selected feeling; allow optional influence chips, energy slider and note before a clear cream Save action. Maintain real persisted mood check-ins via the existing `save-mood` handler. Its route is `?screen=mood-details`. Implemented with `mood-details-v2` selectors in `responsive.css`; mobile intentionally scrolls to preserve artwork prominence. On wide screens the content caps at 760px. Keyboard-visible focus rings remain. Screen 07 Journal is awaiting approval.
+
 **Screenshot evidence:** Existing `screenshots/refined/today.webp` is **from before this change**. A genuine new `app/SCREENSHOT.png` of the actual approved Screen 04 implementation (preferably Chromium at 390×844) and a desktop capture are **not yet captured**. This build-standards evidence requirement is **incomplete**; do not treat the concept mockup as an implementation screenshot.
 
 **Next:** Review Screen 06 mood details, verify production GitHub Pages, run latest full tests, capture updated mobile/desktop screenshots, and validate browser accessibility.
