@@ -26,7 +26,7 @@ for(const file of assets){if(!has(file)){error.push(`Missing artwork ${file}`);c
 const provenance=JSON.parse(read('assets/approved/volume-03/ASSET-MANIFEST.json'));
 if(provenance.assets?.length!==10)error.push('Incomplete Volume 03 provenance');
 for(const a of provenance.assets||[])if(!a.generation_id||!a.sha256||!has('assets/approved/volume-03/'+a.file))error.push('Bad provenance: '+a.file);
-if(/volume-0[12]\\//.test(read('sw.js')))error.push('Old art in cache');
+if(read('sw.js').includes('volume-01/') || read('sw.js').includes('volume-02/'))error.push('Old art in cache');
 if(!html.includes('scene-v3.css'))error.push('Missing new CSS');
 const manifest=JSON.parse(read('manifest.webmanifest'));
 if(!Array.isArray(manifest.icons)||manifest.icons.length<2)error.push('PWA icons incomplete');
