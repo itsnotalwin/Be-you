@@ -1,9 +1,9 @@
-# BE YOU App Design and Release Notes
+# App design and release notes
 
-**Purpose:** Source of truth for past screen-specific approvals and current implementation handoffs.
+**Purpose:** Single source for approval decisions and implementation handoffs for the BE YOU application.
 
-**Key files:** `SCREEN_03_APPROVED.md` through `SCREEN_06_APPROVED.md` document earlier decisions. `VOLUME_03_FULL_APP_MIGRATION.md` records the user's later *global* refactor direction, current asset roles, testing and release scope. `DESKTOP_MOBILE_RELEASE.md` covers responsive delivery.
+**Key files:** `SCREEN_03_APPROVED.md` records final onboarding approval, `SCREEN_04_APPROVED.md` records the artwork-led Today dashboard approval, `SCREEN_05_APPROVED.md` and `SCREEN_06_APPROVED.md` record mood screen decisions, and `DESKTOP_MOBILE_RELEASE.md` describes responsive delivery.
 
-**Connections:** The one actual app runs from `../functional.js` / `../ui-primitives.js`; active styling is `../scene-v3.css` on top of the responsive/base layers; active new illustrations live in `../assets/approved/volume-03/`.
+**Connections:** These documents refer to implementation in `../functional.js`, styling in `../responsive.css` and live artwork in `../assets/approved/`. They are not a second app or a collection of invented screenshot evidence.
 
-**Change & verify:** Earlier historical approval notes are retained. Do not treat review mockups as genuine running UI or misrepresent unverified GitHub Pages deployments.
+**Change & verify:** Write only explicit approvals; cross-check current code and user-approved composition. Keep later screens pending until reviewed.

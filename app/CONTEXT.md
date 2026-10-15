@@ -6,7 +6,6 @@
 
 **Connections:** GitHub Pages serves this folder. `scripts/` tests cover core navigation and saved data. `docs/` owns approval and release notes.
 
-**Change & verify:** Keep all art routed through `artwork()`, test `cd app && npm test`, check 320/390 px mobile and wide desktop, verify no horizontal overflow and confirm offline-cache version. Local Chromium screenshots document the Volume 03 preview; verify the production build independently.
+**Change & verify:** Keep all art routed through `artwork()`, test `cd app && npm test`, check 320/390 px mobile and wide desktop, verify no horizontal overflow and confirm offline-cache version. Visual revisions require genuine rendered screenshots. As of the README-based restoration, the latest capture is still outstanding; earlier gallery captures are historical.
 
-
-**Volume 03 active layer:** `scene-v3.css` owns the current visual refactor. `assets/approved/volume-03/` is the only active illustration library; its manifest contains generation IDs and the face sheets. Four mobile tabs, existing desktop sidebar and browser-local data remain real controls. Current local browser captures live at `SCREENSHOT.png` and `SCREENSHOT-*.png`. Verify deployment independently after push.
+**README restored:** Keep only the original eight approved art assets mapped from `ui-primitives.js` (Volumes 01/02). Avoid unapproved faces, Volume 03 routes, duplicate implementations and secondary scene CSS. The user asked for the documented app, not additional art explorations.

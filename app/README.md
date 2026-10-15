@@ -40,10 +40,6 @@ Chromium UI automation validates multiple screen sizes and major interactions; p
 - `index.html`, `app.css` — screen markup and editorial visual identity.
 - `responsive.css`, `responsive-nav.js` — adaptive desktop, tablet and mobile workspace navigation.
 - `functional.js`, `ui-primitives.js` — actual screen content, navigation, persistence and UI elements.
-- `assets/approved/volume-03/` — ten new active images with provenance.
+- `assets/approved/` — eight approved manga images.
 - `sw.js`, `manifest.webmanifest` — offline PWA installation files.
 - `scripts/verify.mjs`, `scripts/smoke.mjs` — source and data-flow checks.
-
-## Current illustrations — Volume 03 (2026-10-15)
-
-All active screen artwork comes from `assets/approved/volume-03/`: ten optimized images based on seven new generations and three crops. Their source titles, generation IDs, hashes, roles and visual face sheets are in `ASSET-MANIFEST.json` and `ART-DIRECTION.md`. Earlier Volume 01 and 02 artworks remain as history; they are **not** referenced by the working app. The current scene design lives in `scene-v3.css`, with older `app.css`/`responsive.css` retained as structural layers. See `docs/VOLUME_03_FULL_APP_MIGRATION.md`.
