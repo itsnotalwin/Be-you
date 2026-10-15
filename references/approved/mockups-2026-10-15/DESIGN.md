@@ -1,0 +1,5 @@
+# Approved UI design reference
+
+These 23 still-image mockups are visual targets, not runtime evidence. Palette: near-black charcoal `#181b1d`, ivory `#f0ede5`, paper white `#f7f5ef`; quiet graphite outlines `#3e4545`. Large serif headlines, tiny overlines, generous vertical spacing, prominent monochrome illustrated panels, rounded primary actions and four bottom mobile tabs. The illustrations use only the existing eight approved manga images (a mix of Volume 01/02). States include onboarding, data-dependent journal views, guided exercise progress, check-in selections, error/recovery screens, and offline/install guidance.
+
+Target widths: phone approximately 390–432px, desktop expands to supported sidebar workspace. Use responsive text sizing, accessible focus states, semantic buttons/labels and sensible scrolling. Nothing in this folder is a real screenshot of a running application. Actual UI evidence belongs to `app/SCREENSHOT.png` and related captures.

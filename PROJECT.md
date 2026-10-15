@@ -1,24 +1,13 @@
 # BE YOU — Project
 
-**Source:** `itsnotalwin/Be-you`, branch `main`.
+**Source:** `itsnotalwin/Be-you` (`main`) · **App:** `app/` · **Live:** https://itsnotalwin.github.io/Be-you/
 
-**Objective:** Original minimal editorial manga, local-first wellbeing journal and installable desktop/mobile PWA.
+**Current user-approved design baseline (2026-10-16):** All 23 phone screen mockups at [`references/approved/mockups-2026-10-15/README.md`](references/approved/mockups-2026-10-15/README.md), based exclusively on eight original approved manga art assets. Earlier narrower screen approvals remain in git history, superseded as a whole by this explicitly approved collection.
 
-**Entry point:** `app/index.html`; implementation in `app/functional.js`, `app/ui-primitives.js`; CSS in `app/app.css` and `app/responsive.css`.
+**One app, no forks:** Local-first, installable PWA. Routes and persistence in `app/functional.js`, art registry/nav in `app/ui-primitives.js`, visual styling in `app/app.css` + `app/responsive.css`. Four mobile tabs: Today, Journal, Grow, You. Desktop has its existing sidebar. `README.md` shows the design references and separately labels real local browser captures.
 
-**Approved illustrations:** `app/assets/approved/`. New screens must reuse this approved library unless new art is explicitly accepted.
+**Flows:** Onboarding; Today; mood selection, details and saved confirmation; journal empty/populated, new/view/edit/delete/search; four guided journeys; dynamic insights; affirmations and breathing; You and settings; offline/install. Records stored in unencrypted localStorage; no sync/account. Export/import remains functional.
 
-**Run:** `cd app && npm start`. **Verify:** `cd app && npm test`. **Publish:** GitHub Actions deploys `app/` to [GitHub Pages](https://itsnotalwin.github.io/Be-you/).
+**Build standards:** `AGENTS.md`, nearest `CONTEXT.md` and `DESIGN.md` accompany maintained visual folders. `app/SCREENSHOT.png` and mobile/desktop variants are genuine test-browser evidence, **not** mockup images. Update after visual changes.
 
-**Design approval (2026-10-15):** Screen 03 onboarding and Screen 04 Today are approved. Screen 04 is implemented in the runtime code: large Travel Journal hero, subdued Letting Go card, check-in first, generous breathing room. Screen 05 mood selection is also approved and implemented with a large illustration. Screen 06 mood details is also approved and implemented with an artwork-first optional details form. Screen 07 Journal awaits design review.
-
-**Verification status:** Code pushed to `main`. Latest Pages build and actual browser screenshots must be verified; no claim that unconfirmed deploy is live. Current design notes are in `app/DESIGN.md`.
-
-
-## README-conformance restoration (2026-10-15)
-
-**Decision:** The repository-root `README.md` is the canonical product brief. At the user's direction, the Volume 03 sunset-sakura redesign, experimental faces, new art variants and separate scene override have been removed from the current branch, restoring the previously working README-aligned app. This is an intentional forward commit, not a force-reset; the discontinued work remains available in Git history.
-
-**Runtime:** Exactly one PWA in `app/`, original black-and-ivory manga palette, eight approved standalone illustrations in Volumes 01/02, and visual guidance under `references/`. The pre-existing check-in, journal, journeys, insights, breathing, backup and offline flows are preserved. No duplicate app, Volume 03 runtime routes or active asset mapping.
-
-**Quality:** GitHub Actions executes `cd app && npm test` before deploying the `app/` folder. Genuine screenshots of this exact restored revision and a physical-device accessibility/privacy pass remain outstanding until independently verified. Don't mark them complete based on the historical gallery.
+**Run:** `cd app && npm start` · **Test:** `cd app && npm test` · **Publish:** GitHub Actions; check run status before declaring deployment done. Native device, accessibility and privacy/security review still required.

@@ -1,45 +1,19 @@
-# BE YOU — Responsive PWA
+# BE YOU — one working PWA
 
-This is the **actual installable app**, not a phone mockup or illustration board.
-It works in modern desktop and mobile browsers from the same source.
+**Current approved baseline:** [23-screen mockup collection](../references/approved/mockups-2026-10-15/README.md). The concepts are reference images. The actual app UI is implemented with semantic HTML, source CSS and real local data flows.
 
-## Run and test
+`npm start` serves the app at `http://localhost:4173`. `npm test` verifies the real routes and data flows (Node >=18; no runtime dependencies).
 
-```bash
-npm start
-# Open http://localhost:4173
-npm test
-```
+## Real app features
 
-No package install or backend is needed. Requires Node.js 18 or newer for the local preview server.
+- Three onboarding scenes, image-led Today dashboard and a five-mood check-in with optional context and save confirmation.
+- Journal empty and populated states, write/read/edit/search/delete, all stored privately in this browser.
+- Four guided reflection journeys with persistent progress, insights based on real check-ins, affirmations and timed breathing.
+- Four mobile tabs (Today, Journal, Grow, You), desktop sidebar, appearance/accessibility settings, backup export/import and data deletion.
+- Installable offline-capable PWA with the service-worker cache of eight approved Volume 01/02 artworks.
 
-## Features
+Data is kept **unencrypted** in localStorage and never synced; export backups regularly. BE YOU is not medical care.
 
-- Responsive desktop workspace with persistent navigation, phone layout with bottom tabs, and a tablet-friendly layout.
-- Mood check-ins and optional notes, saved on this device.
-- Private journal creation, search, edit and deletion.
-- Four guided reflection journeys with saved progress.
-- Insight charts calculated from recorded data, affirmations, breathing timer and appearance preferences.
-- Export/import JSON backups, and erase stored data from Settings.
-- Installable PWA with a manifest and a service worker that caches the interface and approved illustrations for offline use after first load.
+## Render evidence
 
-## Deploy
-
-GitHub Actions publishes the `app/` directory directly to GitHub Pages.
-The repository is at https://github.com/itsnotalwin/Be-you.
-The live URL is https://itsnotalwin.github.io/Be-you/.
-
-## Important privacy and availability limits
-
-The app stores entries **unencrypted in browser localStorage** on each device. They are not synchronized between your PC and phone. Clearing storage or changing browsers can delete entries; **export a backup** from Settings first. BE YOU does not provide medical or crisis support.
-
-Chromium UI automation validates multiple screen sizes and major interactions; production verification should additionally cover real iOS Safari, Android Chrome, offline first-install behaviour, screen readers, and a privacy/security review.
-
-## Files
-
-- `index.html`, `app.css` — screen markup and editorial visual identity.
-- `responsive.css`, `responsive-nav.js` — adaptive desktop, tablet and mobile workspace navigation.
-- `functional.js`, `ui-primitives.js` — actual screen content, navigation, persistence and UI elements.
-- `assets/approved/` — eight approved manga images.
-- `sw.js`, `manifest.webmanifest` — offline PWA installation files.
-- `scripts/verify.mjs`, `scripts/smoke.mjs` — source and data-flow checks.
+`SCREENSHOT.png` and related captures are screenshots of a local Chromium execution of the actual app code, not the approved mockup renders. Phone captures: 390 × 844. Desktop example: 1280 × 800. Physical-device and deployed-site validation remain separate work.

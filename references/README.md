@@ -1,3 +1,11 @@
+# BE YOU — Reference library
+
+The latest **approved visual baseline** is [`approved/mockups-2026-10-15/`](approved/mockups-2026-10-15/README.md): 23 individual screens and three review boards. The image files are static design concepts, not screenshots from the PWA.
+
+Earlier original references remain in `approved/` and `inspiration/`, serving as historical material. The running app is always `../app/`; do not create another implementation here.
+
+## Archived reference description
+
 # Approved BE YOU visual references
 
 **The approved art direction is minimal editorial manga:** strong ink silhouettes, warm ivory, expressive but restrained linework, quiet spacious layouts, and selective koi and floral motifs.

@@ -4,80 +4,44 @@
 
 > **One application. One approved reference library.** The current runnable app is in [`app/`](app/). Approved image boards and original visual inspiration are in [`references/`](references/). There are no parallel app implementations, experimental art folders, or separate design-preview directories.
 
-## Live application — PC and mobile
+## APPROVED DESIGN BASELINE — 23 screens
 
-**[Open BE YOU PWA](https://itsnotalwin.github.io/Be-you/)** · [Launch source](app/) · [Latest release notes](app/docs/DESKTOP_MOBILE_RELEASE.md)
+The complete **23-screen BE YOU mockup collection** was approved for implementation on 2026-10-16. It is the authoritative UI reference for the existing PWA: original black-and-ivory manga illustrations, oversized art-led surfaces, spacious serif typography, quiet rounded controls and four bottom mobile tabs. **These are visual concepts**; the real working screens are implemented in [`app/`](app/).
 
-BE YOU is a **working installable Progressive Web App**, not a static illustration. Use it in a browser on your computer or phone. On desktop the app has full-width navigation; on mobile it keeps the approved manga-inspired design. Your check-ins and reflections are stored locally on each device and do **not** sync automatically.
-
-| Desktop application | Mobile application |
-|:--:|:--:|
-| [![Desktop app](app/screenshots/release/desktop-final.webp)](app/screenshots/release/desktop-final.webp) | [![Mobile app](app/screenshots/release/mobile-today.webp)](app/screenshots/release/mobile-today.webp) |
-
-The screenshots were captured from the running UI logic in an isolated Chromium renderer, not from the deployed site. [How to run and test](app/README.md).
-
-## Current app — screen gallery
-
-These are screenshots from the UI refinement of the running prototype, preserved from the latest unified app ZIP. They are **not new captures after repository consolidation**.
-
-| Welcome | Today | Mood Check-In |
+| 01 · Welcome, Today & Mood | 02 · Journal & Growth | 03 · Tools & You |
 |:--:|:--:|:--:|
-| [![Welcome](app/screenshots/refined/welcome.webp)](app/screenshots/refined/welcome.webp) | [![Today](app/screenshots/refined/today.webp)](app/screenshots/refined/today.webp) | [![Mood](app/screenshots/refined/mood.webp)](app/screenshots/refined/mood.webp) |
-| Journal | Heal & Grow | Journey Detail |
-| [![Journal](app/screenshots/refined/journal.webp)](app/screenshots/refined/journal.webp) | [![Heal](app/screenshots/refined/heal.webp)](app/screenshots/refined/heal.webp) | [![Journey](app/screenshots/refined/journey-detail.webp)](app/screenshots/refined/journey-detail.webp) |
-| Home | You | Breathing |
-| [![Home](app/screenshots/refined/home.webp)](app/screenshots/refined/home.webp) | [![You](app/screenshots/refined/you.webp)](app/screenshots/refined/you.webp) | [![Breathing](app/screenshots/refined/breathe.webp)](app/screenshots/refined/breathe.webp) |
+| [![Approved board 01](references/approved/mockups-2026-10-15/BOARD_01.jpg)](references/approved/mockups-2026-10-15/BOARD_01.jpg) | [![Approved board 02](references/approved/mockups-2026-10-15/BOARD_02.jpg)](references/approved/mockups-2026-10-15/BOARD_02.jpg) | [![Approved board 03](references/approved/mockups-2026-10-15/BOARD_03.jpg)](references/approved/mockups-2026-10-15/BOARD_03.jpg) |
 
-[Affirmations screenshot](app/screenshots/refined/affirmations.webp) · [App source and usage](app/README.md)
+**[Browse all 23 individual approved screens](references/approved/mockups-2026-10-15/README.md)** · [Read visual specification](references/approved/mockups-2026-10-15/DESIGN.md) · [View actual running UI capture](app/SCREENSHOT.png)
 
-## Approved art direction
+The concepts guide a **single real application**. Images are not embedded as fake UI; check-ins, entries, choices and navigation remain interactive and private to the device. The eight original approved illustrations are reused throughout—no new faces or conflicting art libraries.
 
-| Character sheet | Illustration library | Updated UI concept |
+## Live application
+
+**[Open BE YOU](https://itsnotalwin.github.io/Be-you/)** · [App source](app/) · [Latest implementation note](app/DESIGN.md)
+
+The app is installed from one folder, `app/`, and deployed by GitHub Actions. Browser data stays locally, unencrypted and not automatically synchronized. Export backups from Settings.
+
+## Real local UI evidence
+
+| Today (390×844) | Journal (390×844) | Grow (390×844) |
 |:--:|:--:|:--:|
-| [![Character](references/approved/01-character-sheet.png)](references/approved/01-character-sheet.png) | [![Illustrations](references/approved/02-illustration-library.png)](references/approved/02-illustration-library.png) | [![UI design](references/approved/03-updated-app-screens.png)](references/approved/03-updated-app-screens.png) |
+| ![Today](app/SCREENSHOT.png) | ![Journal](app/SCREENSHOT-MOBILE-JOURNAL.png) | ![Grow](app/SCREENSHOT-MOBILE-GROW.png) |
 
-[Original design inspiration](references/inspiration/00-original-visual-reference.jpg) · [Reference guide](references/README.md)
+The images above are captures of the running app in a local Chromium browser, not static design mockups. Older `app/screenshots/refined/` images remain historical. Production pages and physical-device validation are independent quality gates.
 
-The **eight approved standalone illustrations** used at runtime live inside [`app/assets/approved/`](app/assets/approved/). The reference boards are visual guidance, not separate production-ready images.
+## Features and safety
 
-## Deploy to GitHub Pages
+Onboarding, daily mood selection and optional notes, private journal with read/edit/search/delete, four reflection journeys with progress, insights, affirmations, guided breathing, PWA installation/offline, appearance and accessibility settings, export/import. The data is stored **unencrypted in browser localStorage**, without account sync; important writing should be backed up, and shared devices avoided. This is not medical care.
 
-GitHub Pages must be set to **GitHub Actions**, not **Deploy from a branch → /docs**. The old `docs/` publish source was removed during consolidation, which caused the Pages Jekyll build to fail.
+## Development and deployment
 
-1. Open **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
-2. Open **Actions → Deploy BE YOU to GitHub Pages** and select **Run workflow** (branch `main`), or push a change to `app/`.
-3. Watch the **Verify and publish app/** job. It runs `npm test` and publishes only the `app/` folder, so `app/index.html` becomes the site's home page. Reference images remain in the repo but are not deployed to the app site.
-
-**Live URL after a successful deployment:** https://itsnotalwin.github.io/Be-you/
-
-No separate `docs/`, `dist/`, or duplicate app directory is required. See [the deploy workflow](.github/workflows/deploy-pages.yml).
-
-## Run locally
-
-Requires **Node.js 18+**, with no third-party runtime packages.
-
-```bash
-cd app
-npm start
-```
-
-Open [http://localhost:4173](http://localhost:4173). To verify the bundled app:
-
-```bash
-cd app
-npm test
-```
-
-The prototype includes onboarding, daily moods and notes, private journal entries, four guided journeys, personal insights, affirmations, breathing, and PWA install/offline support. Browser data is stored **unencrypted in localStorage**, not synced to an account. Back up important writing and avoid shared devices; this is not medical care.
+Requires Node.js 18+. `cd app && npm start` opens `http://localhost:4173`; `cd app && npm test` checks source integrity and flows. GitHub Actions verifies and deploys the `app/` folder to [GitHub Pages](https://itsnotalwin.github.io/Be-you/). View [deployment workflow](.github/workflows/deploy-pages.yml).
 
 ## Repository structure
 
-```text
-Be-you/
-├── README.md              # Project overview and screenshots
-├── .gitignore
-├── app/                   # Only runnable PWA: source, assets, tests, refined screenshots
-└── references/            # Approved character/UI boards and original inspiration
-```
+- `app/`: only runnable PWA, eight approved art assets, test scripts, real UI screenshots.
+- `references/approved/mockups-2026-10-15/`: approved 23-screen design references and overview boards, **not** a second app.
+- `references/`: older approved artwork boards and original inspiration.
 
-This branch is intentionally minimal. Older experiments and earlier UI captures remain accessible in Git history. **Not yet production-ready:** a served-browser/device installation pass, accessibility review and security/privacy audit are still required.
+**Remaining production gates:** physical iOS/Android installation and layout checks, deployed Pages inspection, accessibility review, and security/privacy audit.

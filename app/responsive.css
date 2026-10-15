@@ -389,3 +389,133 @@ body.theme-light .mood-details-note{color:#25292b;background:#e5e2dd;border-colo
 body.theme-light .mood-details-actions .primary{background:#25292b;color:#f3f0ea}
 @media(max-width:370px){.mood-details-v2 h1{font-size:40px}.mood-details-hero{height:315px}.mood-details-pills{gap:7px}.mood-details-pills .pill{font-size:13px}}
 @media(min-width:700px){.mood-details-v2{padding-bottom:78px}.mood-details-v2 h1{font-size:73px}.mood-details-hero{height:455px}.mood-details-pills .pill{font-size:18px;min-height:52px}}
+
+
+/* BE YOU — approved 23-screen visual baseline, 2026-10-15.
+   One functioning app; no screenshot-based UI. Source: references/approved/mockups-2026-10-15.
+   Adds coherent styling for all routes without replacing the shared layout or data layer. */
+:root{--bg:#181b1d;--surface:#222729;--surface2:#272b2d;--surface3:#202426;--cream:#f0ede5;--white:#f7f5ef;--muted:#b0aca6;--muted2:#848a8a;--stroke:#3e4545;--ink:#171b1d;--font-serif:'EB Garamond','Georgia',serif}
+.app-frame,.device{background:var(--bg)}
+.content{scrollbar-width:thin;scrollbar-color:#40494a transparent}
+.content::-webkit-scrollbar{width:4px}.content::-webkit-scrollbar-thumb{background:#40494a}
+.screenfooter{height:78px;background:#1d2022;border-top:1px solid #404342;display:flex;justify-content:space-around;align-items:center;gap:3px;padding:4px 6px 15px}
+.screenfooter button{min-width:0;flex:1;max-width:110px;min-height:59px;border-radius:22px;color:#a8a9a5;font-size:11px;gap:3px;padding:8px 2px 4px}
+.screenfooter button svg{width:20px;height:20px}.screenfooter button.active{color:var(--cream)}
+.screenfooter button.active svg{background:var(--cream);color:var(--ink);border-radius:23px;width:55px;height:33px;padding:7px;box-sizing:content-box;max-width:60px;margin:-5px 0 1px}
+.screenfooter button:focus-visible{outline:2px solid var(--cream);outline-offset:1px}
+.mock-page{width:100%;max-width:760px;margin:0 auto;padding:18px 5px 38px;color:var(--white)}
+.mock-eyebrow{font:600 10px/1.4 var(--font-ui);letter-spacing:.20em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.mock-page h1,.mock-onboarding h1{font:400 clamp(39px,11vw,59px)/.99 var(--font-serif);letter-spacing:-.038em;margin:0 0 14px;color:var(--cream)}
+.mock-page h2{font:400 clamp(24px,7.1vw,32px)/1.18 var(--font-serif);margin:0 0 10px;color:var(--cream)}
+.mock-lede{font:400 13px/1.65 var(--font-ui);color:var(--muted);margin:0 0 18px}
+.mock-page button,.mock-onboarding button{cursor:pointer}
+.mock-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;min-height:56px;border:1px solid var(--cream);background:var(--cream);color:var(--ink);border-radius:29px;padding:10px 22px;font:400 23px/1.1 var(--font-serif);text-align:left;box-shadow:none}
+.mock-cta svg{height:22px;width:22px;flex:none;stroke-width:1.3}
+.mock-cta:focus-visible,.mock-page button:focus-visible,.mock-page input:focus-visible,.mock-page textarea:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+.mock-tall-art,.mock-journal-art,.mock-editor-art,.mock-exercise-art,.mock-view-art,.mock-settings-art,.mock-insights-art{overflow:hidden;border-radius:12px;background:var(--cream);border:1px solid #656967}
+.mock-tall-art img,.mock-journal-art img,.mock-editor-art img,.mock-exercise-art img,.mock-view-art img,.mock-settings-art img,.mock-insights-art img{width:100%;height:100%;display:block;object-fit:cover;filter:grayscale(1)}
+.mock-tall-art{height:clamp(284px,88vw,420px);margin:22px 0 19px}
+.mock-line-link{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--cream);background:none;border:0;border-bottom:1px solid var(--stroke);padding:18px 2px;text-align:left;font:400 24px/1.1 var(--font-serif)}
+.mock-line-link svg{width:19px;height:19px;flex:none}.mock-line-link small{display:block;font:400 12px/1.5 var(--font-ui);color:var(--muted);margin-top:5px}
+.mock-muted-link{color:var(--muted);font-size:17px;border:0;padding:15px 2px}
+.mock-privacy{font-size:11px;line-height:1.5;color:var(--muted2);display:flex;gap:8px;justify-content:center;align-items:center;margin:16px auto 4px;text-align:center}
+.mock-privacy svg{height:14px;width:14px;flex:none}
+.mock-text-action{background:none;color:var(--muted);display:flex;gap:8px;align-items:center;border:0;min-height:42px;padding:10px 0;text-decoration:underline;text-underline-offset:3px}
+.mock-text-action svg{width:17px;height:17px}
+.mock-secondary{display:flex;align-items:center;justify-content:space-between;padding:13px 21px;width:100%;background:var(--surface2);border:1px solid var(--stroke);border-radius:14px;color:var(--cream);font:400 21px var(--font-serif)}
+.mock-secondary svg{height:18px;width:18px}
+.mock-page .input-field,.mock-page .textarea{background:#23292b;border:1px solid #3e4545;border-radius:11px;color:var(--white);padding:15px 14px;font-size:14px}
+.mock-page .field-label{display:block;margin:24px 0 12px;font:400 18px var(--font-serif);color:var(--cream)}
+/* 01–03: onboarding puts actual approved ink art ahead of decoration. */
+.mock-onboarding{position:absolute;inset:0;background:var(--bg);color:var(--cream);overflow:hidden}
+.mock-welcome .mock-welcome-art{height:72%;position:absolute;inset:0 0 auto 0;overflow:hidden;background:var(--cream)}
+.mock-welcome .mock-welcome-art img{width:100%;height:100%;object-fit:cover;object-position:center 41%;filter:grayscale(1)}
+.mock-welcome-shade{position:absolute;inset:39% 0 0;background:linear-gradient(to bottom,transparent 0%,#181b1dd8 51%,var(--bg) 82%);pointer-events:none}
+.mock-welcome-copy{position:absolute;bottom:7%;left:7%;right:7%;z-index:1}.mock-welcome-copy h1{font-size:clamp(51px,14vw,68px);margin-bottom:8px}
+.mock-welcome-copy p{font-size:13px;color:var(--muted);margin-bottom:24px}
+.mock-welcome-copy .mock-eyebrow{font-size:10px}
+.mock-onboard-content{height:100%;display:flex;flex-direction:column;padding:60px 7% 8%}
+.mock-onboard-content h1{font-size:clamp(40px,10.5vw,54px);margin:5px 0 20px}
+.mock-onboard-art{flex:1;min-height:180px;max-height:54%;border-radius:12px;overflow:hidden;background:var(--cream)}
+.mock-onboard-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:grayscale(1)}
+.mock-onboard-content p{font:400 15px/1.5 var(--font-serif);color:var(--muted);margin:15px 0 8px}
+.mock-onboard-dots{display:flex;gap:10px;align-self:center;align-items:center;color:var(--cream);margin:3px 0 12px;font-size:13px;letter-spacing:5px}
+.mock-onboard-dots span{color:var(--muted2)}
+/* 04: Today art hero, single action and a quiet second journey. */
+.mock-today .mock-section-cap{margin-top:26px;margin-bottom:13px}
+.mock-today .mock-checkin{border-radius:12px;margin:20px 0 17px;font-size:25px}
+.mock-feature{position:relative;width:100%;height:clamp(270px,76vw,400px);padding:0;border:1px solid var(--stroke);border-radius:13px;overflow:hidden;background:var(--cream);text-align:left}
+.mock-feature>img{width:100%;height:100%;object-fit:cover;object-position:52% 38%;filter:grayscale(1)}
+.mock-feature-label{display:flex;flex-direction:column;gap:5px;position:absolute;bottom:0;left:0;right:0;padding:16px 18px;color:var(--cream);background:linear-gradient(transparent,#1c2226ec 30%,#1c2226f5);min-height:75px}
+.mock-feature-label strong{font:400 31px/1.1 var(--font-serif)}.mock-feature-label small{font:400 12px/1.3 var(--font-ui);color:#d5d0c8}
+/* 05–07: image-led mood check-ins and success. */
+.device[data-page=mood] .content.no-nav,.device[data-page="mood-details"] .content.no-nav{padding-bottom:38px}
+.mood-v2 h1{font-size:clamp(40px,10.3vw,65px);margin-bottom:12px}.mood-v2-art{height:clamp(304px,80vw,440px);margin:14px 0 21px}
+.mood-v2-art img,.mood-details-hero img{filter:grayscale(1)}
+.mood-v2-options .moodface{height:clamp(40px,10.5vw,56px);width:clamp(40px,10.5vw,56px)}.mood-v2-next{border-radius:28px}
+.mood-details-v2 h1{font-size:clamp(40px,10.4vw,62px)}.mood-details-hero{height:clamp(250px,69vw,420px)}
+.mood-details-current{padding:12px 0;margin-bottom:13px}.mood-details-tags{margin-bottom:15px}.mood-details-caption{font-size:24px}
+.mood-details-pills{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.mood-details-pills .pill{font:400 12px/1.2 var(--font-ui);min-height:42px}
+.mood-details-energy{margin-bottom:16px}.mood-details-note{height:76px;min-height:70px}.mood-details-actions{margin-top:14px}
+.mock-success .mock-tall-art{height:clamp(325px,90vw,445px)}.mock-success .mock-cta{margin-top:25px}
+/* 08–11: journal empty / saved states, usable editor and individual view. */
+.mock-journal-art{height:clamp(290px,77vw,375px);margin:20px 0 17px}
+.mock-journal-art img{object-position:50% 31%}
+.mock-journal-empty h2{font-size:31px}.mock-journal-empty p{color:var(--muted);margin-bottom:26px}.mock-journal-history{padding-top:25px}.mock-journal-history h2{margin-bottom:15px}
+.mock-journal-history .search{margin-bottom:10px}.mock-reflection-row{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:15px 0;color:var(--cream);background:none;border:0;border-bottom:1px solid var(--stroke);text-align:left}
+.mock-reflection-row strong{font:400 24px/1.1 var(--font-serif);display:block}.mock-reflection-row small{font-size:11px;line-height:1.55;color:var(--muted);display:block;margin-top:6px}
+.mock-reflection-row svg{width:18px;height:18px;flex:none}.mock-noresults{color:var(--muted);font-size:13px;padding:20px 0}
+.mock-editor-art{height:clamp(215px,60vw,300px);margin:23px 0}
+.mock-editor .journal-area{min-height:143px}.mock-editor .mock-cta{margin-top:27px}
+.mock-view-art{height:clamp(300px,82vw,440px);margin:25px 0}
+.mock-entry-body{font:400 20px/1.75 var(--font-serif);white-space:normal;overflow-wrap:anywhere;color:var(--cream);min-height:80px}
+.mock-view .mock-secondary{margin-top:20px}
+/* 12–15: four distinct image journeys, functional steps. */
+.mock-grow-stack{display:flex;flex-direction:column;gap:13px;margin-top:23px}
+.mock-grow-card{height:clamp(147px,39vw,234px);position:relative;width:100%;border:1px solid var(--stroke);padding:0;overflow:hidden;background:var(--cream);border-radius:12px;text-align:left;color:var(--cream)}
+.mock-grow-card img{width:100%;height:100%;object-fit:cover;object-position:center 36%;filter:grayscale(1)}
+.mock-grow-card span{position:absolute;inset:auto 0 0;padding:23px 19px 15px;background:linear-gradient(transparent,#151819fa)}
+.mock-grow-card strong{display:block;font:400 29px var(--font-serif)}.mock-grow-card small{font:400 12px var(--font-ui);color:#d7d2ce}
+.mock-journey-detail .mock-tall-art{height:clamp(350px,94vw,460px)}
+.mock-journey-detail .mock-cta{margin:22px 0 24px}.mock-steps{padding-top:12px}.mock-steps>div{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--stroke);padding:13px 0;font-size:12px}.mock-steps svg{width:17px}
+.mock-exercise-art{height:clamp(240px,64vw,345px);margin:23px 0}.mock-exercise .journal-area{margin:18px 0 16px;min-height:142px}
+/* 16–23: insights, tools, self, settings, recovery / install. */
+.mock-insights-art{height:clamp(190px,56vw,305px);margin:22px 0 18px}
+.mock-insights .real-chart{display:flex;height:160px;align-items:end;margin-bottom:20px}
+.mock-insights .real-chart .bar-col{height:100%}.mock-insights .breakdown{margin-top:20px}
+.mock-affirmation .mock-tall-art{height:clamp(335px,83vw,460px);margin-bottom:0}
+.mock-affirmation-note{background:var(--surface);border:1px solid var(--stroke);border-radius:12px;padding:20px;margin-top:-5px;position:relative}
+.mock-affirmation blockquote{font:400 26px/1.15 var(--font-serif);margin:0;color:var(--cream)}
+.mock-affirmation .mock-cta{margin-top:28px}.mock-breathe-art{position:relative;height:clamp(375px,95vw,485px);border-radius:12px;overflow:hidden;background:var(--cream);margin:20px 0}
+.mock-breathe-art>img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.mock-breathe-art .breath-ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:146px;width:146px;border-radius:50%;border:1px solid var(--cream);background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;color:var(--cream);text-align:center}
+.mock-breathe-art .breath-ring strong{font:400 26px var(--font-serif)}.mock-breathe-art .breath-ring span{font-size:11px}
+.mock-breathe-timer{color:var(--muted);font-size:11px;margin:0 0 14px}.mock-breathe .mock-cta{margin-top:8px}
+.mock-you .mock-tall-art{height:clamp(330px,89vw,430px)}.mock-you h2{font-size:25px}
+.mock-stats{display:grid;grid-template-columns:1fr 1fr;gap:11px}.mock-stats button{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:18px;background:var(--surface);border:1px solid var(--stroke);border-radius:12px;color:var(--cream)}
+.mock-stats strong{font:400 31px var(--font-serif)}.mock-stats small{font-size:11px;color:var(--muted)}.mock-you-links{margin-top:28px}
+.mock-settings-art{height:clamp(200px,58vw,290px);margin:23px 0 20px}
+.mock-settings-group{padding:15px 0 18px;border-top:1px solid var(--stroke)}
+.mock-settings-group .mock-eyebrow{margin-bottom:8px}.mock-settings-group .setting-row,.mock-settings-group .mock-line-link{min-height:53px}
+.mock-settings-group .setting-row{background:transparent;border:0;border-bottom:1px solid var(--stroke);width:100%;color:var(--cream)}
+.mock-settings-group .setting-row strong{font:400 20px var(--font-serif)}
+.mock-settings-group .setting-row small{font:400 11px var(--font-ui);color:var(--muted);margin-top:4px}
+.mock-settings-group .mock-line-link{font-size:21px}.mock-import{cursor:pointer;position:relative}.mock-import input{position:absolute;opacity:0;width:100%;height:100%;inset:0;cursor:pointer}
+.mock-home .mock-tall-art{height:clamp(290px,77vw,410px)}
+.mock-offline .mock-tall-art,.mock-install .mock-tall-art{height:clamp(350px,92vw,465px)}
+.mock-offline .mock-cta,.mock-install .mock-cta{margin-top:26px}
+/* Motion, accessibility and viewport care. */
+body.theme-light .mock-page h1,body.theme-light .mock-page h2,body.theme-light .mock-line-link,body.theme-light .mock-journey-detail .mock-eyebrow{color:#232629}
+body.theme-light .mock-cta{background:#2b3033;color:#f0ede5;border-color:#2b3033}
+body.theme-light .mock-page .mock-lede{color:#555c5e}
+body.theme-light .mock-stats button{background:#d8d4d0;color:#232629}
+body.theme-light .mock-page .mock-eyebrow{color:#555b5d}
+body.theme-light .mock-journal-empty p{color:#555b5d}
+body.large-type .mock-lede{font-size:16px}body.large-type .mock-page h1{font-size:clamp(42px,12vw,66px)}
+@media (max-width:370px){.mock-page{padding-inline:0}.mock-page h1{font-size:39px}.mock-tall-art{height:275px}.mock-cta{font-size:21px;min-height:53px}.mood-details-pills{grid-template-columns:repeat(3,1fr)}.mock-onboard-content{padding-top:54px}.mock-onboard-art{max-height:49%}}
+@media (min-width:850px){.mock-page{padding-top:24px;padding-bottom:90px;max-width:830px}.mock-page h1{font-size:clamp(54px,5.2vw,81px)}.mock-lede{font-size:15px}.mock-tall-art,.mock-journey-detail .mock-tall-art{height:min(48vh,440px)}.mock-journal-art{height:min(44vh,420px)}.mock-feature{height:min(47vh,440px)}.mock-grow-card{height:220px}.mock-page .mock-cta{max-width:620px}}
+@media(prefers-reduced-motion:reduce){.mock-page *{scroll-behavior:auto!important;animation-duration:0.001ms!important;transition-duration:0.001ms!important}}
+/* Onboarding status is part of the actual UI rather than baked into artwork. */
+.mock-onboarding>.status{position:relative;z-index:7;color:var(--cream);height:38px;background:#181b1d66}
+.mock-onboard-content{height:calc(100% - 38px);padding-top:18px}
+@media (max-width:370px){.mock-onboard-content{padding-top:12px}}

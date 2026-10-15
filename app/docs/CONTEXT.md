@@ -1,9 +1,9 @@
-# App design and release notes
+# App design and release docs context
 
-**Purpose:** Single source for approval decisions and implementation handoffs for the BE YOU application.
+Purpose: Preserve approved design decisions, implementation notes and verification limitations without creating duplicate app source.
 
-**Key files:** `SCREEN_03_APPROVED.md` records final onboarding approval, `SCREEN_04_APPROVED.md` records the artwork-led Today dashboard approval, `SCREEN_05_APPROVED.md` and `SCREEN_06_APPROVED.md` record mood screen decisions, and `DESKTOP_MOBILE_RELEASE.md` describes responsive delivery.
+Key files: `APPROVED_23_SCREEN_BASELINE.md` is the current approval handoff. Prior `SCREEN_03_APPROVED.md`–`SCREEN_06_APPROVED.md` are historical; `DESKTOP_MOBILE_RELEASE.md` describes platform behavior.
 
-**Connections:** These documents refer to implementation in `../functional.js`, styling in `../responsive.css` and live artwork in `../assets/approved/`. They are not a second app or a collection of invented screenshot evidence.
+Connections: Current 23-screen references under `../../references/approved/mockups-2026-10-15/`, real app in `../functional.js` and `../responsive.css`.
 
-**Change & verify:** Write only explicit approvals; cross-check current code and user-approved composition. Keep later screens pending until reviewed.
+Change and verify: Record only actual user approvals; distinguish static mockups from real Chromium screenshots. `cd app && npm test` and inspect live Pages workflow.

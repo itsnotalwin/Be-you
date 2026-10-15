@@ -1,0 +1,140 @@
+[
+  {
+    "number": 1,
+    "label": "Welcome",
+    "file": "01_welcome.png",
+    "route": "welcome"
+  },
+  {
+    "number": 2,
+    "label": "Onboarding Notice",
+    "file": "02_onboarding_notice.png",
+    "route": "onboard-notice"
+  },
+  {
+    "number": 3,
+    "label": "Onboarding Grow",
+    "file": "03_onboarding_grow.png",
+    "route": "onboard-grow"
+  },
+  {
+    "number": 4,
+    "label": "Today Dashboard",
+    "file": "04_today_dashboard.png",
+    "route": "today"
+  },
+  {
+    "number": 5,
+    "label": "Mood Selection",
+    "file": "05_mood_selection.png",
+    "route": "mood"
+  },
+  {
+    "number": 6,
+    "label": "Mood Details",
+    "file": "06_mood_details.png",
+    "route": "mood-details"
+  },
+  {
+    "number": 7,
+    "label": "Checkin Saved",
+    "file": "07_checkin_saved.png",
+    "route": "mood-saved"
+  },
+  {
+    "number": 8,
+    "label": "Journal Empty",
+    "file": "08_journal_empty.png",
+    "route": "journal (empty)"
+  },
+  {
+    "number": 9,
+    "label": "Journal With Entries",
+    "file": "09_journal_with_entries.png",
+    "route": "journal (has records)"
+  },
+  {
+    "number": 10,
+    "label": "Write Reflection",
+    "file": "10_write_reflection.png",
+    "route": "journal-edit"
+  },
+  {
+    "number": 11,
+    "label": "View Reflection",
+    "file": "11_view_reflection.png",
+    "route": "journal-view"
+  },
+  {
+    "number": 12,
+    "label": "Heal And Grow",
+    "file": "12_heal_and_grow.png",
+    "route": "heal"
+  },
+  {
+    "number": 13,
+    "label": "Journey Details",
+    "file": "13_journey_details.png",
+    "route": "journey-detail"
+  },
+  {
+    "number": 14,
+    "label": "Guided Exercise",
+    "file": "14_guided_exercise.png",
+    "route": "exercise"
+  },
+  {
+    "number": 15,
+    "label": "Journey Complete",
+    "file": "15_journey_complete.png",
+    "route": "journey-complete"
+  },
+  {
+    "number": 16,
+    "label": "Insights",
+    "file": "16_insights.png",
+    "route": "insights"
+  },
+  {
+    "number": 17,
+    "label": "Affirmations",
+    "file": "17_affirmations.png",
+    "route": "affirmations"
+  },
+  {
+    "number": 18,
+    "label": "Breathing",
+    "file": "18_breathing.png",
+    "route": "breathe"
+  },
+  {
+    "number": 19,
+    "label": "You Profile",
+    "file": "19_you_profile.png",
+    "route": "you"
+  },
+  {
+    "number": 20,
+    "label": "Settings",
+    "file": "20_settings.png",
+    "route": "settings"
+  },
+  {
+    "number": 21,
+    "label": "Home",
+    "file": "21_home.png",
+    "route": "home"
+  },
+  {
+    "number": 22,
+    "label": "Offline",
+    "file": "22_offline.png",
+    "route": "offline"
+  },
+  {
+    "number": 23,
+    "label": "Install",
+    "file": "23_install.png",
+    "route": "install"
+  }
+]
