@@ -109,3 +109,145 @@ body.theme-light .desktop-links button.active{background:#c4bdb3;color:#151b1e;b
 body.theme-light .desktop-links button:hover{background:#cbc5bc;}
 body.theme-light .content {color:#272b30;}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;}}
+
+
+/* WELCOME V2 — editorial first screen. Narrow scope to one screen. */
+.welcome{isolation:isolate}
+.welcomeart{height:52%;min-height:0;background:#e9e5dd}
+.welcomeart img{height:100%;width:100%;object-fit:cover;object-position:center 38%}
+.welcome::after{top:48%;height:4%;z-index:1}
+.welcomefooter{inset:53% 27px 19px;gap:0}
+.welcome-eyebrow{font-size:9px;line-height:1.4;letter-spacing:.23em;font-weight:650;color:#b4ada3;margin-bottom:9px}
+.welcomefooter h1{font:400 clamp(55px,15vw,69px)/.95 var(--font-serif);letter-spacing:-.045em;margin:0 0 12px}
+.welcome-title-dot{color:#c9b39a}
+.welcomefooter .welcome-lede{font-size:16px;line-height:1.4;letter-spacing:-.015em;color:#f2ede7;margin:0}
+.welcomefooter .welcome-details{font-size:12px;line-height:1.55;color:#a9afb0;margin:12px 0 0}
+.welcomeaction{margin-top:auto;margin-bottom:0;align-items:center;gap:14px}
+.welcome-progress{display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-width:85px}
+.welcome-progress-count{font-size:10px;letter-spacing:.16em;color:#b7b8b6;font-variant-numeric:tabular-nums}
+.welcome-progress-count span{color:#6b747b;margin:0 4px}
+.welcome-progress .dots{display:flex;align-items:center;gap:7px}
+.welcome-progress .dots span{height:5px;width:5px;border-radius:50%;background:#57616a}
+.welcome-progress .dots span.on{background:#f0ebe5;width:18px;border-radius:8px}
+.welcome-next{display:flex;align-items:center;gap:12px;padding:0 0 0 13px;background:transparent;color:#f4f0ea;border:0;font-size:13px;font-weight:600;letter-spacing:.01em;min-height:60px}
+.welcome-next-icon{width:56px;height:56px;border-radius:50%;background:#ede8df;color:#20252a;display:flex;align-items:center;justify-content:center;transition:transform .2s ease,background .2s ease}
+.welcome-next-icon svg{width:25px;height:25px;stroke-width:1.8}
+.welcome-next:hover .welcome-next-icon{transform:translateX(3px);background:#fff}
+.welcome-next:focus-visible{outline:2px solid #ede8df;outline-offset:5px;border-radius:6px}
+.welcome-note{border-top:1px solid #343b40;padding-top:13px;margin-top:16px;font-size:8.5px;line-height:1.4;letter-spacing:.19em;color:#898f90}
+@media(min-width:700px){
+  .welcome{grid-template-columns:minmax(0,1.04fr) minmax(350px,.96fr)}
+  .welcomeart{height:100%;max-height:none}
+  .welcomeart img{object-position:50% 43%}
+  .welcomefooter{inset:auto;padding:clamp(34px,6vw,108px);max-width:760px;justify-content:center}
+  .welcome-eyebrow{font-size:11px;margin-bottom:25px}
+  .welcomefooter h1{font-size:clamp(80px,8.7vw,144px);margin-bottom:22px}
+  .welcomefooter .welcome-lede{font-size:clamp(18px,2.1vw,26px)}
+  .welcomefooter .welcome-details{font-size:clamp(13px,1.3vw,17px);margin-top:20px}
+  .welcomeaction{margin-top:clamp(40px,7vh,90px);margin-bottom:0;max-width:470px}
+  .welcome-next{font-size:16px;gap:21px}
+  .welcome-next-icon{height:66px;width:66px}
+  .welcome-note{margin-top:30px;font-size:10px}
+  .welcome::after{display:none}
+}
+@media(max-width:699px){
+  .welcomefooter{bottom:max(16px,env(safe-area-inset-bottom,16px))}
+  .welcomeaction{margin-bottom:0}
+}
+@media(max-width:370px){
+  .welcomefooter{left:21px;right:21px}
+  .welcomefooter h1{font-size:53px}
+  .welcomefooter .welcome-lede{font-size:14px}
+  .welcomefooter .welcome-details{font-size:11.5px;margin-top:8px}
+  .welcome-next{gap:8px;font-size:12px}
+  .welcome-next-icon{width:50px;height:50px}
+  .welcome-note{font-size:8px;letter-spacing:.14em;margin-top:9px;padding-top:9px}
+}
+@media(max-height:720px) and (max-width:699px){
+  .welcomeart{height:46%}
+  .welcome::after{top:43%;height:4%}
+  .welcomefooter{inset:47% 22px 12px}
+  .welcome-eyebrow{margin-bottom:7px}
+  .welcomefooter h1{font-size:50px;margin-bottom:8px}
+  .welcomefooter .welcome-details{margin-top:8px}
+  .welcome-note{margin-top:7px;padding-top:7px}
+}
+@media(prefers-reduced-motion:reduce){.welcome-next-icon{transition:none}}
+/* Avoid legacy circular arrow-only button styles overriding the labelled CTA. */
+.welcomeaction button.welcome-next {
+  width:auto;
+  height:auto;
+  min-width:0;
+  min-height:60px;
+  border-radius:0;
+  padding:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:12px;
+  background:transparent;
+  color:#f4f0ea;
+  font-size:13px;
+  font-weight:600;
+  white-space:nowrap;
+}
+@media(min-width:700px){.welcomeaction button.welcome-next{font-size:16px;gap:18px}}
+@media(max-width:370px){.welcomeaction button.welcome-next{font-size:12px;gap:8px}}
+
+/* SCREEN 02 PREVIEW — Understand your emotions. Scoped to this approved-art onboarding step. */
+.onboard-notice-screen{isolation:isolate;background:#eae6de;color:#1d2428}
+.onboard-notice-screen .onboard-notice-art{height:51%;min-height:0;overflow:hidden;background:#eae6de;position:relative}
+.onboard-notice-screen .onboard-notice-art img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}
+.onboard-notice-screen .onboard-notice-content{height:49%;display:flex;flex-direction:column;min-height:0;padding:25px 28px 21px;background:#eae6de;border-top:1px solid rgba(37,44,48,.10)}
+.onboard-notice-screen .notice-overline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 13px;font-size:10px;font-weight:650;line-height:1.2;letter-spacing:.18em;color:#596063}
+.onboard-notice-screen .notice-count{font-size:10px;letter-spacing:.14em;white-space:nowrap;color:#293136;font-variant-numeric:tabular-nums}
+.onboard-notice-screen .notice-count span{color:#a4a49d;padding:0 3px}
+.onboard-notice-screen .onboard-notice-content h1{font-family:var(--font-serif);font-style:normal;font-weight:400;font-size:clamp(41px,11.2vw,53px);line-height:.94;letter-spacing:-.04em;color:#1f2529;margin:0 0 12px}
+.onboard-notice-screen .onboard-notice-content h1 em{font-weight:400;font-style:italic;letter-spacing:-.06em}
+.onboard-notice-screen .onboard-notice-content p{max-width:342px;font-size:13px;line-height:1.55;color:#4f585c;margin:0}
+.onboard-notice-screen .notice-footer{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:auto;min-height:60px;width:100%}
+.onboard-notice-screen .notice-back,.onboard-notice-screen .notice-forward{border:0;background:none;display:inline-flex;align-items:center;color:#23292c;padding:4px 0;line-height:1.3;font-size:12px;font-weight:630;white-space:nowrap}
+.onboard-notice-screen .notice-back{gap:5px;color:#626b6e}
+.onboard-notice-screen .notice-back svg{width:14px;height:14px;transform:rotate(180deg)}
+.onboard-notice-screen .notice-forward{gap:10px;font-size:13px}
+.onboard-notice-screen .notice-forward .notice-arrow{height:47px;width:47px;border-radius:50%;display:flex;justify-content:center;align-items:center;background:#22282c;color:#f1eee7;transition:background .18s ease,transform .18s ease}
+.onboard-notice-screen .notice-forward .notice-arrow svg{width:22px;height:22px}
+.onboard-notice-screen .notice-forward:hover .notice-arrow{background:#495153;transform:translateX(3px)}
+.onboard-notice-screen .notice-back:hover{text-decoration:underline;text-underline-offset:4px}
+.onboard-notice-screen .notice-back:focus-visible,.onboard-notice-screen .notice-forward:focus-visible{outline:2px solid #252b30;outline-offset:4px;border-radius:3px}
+.onboard-notice-screen .notice-dots{display:flex;align-items:center;gap:6px}
+.onboard-notice-screen .notice-dots span{width:5px;height:5px;background:#a8aaa4;border-radius:7px}
+.onboard-notice-screen .notice-dots span.active{width:20px;background:#23292d}
+.onboard-notice-screen .notice-baseline{font-size:8px;font-weight:580;letter-spacing:.16em;color:#6f787b;border-top:1px solid rgba(38,44,47,.17);padding-top:11px;margin-top:10px;line-height:1.4}
+@media(max-width:370px){
+ .onboard-notice-screen .onboard-notice-art{height:46%}
+ .onboard-notice-screen .onboard-notice-content{height:54%;padding:17px 21px 12px}
+ .onboard-notice-screen .notice-overline{margin-bottom:10px;font-size:8px}
+ .onboard-notice-screen .onboard-notice-content h1{font-size:41px;margin-bottom:10px}
+ .onboard-notice-screen .onboard-notice-content p{font-size:12px}
+ .onboard-notice-screen .notice-baseline{font-size:7.5px;letter-spacing:.11em;margin-top:6px;padding-top:8px}
+ .onboard-notice-screen .notice-forward .notice-arrow{height:43px;width:43px}
+}
+@media(max-width:699px) and (max-height:740px){
+ .onboard-notice-screen .onboard-notice-art{height:44%}
+ .onboard-notice-screen .onboard-notice-content{height:56%;padding-top:14px;padding-bottom:12px}
+ .onboard-notice-screen .notice-overline{margin-bottom:9px}
+ .onboard-notice-screen .onboard-notice-content h1{font-size:clamp(38px,10vw,47px);margin-bottom:9px}
+ .onboard-notice-screen .onboard-notice-content p{font-size:12px}
+ .onboard-notice-screen .notice-baseline{margin-top:6px;padding-top:7px}
+}
+@media(min-width:700px){
+ .onboard-notice-screen{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(350px,.95fr)}
+ .onboard-notice-screen .onboard-notice-art{grid-column:1;grid-row:1;height:100%;border-right:1px solid rgba(37,44,48,.15)}
+ .onboard-notice-screen .onboard-notice-art img{object-position:48% 41%}
+ .onboard-notice-screen .onboard-notice-content{grid-column:2;grid-row:1;min-height:0;height:100%;border-top:0;justify-content:center;padding:clamp(40px,6vw,110px);max-width:none}
+ .onboard-notice-screen .notice-overline{max-width:540px;margin-bottom:clamp(30px,4.5vw,60px);font-size:11px}
+ .onboard-notice-screen .onboard-notice-content h1{font-size:clamp(58px,6vw,98px);line-height:.96;margin-bottom:24px}
+ .onboard-notice-screen .onboard-notice-content p{font-size:clamp(15px,1.3vw,18px);line-height:1.65;max-width:430px}
+ .onboard-notice-screen .notice-footer{max-width:510px;margin-top:clamp(45px,7vh,105px);min-height:66px}
+ .onboard-notice-screen .notice-back{font-size:14px;gap:10px}
+ .onboard-notice-screen .notice-forward{font-size:16px;gap:15px}
+ .onboard-notice-screen .notice-forward .notice-arrow{height:62px;width:62px}
+ .onboard-notice-screen .notice-baseline{max-width:510px;padding-top:19px;margin-top:24px;font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){.onboard-notice-screen .notice-arrow{transition:none!important}}
