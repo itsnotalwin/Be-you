@@ -1,5 +1,5 @@
 /* Offline shell. No analytics and no network calls made for private data. */
-const CACHE='be-you-v6-approved-mood-05';
+const CACHE='be-you-v7-approved-mood-details-06';
 const ASSETS=['./','./index.html','./ui-primitives.js','./functional.js','./app.css','./responsive.css','./responsive-nav.js','./manifest.webmanifest',
 './assets/icons/favicon.svg','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/icons/apple-touch-icon.png',
 ...['volume-01/01-contemplative-koi-and-sakura.webp',
