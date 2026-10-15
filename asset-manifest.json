@@ -1,0 +1,43 @@
+{
+  "project": "BE YOU",
+  "collection": "design references",
+  "approved_on": "2026-10-15",
+  "assets": [
+    {
+      "path": "references/approved/01-character-sheet.png",
+      "description": "Approved character sheet: protagonist views, expressions, and motifs",
+      "role": "APPROVED REFERENCE",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1855246,
+      "sha256": "e227d6e10723294bab00239f4585568e70f77a4dd470b1237785736ebf2af0c7"
+    },
+    {
+      "path": "references/approved/02-illustration-library.png",
+      "description": "Approved illustration library concept: onboarding, emotional journeys, mood portraits, and motifs",
+      "role": "APPROVED REFERENCE",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1946038,
+      "sha256": "fb1f9cec2be109afb5057f3bc8b66ca2a48de6edea73138197462c40816dc1e9"
+    },
+    {
+      "path": "references/approved/03-updated-app-screens.png",
+      "description": "Approved updated UI concept screens: onboarding, Today, moods, journal, Heal & Grow",
+      "role": "APPROVED REFERENCE",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1883995,
+      "sha256": "635556b651a402deea7695a4189b4bd40e550e4dfc73c81cc965da5492675a11"
+    },
+    {
+      "path": "references/inspiration/00-original-visual-reference.jpg",
+      "description": "Original user-provided layout and minimal ink inspiration",
+      "role": "INSPIRATION ONLY",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 145257,
+      "sha256": "3a69a5f06bd7b7919bb53fdbb2cbc41cc048bd7afddcb3b47f48f88059359884"
+    }
+  ]
+}
