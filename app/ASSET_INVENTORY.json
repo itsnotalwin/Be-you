@@ -1,261 +1,128 @@
 {
-  "app": "BE YOU",
-  "files": [
+  "project": "BE YOU",
+  "status": "Phase 01 approved art integrated; reviewed PWA prototype",
+  "asset_count": 20,
+  "assets": [
     {
-      "path": "README.md",
-      "size": 4167
+      "path": "assets/approved/volume-01/01-contemplative-koi-and-sakura.webp",
+      "bytes": 167096,
+      "sha256": "ff7a93d87f247b7ff903ebd1577fcda340a943fda76bf39d60682edd3a55f807",
+      "category": "approved"
     },
     {
-      "path": "app.css",
-      "size": 20212
+      "path": "assets/approved/volume-01/02-koi-and-blossom-reverie.webp",
+      "bytes": 172614,
+      "sha256": "f3500788750fb56092d887e7567e0e9c74c4a6befc94f525edde9b0b725e9dab",
+      "category": "approved"
     },
     {
-      "path": "assets/brand/EBGaramond-Regular.woff",
-      "size": 249060
+      "path": "assets/approved/volume-01/03-unsent-letter.webp",
+      "bytes": 123396,
+      "sha256": "76f2726de2d37e0ca1978feef498e47364f01b3a51b82aaf82f16034f394d929",
+      "category": "approved"
+    },
+    {
+      "path": "assets/approved/volume-01/04-letting-go.webp",
+      "bytes": 143342,
+      "sha256": "93d8bb81bd1fd20a1c7a3062cf206d77d6aae55c01d8d455b0d7e6f271e6bcde",
+      "category": "approved"
+    },
+    {
+      "path": "assets/approved/volume-02/01-travel-journal.webp",
+      "bytes": 209576,
+      "sha256": "2cd40aee4fc16f57f21363a5c1b0ee0d44c5fb4a3f6a0ccbf53a9b24df022c58",
+      "category": "approved"
+    },
+    {
+      "path": "assets/approved/volume-02/02-rethinking-loneliness.webp",
+      "bytes": 213892,
+      "sha256": "0131f6c7d2906e7d7f5f867f73e0d8273beb17bd8af21fc0dbdb73559230e7a1",
+      "category": "approved"
+    },
+    {
+      "path": "assets/approved/volume-02/03-calm-koi.webp",
+      "bytes": 222008,
+      "sha256": "87553cb2d4afa6d22132cc28b6e21b92b870ecdf19eeecf6905fc57923669105",
+      "category": "approved"
+    },
+    {
+      "path": "assets/approved/volume-02/04-hopeful-blooms.webp",
+      "bytes": 197406,
+      "sha256": "3a92cdf640bb10bc3faa2a89883fe00c39f03e5b4038375cf29bd4efaa94f85c",
+      "category": "approved"
     },
     {
       "path": "assets/brand/flower-line.png",
-      "size": 74113
+      "bytes": 74113,
+      "sha256": "e1d6347264aa1998d53f64be84f334d4f2c5f89b665d3829e21be7272d057988",
+      "category": "brand_or_icon"
     },
     {
       "path": "assets/brand/flower-line.svg",
-      "size": 1052
+      "bytes": 1052,
+      "sha256": "3943681e5af03acf472887c5b425d077e48e4fe25c632c106cf3538157cded07",
+      "category": "brand_or_icon"
     },
     {
       "path": "assets/brand/koi-botanical.png",
-      "size": 87720
+      "bytes": 87720,
+      "sha256": "a4744c75a140de21dd9b3c4ae97c539b0c14c9772d2ee059ee0bdfc90c26d51d",
+      "category": "brand_or_icon"
     },
     {
       "path": "assets/brand/koi-botanical.svg",
-      "size": 1743
+      "bytes": 1743,
+      "sha256": "d9d06ccfec5ec6bbcd8e0253fb6af0a133bc66b5a84dce6bfa6b5d527cb8f93d",
+      "category": "brand_or_icon"
     },
     {
       "path": "assets/brand/wordmark.svg",
-      "size": 431
+      "bytes": 431,
+      "sha256": "92f3e91a86ecb27ce9297d6f7c55261155522e6821aa0a210b8439207f8b82f5",
+      "category": "brand_or_icon"
     },
     {
       "path": "assets/icons/apple-touch-icon.png",
-      "size": 43290
+      "bytes": 43290,
+      "sha256": "9aa5dfd82c0fab6dfcd7bc98bc3fbe855f1f2d4e95ba0dc6b941f5cce2dc2cf2",
+      "category": "brand_or_icon"
     },
     {
       "path": "assets/icons/favicon.svg",
-      "size": 246
+      "bytes": 246,
+      "sha256": "81f4d8af0fc7fe234f39a5c5f8f2607aecd6ce9338ddcd035fc734177d9b76f8",
+      "category": "brand_or_icon"
     },
     {
       "path": "assets/icons/icon-192.png",
-      "size": 48532
+      "bytes": 48532,
+      "sha256": "0a8f7c6525e4edd6ead7a6017e4ed901151250af001ea2bfd6703774fb195892",
+      "category": "brand_or_icon"
     },
     {
       "path": "assets/icons/icon-512.png",
-      "size": 235766
+      "bytes": 235766,
+      "sha256": "ae4c3fd72fd4e2e5ed45a986f871d2bfac3725504d2c6981482cc593bf2e1883",
+      "category": "brand_or_icon"
     },
     {
       "path": "assets/icons/maskable-512.png",
-      "size": 144150
+      "bytes": 144150,
+      "sha256": "0e2c5ec7f96459292f83b4dd3ee45b5511a4c6ab5e87e99249f4280e3ce3fac9",
+      "category": "brand_or_icon"
     },
     {
       "path": "assets/manga/cat-window.webp",
-      "size": 53536
+      "bytes": 53536,
+      "sha256": "319b1311fa6a942506884530ff751b310387756a2d9e7cad6bcb4ed42fcc3ebf",
+      "category": "fallback"
     },
     {
       "path": "assets/manga/city-night.webp",
-      "size": 75538
-    },
-    {
-      "path": "assets/manga/exercise-breathe.webp",
-      "size": 72114
-    },
-    {
-      "path": "assets/manga/flowers.webp",
-      "size": 47660
-    },
-    {
-      "path": "assets/manga/insights-reflection.webp",
-      "size": 44698
-    },
-    {
-      "path": "assets/manga/journal-quiet.webp",
-      "size": 118810
-    },
-    {
-      "path": "assets/manga/journey-letting-go.webp",
-      "size": 111276
-    },
-    {
-      "path": "assets/manga/journey-loneliness.webp",
-      "size": 66406
-    },
-    {
-      "path": "assets/manga/journey-travel.webp",
-      "size": 48198
-    },
-    {
-      "path": "assets/manga/journey-unsent.webp",
-      "size": 60612
-    },
-    {
-      "path": "assets/manga/portrait-affirm.webp",
-      "size": 68954
-    },
-    {
-      "path": "assets/manga/portrait-reflect.webp",
-      "size": 75610
-    },
-    {
-      "path": "assets/manga/welcome-be-you.webp",
-      "size": 88052
-    },
-    {
-      "path": "assets/manga/welcome-grow.webp",
-      "size": 95204
-    },
-    {
-      "path": "assets/manga/welcome-notice.webp",
-      "size": 60064
-    },
-    {
-      "path": "assets/manga/you-portrait.webp",
-      "size": 64018
-    },
-    {
-      "path": "docs/AGENT_HANDOFF.md",
-      "size": 1713
-    },
-    {
-      "path": "docs/IMPLEMENTATION_NOTES.md",
-      "size": 2004
-    },
-    {
-      "path": "docs/PRODUCT_DESIGN_SPEC.md",
-      "size": 33804
-    },
-    {
-      "path": "functional.js",
-      "size": 33311
-    },
-    {
-      "path": "index.html",
-      "size": 1498
-    },
-    {
-      "path": "manifest.webmanifest",
-      "size": 603
-    },
-    {
-      "path": "package.json",
-      "size": 217
-    },
-    {
-      "path": "reference/NEW_AI_ART_DIRECTION_BOARD.png",
-      "size": 2117582
-    },
-    {
-      "path": "reference/original_reference.jpg",
-      "size": 97048
-    },
-    {
-      "path": "screenshots/01_today.png",
-      "size": 397008
-    },
-    {
-      "path": "screenshots/02_mood.png",
-      "size": 263952
-    },
-    {
-      "path": "screenshots/03_mood_saved.png",
-      "size": 562725
-    },
-    {
-      "path": "screenshots/04_journal_empty.png",
-      "size": 149031
-    },
-    {
-      "path": "screenshots/05_journal_with_entry.png",
-      "size": 107261
-    },
-    {
-      "path": "screenshots/06_insights.png",
-      "size": 90391
-    },
-    {
-      "path": "screenshots/07_heal.png",
-      "size": 273094
-    },
-    {
-      "path": "screenshots/08_journey.png",
-      "size": 346666
-    },
-    {
-      "path": "screenshots/09_exercise.png",
-      "size": 274547
-    },
-    {
-      "path": "screenshots/10_you.png",
-      "size": 396184
-    },
-    {
-      "path": "screenshots/11_settings.png",
-      "size": 98533
-    },
-    {
-      "path": "screenshots/12_affirmations.png",
-      "size": 277043
-    },
-    {
-      "path": "screenshots/13_breathe.png",
-      "size": 315343
-    },
-    {
-      "path": "screenshots/14_welcome.png",
-      "size": 583138
-    },
-    {
-      "path": "screenshots/15_onboard.png",
-      "size": 495260
-    },
-    {
-      "path": "screenshots/16_onboard_grow.png",
-      "size": 762121
-    },
-    {
-      "path": "screenshots/17_home.png",
-      "size": 443427
-    },
-    {
-      "path": "screenshots/18_journal_editor.png",
-      "size": 69119
-    },
-    {
-      "path": "screenshots/19_offline.png",
-      "size": 510804
-    },
-    {
-      "path": "screenshots/20_install.png",
-      "size": 476607
-    },
-    {
-      "path": "screenshots/21_journey_complete.png",
-      "size": 415997
-    },
-    {
-      "path": "screenshots/CONTACT_SHEET.png",
-      "size": 1847023
-    },
-    {
-      "path": "server.mjs",
-      "size": 1402
-    },
-    {
-      "path": "styles.css",
-      "size": 9598
-    },
-    {
-      "path": "sw.js",
-      "size": 1471
-    },
-    {
-      "path": "ui-primitives.js",
-      "size": 25058
+      "bytes": 75538,
+      "sha256": "e9738100ed8eba2feb0e2bbbe82a243a17d7d2d12982d7b6d9cadc005ce5da16",
+      "category": "fallback"
     }
-  ]
+  ],
+  "important": "Source illustration masters and approval history live at repo root under assets/illustrations. Scene and UI mockups are distinct."
 }
