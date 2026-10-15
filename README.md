@@ -23,3 +23,10 @@ See [the style guide](docs/STYLE_GUIDE.md), [asset inventory](docs/ASSET_INVENTO
 The three approved images are **visual concept boards**, not separate production-ready artwork. The original inspiration photo is for art direction, not a source to copy or redistribute as application artwork.
 
 **Keep this repository private** until asset rights and publication plans have been reviewed.
+
+## Working PWA — Phase 01
+
+The functional, local-first BE YOU interface now lives under **[`pwa/`](pwa/)**, with all eight approved illustrations integrated into onboarding, the Today dashboard, Heal & Grow journeys and reflection screens. Run it locally with `cd pwa && npm start`, then open `http://localhost:4173`.
+
+[View the updated screen preview](references/phase-01/PHASE_01_CONTACT_SHEET.jpg) · [View the implementation handoff](pwa/docs/PHASE_01_ART_INTEGRATION.md)
+
