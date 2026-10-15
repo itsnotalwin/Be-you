@@ -28,6 +28,18 @@ These are screenshots from the UI refinement of the running prototype, preserved
 
 The **eight approved standalone illustrations** used at runtime live inside [`app/assets/approved/`](app/assets/approved/). The reference boards are visual guidance, not separate production-ready images.
 
+## Deploy to GitHub Pages
+
+GitHub Pages must be set to **GitHub Actions**, not **Deploy from a branch → /docs**. The old `docs/` publish source was removed during consolidation, which caused the Pages Jekyll build to fail.
+
+1. Open **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+2. Open **Actions → Deploy BE YOU to GitHub Pages** and select **Run workflow** (branch `main`), or push a change to `app/`.
+3. Watch the **Verify and publish app/** job. It runs `npm test` and publishes only the `app/` folder, so `app/index.html` becomes the site's home page. Reference images remain in the repo but are not deployed to the app site.
+
+**Live URL after a successful deployment:** https://itsnotalwin.github.io/Be-you/
+
+No separate `docs/`, `dist/`, or duplicate app directory is required. See [the deploy workflow](.github/workflows/deploy-pages.yml).
+
 ## Run locally
 
 Requires **Node.js 18+**, with no third-party runtime packages.
