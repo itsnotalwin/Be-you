@@ -1,0 +1,54 @@
+{
+  "collection": "BE YOU Illustration Library",
+  "volume": "01",
+  "style": "minimal editorial manga",
+  "status": "in-progress",
+  "palette": {
+    "ink": "#191C20",
+    "ivory": "#E5E2DD",
+    "surface": "#1A1D22"
+  },
+  "assets": [
+    {
+      "id": "twin-koi",
+      "path": "decorative/twin-koi.svg",
+      "type": "image/svg+xml",
+      "background": "transparent",
+      "role": [
+        "decorative",
+        "onboarding",
+        "journey"
+      ],
+      "status": "committed-needs-design-review"
+    },
+    {
+      "id": "blossom-branch",
+      "path": "decorative/blossom-branch.svg",
+      "type": "image/svg+xml",
+      "background": "transparent",
+      "role": [
+        "decorative",
+        "journey",
+        "journal"
+      ],
+      "status": "committed-needs-design-review"
+    }
+  ],
+  "planned": [
+    {
+      "id": "protagonist-splash",
+      "path": "characters/protagonist-splash.png",
+      "status": "generating-not-committed"
+    },
+    {
+      "id": "expressions",
+      "path": "characters/expressions/",
+      "status": "planned"
+    },
+    {
+      "id": "journey-scenes",
+      "path": "journeys/",
+      "status": "planned"
+    }
+  ]
+}
