@@ -27,7 +27,7 @@ const SVG={
 const ico = (name,sty='') => `<svg viewBox="0 0 24 24" aria-hidden="true" style="${sty}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${SVG[name]||SVG.arrow}</svg>`;
 const status=()=>`<div class="status"><span>9:41</span><span class="statusright">▴▴  ◖◖  ▰</span></div>`;
 const homeind=()=>`<div class="homeindicator"></div>`;
-const nav=(which='today')=>`<footer class="screenfooter">${[['home','home','Home'],['today','calendar','Today'],['you','user','You']].map(([id,ic,lab])=>`<button data-screen="${id}" class="${which===id?'active':''}">${ico(ic)}${lab}</button>`).join('')}</footer>`;
+const nav=(which='today')=>`<nav class="screenfooter" aria-label="Primary navigation">${[['home','home','Home'],['today','calendar','Today'],['you','user','You']].map(([id,ic,lab])=>`<button type="button" data-screen="${id}" class="${which===id?'active':''}" ${which===id?'aria-current="page"':''}>${ico(ic)}<span>${lab}</span></button>`).join('')}</nav>`;
 const headerRow=(text,back='today',right='')=>`<div class="toprow" style="margin-bottom:20px"><button class="iconbtn" data-screen="${back}" aria-label="Back">${ico('back')}</button><span style="font-size:12px">${text}</span>${right||'<div style="width:36px"></div>'}</div>`;
 const tile=(img,t,s='journey-detail')=>`<div class="arttile" data-screen="${s}"><div class="art"><img src="${artwork(img)}" alt=""></div><label>${t}</label></div>`;
 const button=(text,dest='today',type='primary',extra='')=>`<button class="${type}" data-screen="${dest}" ${extra}>${text}</button>`;

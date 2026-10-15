@@ -2,15 +2,15 @@
 
 **A private, manga-illustrated space to notice, reflect, heal and grow.**
 
-[![BE YOU — six screens from the running PWA](docs/previews/SCREEN_GALLERY.webp)](docs/previews/SCREEN_GALLERY.webp)
+[![BE YOU — updated screens after UI refinement](docs/previews/UI_REFINEMENT_GALLERY.webp)](docs/previews/UI_REFINEMENT_GALLERY.webp)
 
-**Status:** working local-first PWA prototype · **Art direction:** approved minimal black-and-ivory editorial manga · **Last visual review:** 15 October 2026.
+**Status:** working local-first PWA prototype · **Art direction:** approved minimal black-and-ivory editorial manga · **UI refinement:** 15 October 2026; browser-rendered in isolated test harness (see QA notes below).
 
 > **Start here:** The app lives in [`app/`](app/). The previous `pwa/` copy has been consolidated. The approved images live in [`assets/illustrations/`](assets/illustrations/), and visual direction lives in [`references/approved/`](references/approved/). This is an actively developed prototype, **not** a clinical service or production deployment.
 
-## Screen gallery — real UI captures
+## Screen gallery — revised mobile interface
 
-These are **screenshots from the implemented mobile interface**, not AI-generated phone mockups. Click any image to enlarge it.
+The refreshed gallery above was rendered with the actual BE YOU screen templates, images, and CSS in an isolated browser harness. It is not AI-generated artwork. The smaller screen tiles below are the earlier Phase 1 HTTP captures; they remain useful for before/after review until a full served-app capture is completed.
 
 | Welcome | Onboarding | Today |
 |:--:|:--:|:--:|
@@ -20,7 +20,7 @@ These are **screenshots from the implemented mobile interface**, not AI-generate
 | **Journey detail** | **Home** | **Your profile** |
 | [![Journey detail](docs/previews/screens/journey-detail.webp)](docs/previews/screens/journey-detail.webp) | [![Home](docs/previews/screens/home.webp)](docs/previews/screens/home.webp) | [![Profile](docs/previews/screens/profile.webp)](docs/previews/screens/profile.webp) |
 
-More views: [Phase 01 contact sheet](app/screenshots/PHASE_01_CONTACT_SHEET.jpg) · [UI-to-mockup review](docs/UI_PARITY.md).
+New visuals: [UI refinement contact sheet](docs/previews/UI_REFINEMENT_GALLERY.webp) · [UI refinement notes](docs/UI_REFINEMENT.md). Earlier captures: [Phase 01 contact sheet](app/screenshots/PHASE_01_CONTACT_SHEET.jpg) · [UI-to-mockup review](docs/UI_PARITY.md).
 
 ## Approved design references
 
@@ -69,7 +69,7 @@ Be-you/
 ├── README.md                      ← this visual project homepage
 ├── app/                           ← single runnable PWA source (no duplicate app)
 │   ├── index.html
-│   ├── styles.css, app.css
+│   ├── styles.css, app.css, refinement.css
 │   ├── ui-primitives.js, functional.js
 │   ├── assets/approved/           ← 8 approved, local WebP runtime assets
 │   ├── assets/manga/              ← documented fallback artwork (2 scenes)
@@ -95,6 +95,6 @@ Be-you/
 
 ## Next milestone
 
-Phase 01 integrates the eight approved standalone images and preserves working behaviour. Next: approve the revised UI gallery, complete more diverse *independent* art assets (environment-only scenes, poses and decorative motifs), then run full device, privacy, accessibility and installation QA before deployment.
+Phase 01 integrates the eight approved standalone images. The UI refinement pass is committed with tighter spacing, higher text contrast, intentional image crops, improved nav semantics, and an updated visual gallery. Next: approve the revised UI gallery, complete more diverse *independent* art assets (environment-only scenes, poses and decorative motifs), then run full device, privacy, accessibility and installation QA before deployment.
 
 [Contributing / asset checklist](CONTRIBUTING.md) · [Asset inventory](docs/ASSET_INVENTORY.md) · [Production notes](docs/PRODUCTION_NOTES.md)

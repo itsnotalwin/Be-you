@@ -1,0 +1,6 @@
+{
+  "harness": "inline browser DOM (navigation restricted in container); screenshots generated from functional.js templates and live CSS",
+  "tested": 40,
+  "failures": [],
+  "persistence_verified": false
+}

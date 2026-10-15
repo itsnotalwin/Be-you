@@ -3,6 +3,8 @@
 **Approved master reference:** [`references/approved/03-updated-app-screens.png`](../references/approved/03-updated-app-screens.png), plus the original [three-screen inspiration](../references/inspiration/00-original-visual-reference.jpg).
 **Implemented gallery:** [`docs/previews/`](previews/) — captured during the Phase 01 app review; *these are real UI screenshots*, not concepts.
 
+**15 October UI refinement:** [review the refreshed gallery](previews/UI_REFINEMENT_GALLERY.webp) and [the specific changes and QA](UI_REFINEMENT.md). The table below is a directional alignment review, not a pixel-diff report.
+
 The goal is **faithful visual language**, not literal reproduction of concept-board text, fake mood metrics or ornamental status bars.
 
 | Surface | Target from approved references | Current Phase 01 implementation | Review |
@@ -28,7 +30,7 @@ The goal is **faithful visual language**, not literal reproduction of concept-bo
 
 1. The generated approved concept has some copy, labels and ornamental icons that are **not** implemented verbatim; screen layout/content varies with actual user data and viewport.
 2. Two legacy environment images (`cat-window.webp`, `city-night.webp`) remain fallback art for secondary screens until replacement assets are approved.
-3. The mobile screenshot gallery originates from the earlier Phase 01 browser run. This documentation/consolidation pass validates assets and structure but does **not** claim a new pixel-diff or real-device audit.
+3. The newer refinement gallery was rendered from the actual app components and styles using an isolated browser DOM harness; full HTTP-origin capture and real-device verification are still outstanding. Older screen tiles remain available as historical reference.
 4. Validate small-screen font legibility, safe areas, VoiceOver/TalkBack, colour contrast and native PWA installation on actual phones before calling it production-ready.
 
 Future changes should be reviewed visually against **both** the approved reference board and a fresh capture of the running code before approval.

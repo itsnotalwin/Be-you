@@ -1,6 +1,6 @@
 /* Offline shell. No analytics and no network calls made for private data. */
-const CACHE='be-you-v1.4-repo-consolidated';
-const ASSETS=['./','./index.html','./ui-primitives.js','./functional.js','./styles.css','./app.css','./manifest.webmanifest',
+const CACHE='be-you-v1.5-ui-refinement';
+const ASSETS=['./','./index.html','./ui-primitives.js','./functional.js','./styles.css','./app.css','./refinement.css','./manifest.webmanifest',
 './assets/icons/favicon.svg','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/icons/apple-touch-icon.png',
 ...['city-night','cat-window'].map(n=>'./assets/manga/'+n+'.webp'),
 ...['volume-01/01-contemplative-koi-and-sakura.webp',
