@@ -28,8 +28,14 @@ for(const icon of manifest.icons??[])if(!has(icon.src))error.push('Missing PWA i
 const sw=read('sw.js');
 if(!read('ui-primitives.js').includes("['heal','leaf','Grow']"))error.push('Four approved mobile tabs missing');
 if(!read('functional.js').includes('mock-journal-empty'))error.push('Approved journal empty state missing');
-for(const file of ['index.html','functional.js','ui-primitives.js','app.css',...assets])if(!sw.includes(file.replace(/^assets\/approved\//,''))&&!sw.includes(file))error.push(`Offline cache missing ${file}`);
+for(const file of ['index.html','functional.js','ui-primitives.js','app.css','responsive.css','responsive-nav.js',...assets])if(!sw.includes(file.replace(/^assets\/approved\//,''))&&!sw.includes(file))error.push(`Offline cache missing ${file}`);
 for(const f of ['styles.css','refinement.css','assets/manga/city-night.webp','assets/manga/cat-window.webp'])if(has(f))error.push(`Unused legacy duplicate file: ${f}`);
 for(const f of ['assets/brand/flower-line.png','assets/brand/koi-botanical.png','screenshots/refined/today.webp','screenshots/refined/mood.webp','screenshots/refined/journal.webp'])if(!has(f))error.push(`Missing brand / review asset: ${f}`);
+// Catch the desktop footer regression and stale PWA upgrade behaviour.
+if(!html.includes('responsive.css')||!html.includes('responsive-nav.js'))error.push('Missing coordinated responsive runtime assets');
+const responsive=read('responsive.css');
+if(!responsive.includes('@media (min-width:1024px){.screenfooter{display:none}}'))error.push('Desktop must hide mobile footer after baseline overrides');
+if(!sw.includes("cache:'no-store'")||!sw.includes("request.mode==='navigate'"))error.push('Core online updates must prefer the network');
+if(!sw.includes('k.startsWith(CACHE_PREFIX)'))error.push('Service worker must not delete other apps cache data');
 if(error.length){console.error('BE YOU verification FAILED:\n - '+error.join('\n - '));process.exit(1)}
-console.log(`BE YOU unified app verified: ${destinations.length} real screens, ${approved.length} artwork roles / ${assets.length} approved images, one CSS source, PWA offline shell.`);
+console.log(`BE YOU unified app verified: ${destinations.length} real screens, ${approved.length} artwork roles / ${assets.length} approved images, coordinated CSS, safe PWA offline shell.`);

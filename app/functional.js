@@ -134,5 +134,13 @@ document.addEventListener('input',e=>{if(e.target?.id==='journal-search'){journa
 document.addEventListener('change',async e=>{if(e.target?.id!=='import-data')return;const file=e.target.files?.[0];if(!file)return;try{if(file.size>2_000_000)throw Error('Backup is too large');const json=JSON.parse(await file.text());if(json.version!==1||!Array.isArray(json.journal)||!Array.isArray(json.checkins)||typeof json.journeys!=='object')throw Error('Not a valid BE YOU backup');if(!confirm('Replace all current local data with this backup? Export your current data first if needed.'))return;data={...defaultData(),...json,settings:{...defaultData().settings,...json.settings}};save();go('settings');notice('Backup restored')}catch(err){notice(err.message||'Unable to load this backup')}});
 window.addEventListener('popstate',()=>{page=new URLSearchParams(location.search).get('screen')||'today';draw()});
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installEvent=e});
-if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+if('serviceWorker' in navigator&&location.protocol.startsWith('http')){
+  // Never reload automatically: a visitor may be midway through a private journal draft.
+  let controlled=!!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(controlled)notice('A BE YOU update is ready. Reload the page to see it.');
+    controlled=true;
+  });
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(reg=>reg.update()).catch(()=>{}));
+}
 page=new URLSearchParams(location.search).get('screen')||(data.onboarded?'today':'welcome');if(!screens[page])page='today';go(page,true);

@@ -519,3 +519,6 @@ body.large-type .mock-lede{font-size:16px}body.large-type .mock-page h1{font-siz
 .mock-onboarding>.status{position:relative;z-index:7;color:var(--cream);height:38px;background:#181b1d66}
 .mock-onboard-content{height:calc(100% - 38px);padding-top:18px}
 @media (max-width:370px){.mock-onboard-content{padding-top:12px}}
+/* Stabilization: the 23-screen footer overrides earlier breakpoint rules.
+   Never show the phone tab bar alongside the desktop sidebar. */
+@media (min-width:1024px){.screenfooter{display:none}}
