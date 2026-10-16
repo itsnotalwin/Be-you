@@ -563,3 +563,30 @@ body.theme-light .mood-v3-feedback span{color:#555c5e}
  .mood-v2 .mood-v3-options .mood-v3-label{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.mood-v2 .mood-v3-options .mood-v3-option{transition:none;transform:none}}
+
+/* Approved Screen 05 art, 2026-10-16: preserve all facial features and the
+   entire flowing hair silhouette from the reviewed five-panel reference.
+   Never crop these portraits with object-fit:cover, even at narrow widths. */
+.device[data-page="mood"] .mood-v2-art{
+ height:clamp(340px,108vw,485px);
+ max-width:560px;
+ margin:18px auto 23px;
+ background:#f2eee8;
+ border:1px solid #75746e;
+ border-radius:13px;
+ overflow:hidden;
+}
+.device[data-page="mood"] .mood-v2-art img{
+ display:block;
+ width:100%;
+ height:100%;
+ object-fit:contain;
+ object-position:center center;
+ filter:grayscale(1);
+}
+@media(min-width:700px){
+ .device[data-page="mood"] .mood-v2-art{height:510px;max-width:570px}
+}
+@media(max-width:370px){
+ .device[data-page="mood"] .mood-v2-art{height:clamp(316px,108vw,395px)}
+}

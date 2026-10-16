@@ -1,7 +1,7 @@
 {
   "project": "BE YOU",
   "status": "Unified actual PWA with approved manga art",
-  "asset_count": 18,
+  "asset_count": 23,
   "assets": [
     {
       "path": "assets/approved/volume-01/01-contemplative-koi-and-sakura.webp",
@@ -110,6 +110,46 @@
       "bytes": 144150,
       "sha256": "0e2c5ec7f96459292f83b4dd3ee45b5511a4c6ab5e87e99249f4280e3ce3fac9",
       "category": "brand_or_icon"
+    },
+    {
+      "path": "assets/approved/moods/01-good.webp",
+      "bytes": 23072,
+      "sha256": "d3f73876d3ac12ce79fecaf05908e099638f77470536879c17db3ffa80f301a0",
+      "category": "approved_mood_portrait",
+      "mood": "happy",
+      "source_generation_id": "5b7c3f3f-9541-42ea-841b-53dbdf0ea30a"
+    },
+    {
+      "path": "assets/approved/moods/02-calm.webp",
+      "bytes": 19882,
+      "sha256": "0d65fe87f28e787f7680b72f8e8e3ff4c7f7ca9aa81c43e33bc9557816868457",
+      "category": "approved_mood_portrait",
+      "mood": "calm",
+      "source_generation_id": "5b7c3f3f-9541-42ea-841b-53dbdf0ea30a"
+    },
+    {
+      "path": "assets/approved/moods/03-okay.webp",
+      "bytes": 18946,
+      "sha256": "6dcbf77ea56db6217d0b0785cb0228b8dd9c96174af75638ef9619036ad7bfa7",
+      "category": "approved_mood_portrait",
+      "mood": "neutral",
+      "source_generation_id": "5b7c3f3f-9541-42ea-841b-53dbdf0ea30a"
+    },
+    {
+      "path": "assets/approved/moods/04-anxious.webp",
+      "bytes": 23462,
+      "sha256": "aaac06314d566e8b6c763c64249aebf17f9168faa0399c0588bb140ab2f88e16",
+      "category": "approved_mood_portrait",
+      "mood": "anxious",
+      "source_generation_id": "5b7c3f3f-9541-42ea-841b-53dbdf0ea30a"
+    },
+    {
+      "path": "assets/approved/moods/05-low.webp",
+      "bytes": 21256,
+      "sha256": "003345900bea7168e06ad0fd2b91c5536b94a39984008e1ab56709c58d73f697",
+      "category": "approved_mood_portrait",
+      "mood": "sad",
+      "source_generation_id": "5b7c3f3f-9541-42ea-841b-53dbdf0ea30a"
     }
   ]
 }

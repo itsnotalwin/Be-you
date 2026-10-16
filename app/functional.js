@@ -24,8 +24,8 @@ const cardLink=(text,sub,screen,icon='arrow')=>`<button class="action-card" data
 const moodDefs=[['happy','Good'],['calm','Calm'],['neutral','Okay'],['anxious','Anxious'],['sad','Low']];
 const moodText=m=>moodDefs.find(x=>x[0]===m)?.[1]||'Unknown';
 
-/* Screen 05 has five visual choices, not five screens.
-   Expression-specific portraits remain unapproved: retain the same original hero. */
+/* Screen 05 stays ONE interactive view with five separately approved
+   portrait images. The rest of the 23-screen visual baseline stays unchanged. */
 const moodStates=Object.freeze({
  happy:{summary:'Joyful · Energetic · Light',note:'A little brightness can mean a lot.',icon:'sun'},
  calm:{summary:'Peaceful · Grounded · Settled',note:'A quiet moment to feel at ease.',icon:'leaf'},
@@ -34,10 +34,16 @@ const moodStates=Object.freeze({
  sad:{summary:'Tired · Heavy · Withdrawn',note:'You do not need to feel different right now.',icon:'sad'}
 });
 const moodPortraitRoles=Object.freeze({
- happy:'journey-letting-go',calm:'journey-letting-go',neutral:'journey-letting-go',
- anxious:'journey-letting-go',sad:'journey-letting-go'
+ happy:'happy',calm:'calm',neutral:'neutral',anxious:'anxious',sad:'sad'
 });
-const moodPortraitSrc=m=>artwork(moodPortraitRoles[m]||'journey-letting-go');
+const moodPortraitSrc=m=>moodArtwork(moodPortraitRoles[m]||'calm');
+const moodPortraitAlt=m=>({
+ happy:'Illustrated woman with full dark hair smiling gently among blossoms.',
+ calm:'Illustrated woman with full dark hair holding a warm mug, eyes peacefully closed.',
+ neutral:'Illustrated woman with full dark hair writing in a notebook, feeling thoughtful.',
+ anxious:'Illustrated woman with full dark hair and hands in her hair, feeling overwhelmed.',
+ sad:'Illustrated woman with full dark hair resting beneath a blanket beside a sleeping cat.'
+}[m]||'Illustrated woman with full dark hair in a peaceful pose.');
 const moodChoiceIcon=m=>['happy','calm'].includes(m)?ico(moodStates[m].icon):moodFace(m);
 
 const affirmationList=["I am proud of how far I’ve come, and excited for what’s next.","I can begin again without starting over.","I am allowed to grow at my own pace.","I can hold hard feelings with kindness.","My worth is not measured by my productivity.","Today, I can choose one small, gentle step."];
@@ -68,7 +74,7 @@ screens.mood=()=>pane('Today','today',`<section class="mood-v2" data-selected-mo
 <div class="eyebrow">A MOMENT TO NOTICE</div>
 <h1 id="mood-v2-title">How are you<br>feeling today?</h1>
 <p class="mood-v2-lede">There is no right answer. Just yours.</p>
-<div class="mood-v2-art"><img id="mood-portrait" loading="eager" decoding="async" src="${moodPortraitSrc(selectedMood)}" alt="Original black-and-ivory manga illustration of a woman with windswept hair and drifting blossoms"></div>
+<div class="mood-v2-art"><img id="mood-portrait" loading="eager" decoding="async" src="${moodPortraitSrc(selectedMood)}" alt="${moodPortraitAlt(selectedMood)}"></div>
 <fieldset class="mood-v2-select">
 <legend>Choose what feels closest</legend>
 <div class="mood-v2-options mood-v3-options">${moodDefs.map(([key,label])=>moodButton(key,label)).join('')}</div>
@@ -140,10 +146,13 @@ function paintMoodSelection(){
  const note=document.getElementById('mood-feeling-note');
  if(summary)summary.textContent=state.summary;
  if(note)note.textContent=state.note;
- // Future art mapping is ready but the current approved image is unchanged for all moods.
+ // Keep one portrait slot: change only its source and accessible description.
  const portrait=document.getElementById('mood-portrait');
  const src=moodPortraitSrc(selectedMood);
- if(portrait&&portrait.getAttribute('src')!==src)portrait.setAttribute('src',src);
+ if(portrait){
+   if(portrait.getAttribute('src')!==src)portrait.setAttribute('src',src);
+   portrait.setAttribute('alt',moodPortraitAlt(selectedMood));
+ }
 }
 function routeIfClicked(ev){const control=ev.target.closest('button[data-action],button[data-screen],button[data-mood],button[data-tag],button[data-setting],button[data-journey],button[data-edit],button[data-view]');if(!control)return;ev.preventDefault();if(control.dataset.screen){if(control.dataset.screen==='today'&&['onboard-grow','onboard-notice'].includes(page)){data.onboarded=true;save()}go(control.dataset.screen);return}
 if(control.dataset.journey){chosenJourney=control.dataset.journey;go('journey-detail');return}

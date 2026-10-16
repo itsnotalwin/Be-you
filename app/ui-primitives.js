@@ -20,6 +20,17 @@ const APPROVED_ART = Object.freeze({
   'you-portrait': 'volume-01/02-koi-and-blossom-reverie.webp',
   'flowers': 'volume-02/04-hopeful-blooms.webp'
 });
+/* Additional artwork approved 2026-10-16 for the single interactive mood screen.
+   These cropped portraits derive from approved five-mood board generation
+   5b7c3f3f-9541-42ea-841b-53dbdf0ea30a. */
+const MOOD_ART = Object.freeze({
+ happy:'moods/01-good.webp',
+ calm:'moods/02-calm.webp',
+ neutral:'moods/03-okay.webp',
+ anxious:'moods/04-anxious.webp',
+ sad:'moods/05-low.webp'
+});
+const moodArtwork = mood => 'assets/approved/' + (MOOD_ART[mood] || MOOD_ART.calm);
 const artwork = n => `assets/approved/${APPROVED_ART[n] || APPROVED_ART['welcome-be-you']}`;
 const SVG={
  home:'<path d="M3 10 12 3l9 7v10H5V10"/><path d="M9 20v-7h6v7"/>',calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3-7 8-7s8 2 8 7"/>',back:'<path d="m15 18-6-6 6-6M9 12h11"/>',arrow:'<path d="M4 12h16m-6-6 6 6-6 6"/>',dots:'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',heart:'<path d="M20 8c0 6-8 12-8 12S4 14 4 8a4 4 0 0 1 8-1 4 4 0 0 1 8 1Z"/>',book:'<path d="M4 4h7c2 0 2 2 2 3v14c-2-3-4-3-9-3V4ZM20 4h-7v17c2-3 4-3 7-3V4Z"/>',search:'<circle cx="10" cy="10" r="6"/><path d="m14.5 14.5 6 6"/>',gear:'<circle cx="12" cy="12" r="3"/><path d="m4 12 2-1-1-3 3-3 3 1 1-2 2 2 3-1 3 3-1 3 2 1-2 3 1 3-3 3-3-1-2 2-1-2-3 1-3-3 1-3z"/>',plus:'<path d="M12 4v16M4 12h16"/>',check:'<path d="m4 12 5 5L20 6"/>',close:'<path d="M5 5 19 19M19 5 5 19"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7 4.9 19.1"/>',moon:'<path d="M20 16A9 9 0 0 1 8 4a9 9 0 1 0 12 12Z"/>',download:'<path d="M12 3v13m-5-5 5 5 5-5M5 19h14"/>',bell:'<path d="M5 18h14l-2-3V9a5 5 0 0 0-10 0v6l-2 3Z"/><path d="M10 21h4"/>',pen:'<path d="m4 20 5-.9L20 8l-4-4L5 15l-1 5Z"/>',lock:'<rect x="5" y="10" width="14" height="12" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',leaf:'<path d="M20 3c-9 0-16 3-16 12 0 4 3 6 6 5 8 0 10-10 10-17ZM3 21c6-8 10-11 15-14"/>',chart:'<path d="M4 20V9M10 20V4M16 20v-8M22 20V6"/>',share:'<path d="M6 12h12m-6-6 6 6-6 6"/>'};

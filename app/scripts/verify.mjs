@@ -1,6 +1,7 @@
 /* BE YOU: verify the one real app, approved artwork and offline shell. */
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const error=[];
@@ -28,7 +29,7 @@ for(const icon of manifest.icons??[])if(!has(icon.src))error.push('Missing PWA i
 const sw=read('sw.js');
 if(!read('ui-primitives.js').includes("['heal','leaf','Grow']"))error.push('Four approved mobile tabs missing');
 if(!read('functional.js').includes('mock-journal-empty'))error.push('Approved journal empty state missing');
-for(const file of ['index.html','functional.js','ui-primitives.js','app.css','responsive.css','responsive-nav.js',...assets])if(!sw.includes(file.replace(/^assets\/approved\//,''))&&!sw.includes(file))error.push(`Offline cache missing ${file}`);
+for(const file of ['index.html','functional.js','ui-primitives.js','app.css','responsive.css','responsive-nav.js',...assets,...moodFiles])if(!sw.includes(file.replace(/^assets\/approved\//,''))&&!sw.includes(file))error.push(`Offline cache missing ${file}`);
 for(const f of ['styles.css','refinement.css','assets/manga/city-night.webp','assets/manga/cat-window.webp'])if(has(f))error.push(`Unused legacy duplicate file: ${f}`);
 for(const f of ['assets/brand/flower-line.png','assets/brand/koi-botanical.png','screenshots/refined/today.webp','screenshots/refined/mood.webp','screenshots/refined/journal.webp'])if(!has(f))error.push(`Missing brand / review asset: ${f}`);
 // Catch the desktop footer regression and stale PWA upgrade behaviour.
@@ -39,5 +40,24 @@ if(!sw.includes("cache:'no-store'")||!sw.includes("request.mode==='navigate'"))e
 if(!sw.includes('k.startsWith(CACHE_PREFIX)'))error.push('Service worker must not delete other apps cache data');
 if(!code.includes('moodPortraitRoles')||!code.includes('paintMoodSelection()'))error.push('Reactive mood selector missing');
 if(!responsive.includes('MOOD CHOOSER — SINGLE REACTIVE SCREEN'))error.push('Reactive mood styling missing');
+
+const moodNames=['01-good.webp','02-calm.webp','03-okay.webp','04-anxious.webp','05-low.webp'];
+const moodFiles=moodNames.map(n=>'assets/approved/moods/'+n);
+for(const [i,file] of moodFiles.entries()){
+  if(!has(file)){error.push('Missing approved mood image: '+file);continue}
+  const b=readFileSync(path.join(root,file));
+  if(b.toString('ascii',0,4)!=='RIFF'||b.toString('ascii',8,12)!=='WEBP')error.push('Invalid mood WebP image: '+file);
+  if(!shared.includes("'moods/"+moodNames[i]+"'"))error.push('Mood art registry missing '+file);
+}
+if(new Set(moodNames).size!==5||!code.includes('moodArtwork(moodPortraitRoles[m]'))error.push('Five unique mood images must be wired to the one screen');
+const inventory=JSON.parse(read('ASSET_INVENTORY.json'));
+for(const file of moodFiles){
+  if(!has(file))continue;
+  const record=inventory.assets.find(a=>a.path===file);
+  if(!record||record.bytes!==readFileSync(path.join(root,file)).length||
+    record.sha256!==createHash('sha256').update(readFileSync(path.join(root,file))).digest('hex'))
+    error.push('Mood inventory checksum mismatch: '+file);
+}
+if(!responsive.includes('object-fit:contain'))error.push('Mood artwork must preserve entire face and hair');
 if(error.length){console.error('BE YOU verification FAILED:\n - '+error.join('\n - '));process.exit(1)}
-console.log(`BE YOU unified app verified: ${destinations.length} real screens, ${approved.length} artwork roles / ${assets.length} approved images, coordinated CSS, safe PWA offline shell.`);
+console.log(`BE YOU unified app verified: ${destinations.length} real screens, ${approved.length} artwork roles / ${assets.length} approved images, coordinated CSS, five distinct mood portraits, safe PWA offline shell.`);

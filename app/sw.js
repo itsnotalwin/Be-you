@@ -1,6 +1,6 @@
 /* Offline shell. No analytics and no network calls made for private data. */
 const CACHE_PREFIX='be-you-';
-const CACHE='be-you-v10-reactive-mood-selector';
+const CACHE='be-you-v11-five-approved-mood-portraits';
 const ASSETS=['./','./index.html','./ui-primitives.js','./functional.js','./app.css','./responsive.css','./responsive-nav.js','./manifest.webmanifest',
 './assets/icons/favicon.svg','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/icons/apple-touch-icon.png',
 ...['volume-01/01-contemplative-koi-and-sakura.webp',
@@ -10,7 +10,12 @@ const ASSETS=['./','./index.html','./ui-primitives.js','./functional.js','./app.
 'volume-02/01-travel-journal.webp',
 'volume-02/02-rethinking-loneliness.webp',
 'volume-02/03-calm-koi.webp',
-'volume-02/04-hopeful-blooms.webp'].map(n=>'./assets/approved/'+n)];
+'volume-02/04-hopeful-blooms.webp',
+'moods/01-good.webp',
+'moods/02-calm.webp',
+'moods/03-okay.webp',
+'moods/04-anxious.webp',
+'moods/05-low.webp'].map(n=>'./assets/approved/'+n)];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()))});
 /* Keep other PWAs' caches on the shared github.io origin intact. */
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([

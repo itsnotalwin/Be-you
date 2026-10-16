@@ -10,13 +10,13 @@
 - Journal empty and populated states, write/read/edit/search/delete, all stored privately in this browser.
 - Four guided reflection journeys with persistent progress, insights based on real check-ins, affirmations and timed breathing.
 - Four mobile tabs (Today, Journal, Grow, You), desktop sidebar, appearance/accessibility settings, backup export/import and data deletion.
-- Installable offline-capable PWA with the service-worker cache of eight approved Volume 01/02 artworks.
+- Installable offline-capable PWA with the service-worker cache of eight original approved Volume 01/02 artworks plus five approved mood portraits.
 
 Data is kept **unencrypted** in localStorage and never synced; export backups regularly. BE YOU is not medical care.
 
-**Art status:** All five mood states deliberately reuse the same existing approved hero until a reference-correct five-expression character set is reviewed. Taps update the selector and text, not the artwork yet.
+**Art status:** The five explicitly approved portraits are now live as distinct files under `assets/approved/moods/`. A tap swaps the mood art in the existing single portrait slot without modifying saved entries. Portrait images are displayed with `object-fit: contain` to preserve the entire face and hair. Their common source board is documented in `docs/MOOD_SELECTOR_2026-10-16.md`.
 
 ## Render evidence
 
 `SCREENSHOT.png` and related captures are screenshots of a local Chromium execution of the actual app code, not the approved mockup renders. Phone captures: 390 × 844. Desktop example: 1280 × 800. Physical-device and deployed-site validation remain separate work.
-Existing mood screenshots predate this selector refinement. **A new real mobile/desktop capture is still needed**. Concept art is not live-app evidence.
+Existing mood screenshots predate the new portrait mapping. **A new genuine mobile/desktop capture is still needed**. Concept art is not live-app evidence.

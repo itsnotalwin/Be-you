@@ -14,9 +14,9 @@ The complete **23-screen BE YOU mockup collection** was approved for implementat
 
 **[Browse all 23 individual approved screens](references/approved/mockups-2026-10-15/README.md)** · [Read visual specification](references/approved/mockups-2026-10-15/DESIGN.md) · [View actual running UI capture](app/SCREENSHOT.png)
 
-**Mood selector update (2026-10-16):** Screen 05 remains **one interactive screen**, not five pages. Tapping Good, Calm, Okay, Anxious or Low instantly changes the active rounded card, its restrained accent and supporting copy. The displayed portrait remains the original approved image for all five states; the recently proposed character faces were **not** added. See [mood decision](app/docs/MOOD_SELECTOR_2026-10-16.md).
+**Mood selector and approved portraits (2026-10-16):** Screen 05 stays **one interactive screen**. Tapping Good, Calm, Okay, Anxious or Low immediately updates its selected card, gentle accent, supporting copy, and matching approved illustrated portrait. The five portraits were individually extracted from the user-approved mood board, preserving the full face/hair without using cropped board UI. See [mood decision and source provenance](app/docs/MOOD_SELECTOR_2026-10-16.md).
 
-The concepts guide a **single real application**. Images are not embedded as fake UI; check-ins, entries, choices and navigation remain interactive and private to the device. The eight original approved illustrations are reused throughout—no new faces or conflicting art libraries.
+The concepts guide a **single real application**. Images are not embedded as fake UI; check-ins, entries, choices and navigation remain interactive and private to the device. The original eight approved illustrations remain throughout the other screens; the mood selector adds only the five explicitly approved portraits in `app/assets/approved/moods/`.
 
 ## Live application
 
@@ -42,7 +42,7 @@ Requires Node.js 18+. `cd app && npm start` opens `http://localhost:4173`; `cd a
 
 ## Repository structure
 
-- `app/`: only runnable PWA, eight approved art assets, test scripts, real UI screenshots.
+- `app/`: only runnable PWA, the original eight approved illustrations plus five approved mood portraits, source scripts and real (older) UI screenshots.
 - `references/approved/mockups-2026-10-15/`: approved 23-screen design references and overview boards, **not** a second app.
 - `references/`: older approved artwork boards and original inspiration.
 

@@ -8,4 +8,4 @@ Connections: Reference targets are in `../references/approved/mockups-2026-10-15
 
 Change and verify: `cd app && npm test`, real Chromium mobile and desktop, verify images and navigation, confirm Pages Actions completion, and capture fresh screenshots after visual changes. Stored user data is unencrypted and device-local; preserve keys and export/import format.
 
-Screen 05 (2026-10-16): `functional.js` uses one reactive mood route and `moodPortraitRoles` for a future approved face set; all five currently reuse `journey-letting-go`. `responsive.css` holds distinct active-card accents and feedback. Update the screenshot and validate 320/390 px mobile and desktop after this visual change.
+Screen 05 (2026-10-16): `functional.js` uses one reactive mood route and `moodPortraitRoles` for a future approved face set; all five now use separately approved WebP portraits in `assets/approved/moods/`. `responsive.css` holds distinct active-card accents and feedback. Update the screenshot and validate 320/390 px mobile and desktop after this visual change.

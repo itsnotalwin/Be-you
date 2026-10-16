@@ -42,11 +42,15 @@ for(const name of pages){
  for(const img of allImgs)assert(img.startsWith('assets/approved/'),`Unapproved image in ${name}: ${img}`);
 }
 function dispatch(action){const target={dataset:{action},closest:()=>target};vm.runInContext('void 0',context);vm.runInContext('routeIfClicked',context)({target,preventDefault(){}})}
-// The five cards are states of ONE page and MUST retain the same approved image.
+// Five independently illustrated mood states exist on ONE screen; no new routes.
 const moodPage=vm.runInContext('screens.mood()',context);
 assert.equal((moodPage.match(/data-mood="/g)||[]).length,5);
 assert.equal((moodPage.match(/id="mood-portrait"/g)||[]).length,1);
 const originalPortrait=vm.runInContext('moodPortraitSrc("calm")',context);
+const expectedSources=['happy','calm','neutral','anxious','sad'].map(m=>vm.runInContext('moodPortraitSrc('+JSON.stringify(m)+')',context));
+assert.equal(new Set(expectedSources).size,5,'One independently approved portrait per emotion');
+for(const src of expectedSources)assert(src.startsWith('assets/approved/moods/'));
+assert(moodPage.includes(originalPortrait),'Initial image must reflect initial selected mood');
 const originalRoute=current.href;
 const originalData=local['beyou-v1-local-data'];
 for(const key of ['happy','calm','neutral','anxious','sad']){
@@ -56,7 +60,8 @@ for(const key of ['happy','calm','neutral','anxious','sad']){
  assert.equal(moodPanel.dataset.selectedMood,key);
  assert.equal(moodButtons.filter(button=>button.pressed).length,1);
  assert.equal(moodButtons.find(button=>button.dataset.mood===key).pressed,true);
- assert.equal(element('mood-portrait').getAttribute('src'),originalPortrait,'Do not change portrait');
+ assert.equal(element('mood-portrait').getAttribute('src'),vm.runInContext('moodPortraitSrc('+JSON.stringify(key)+')',context),'Portrait changes with each mood');
+ assert(element('mood-portrait').attrs.alt.toLowerCase().includes('hair'),'Mood portrait keeps descriptive alternative text');
  assert.equal(element('mood-feeling-summary').textContent,vm.runInContext('moodStates['+JSON.stringify(key)+'].summary',context));
  assert.equal(current.href,originalRoute,'No new screen when choosing a mood');
  assert.equal(local['beyou-v1-local-data'],originalData,'Do not save until user continues and saves');
@@ -78,4 +83,4 @@ state=JSON.parse(local['beyou-v1-local-data']);assert.equal(state.journeys.trave
 assert.equal(state.journeys.travel.answers[0],'A train ride by the lake');
 // Aggregate widgets display recorded rather than sample counts.
 assert(vm.runInContext('screens.insights()',context).includes('1'));
-console.log(`BE YOU smoke: ${pages.length} real screens rendered, all images routed through approved art, reactive five-state selector and mood/journal/journey persistence passed.`);
+console.log(`BE YOU smoke: ${pages.length} real screens rendered, all images routed through approved art, five distinct approved mood portraits, reactive single-screen selector and mood/journal/journey persistence passed.`);
