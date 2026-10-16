@@ -26,6 +26,8 @@ for(const file of assets){if(!has(file)){error.push(`Missing artwork ${file}`);c
 const manifest=JSON.parse(read('manifest.webmanifest'));
 if(!Array.isArray(manifest.icons)||manifest.icons.length<2)error.push('PWA icons incomplete');
 for(const icon of manifest.icons??[])if(!has(icon.src))error.push('Missing PWA icon '+icon.src);
+const moodNames=['01-good.webp','02-calm.webp','03-okay.webp','04-anxious.webp','05-low.webp'];
+const moodFiles=moodNames.map(n=>'assets/approved/moods/'+n);
 const sw=read('sw.js');
 if(!read('ui-primitives.js').includes("['heal','leaf','Grow']"))error.push('Four approved mobile tabs missing');
 if(!read('functional.js').includes('mock-journal-empty'))error.push('Approved journal empty state missing');
@@ -41,8 +43,6 @@ if(!sw.includes('k.startsWith(CACHE_PREFIX)'))error.push('Service worker must no
 if(!code.includes('moodPortraitRoles')||!code.includes('paintMoodSelection()'))error.push('Reactive mood selector missing');
 if(!responsive.includes('MOOD CHOOSER — SINGLE REACTIVE SCREEN'))error.push('Reactive mood styling missing');
 
-const moodNames=['01-good.webp','02-calm.webp','03-okay.webp','04-anxious.webp','05-low.webp'];
-const moodFiles=moodNames.map(n=>'assets/approved/moods/'+n);
 for(const [i,file] of moodFiles.entries()){
   if(!has(file)){error.push('Missing approved mood image: '+file);continue}
   const b=readFileSync(path.join(root,file));
