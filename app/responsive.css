@@ -522,3 +522,44 @@ body.large-type .mock-lede{font-size:16px}body.large-type .mock-page h1{font-siz
 /* Stabilization: the 23-screen footer overrides earlier breakpoint rules.
    Never show the phone tab bar alongside the desktop sidebar. */
 @media (min-width:1024px){.screenfooter{display:none}}
+
+/* MOOD CHOOSER — SINGLE REACTIVE SCREEN.
+   Keep existing approved hero unchanged until character-reference portraits pass review. */
+.mood-v2{--mood-highlight:#d9e5cd}
+.mood-v2[data-selected-mood="happy"]{--mood-highlight:#f4eebd}
+.mood-v2[data-selected-mood="calm"]{--mood-highlight:#d9eacb}
+.mood-v2[data-selected-mood="neutral"]{--mood-highlight:#d7ddff}
+.mood-v2[data-selected-mood="anxious"]{--mood-highlight:#f3c4b4}
+.mood-v2[data-selected-mood="sad"]{--mood-highlight:#ced4ff}
+.mood-v2 .mood-v2-select{margin:0 0 13px}
+.mood-v2 .mood-v2-select legend{font-size:clamp(24px,6.4vw,31px);margin-bottom:15px}
+.mood-v2 .mood-v3-options{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.mood-v2 .mood-v3-options .mood-v3-option{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-width:0;min-height:91px;border:1px solid #44494a;border-radius:17px;padding:10px 2px;background:#24282a;color:#e6e2dd;transition:background-color .17s ease,color .17s ease,border-color .17s ease,transform .17s ease}
+.mood-v2 .mood-v3-options .mood-v3-option.sel{background:var(--mood-highlight);border-color:var(--mood-highlight);color:#191d1e;box-shadow:0 3px 12px #00000023}
+.mood-v2 .mood-v3-options .mood-v3-option:active{transform:scale(.97)}
+.mood-v2 .mood-v3-options .mood-v3-symbol{display:grid;place-items:center;height:29px;width:29px;flex:none}
+.mood-v2 .mood-v3-options .mood-v3-symbol svg{height:28px;width:28px;stroke:currentColor;fill:none;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.mood-v2 .mood-v3-options .mood-v3-label{display:block;font:500 11px/1.15 var(--font-ui);white-space:nowrap;letter-spacing:-.01em}
+.mood-v3-feedback{min-height:66px;display:flex;flex-direction:column;justify-content:center;gap:7px;margin:2px 0 13px;text-align:center}
+.mood-v3-feedback strong{font:400 18px/1.25 var(--font-serif);letter-spacing:.015em;color:var(--cream)}
+.mood-v3-feedback span{font:400 12px/1.4 var(--font-ui);color:var(--muted)}
+.mood-v2 .mood-v3-next{border-radius:30px;min-height:56px;padding-inline:23px;font:500 20px/1.2 var(--font-ui)}
+.mood-v2 .mood-v3-next svg{height:20px;width:20px}
+.mood-v2 .mood-v3-option:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+body.theme-light .mood-v2 .mood-v3-options .mood-v3-option{background:#e4dfda;border-color:#a9adaa;color:#23292b}
+body.theme-light .mood-v2 .mood-v3-options .mood-v3-option.sel{background:var(--mood-highlight);border-color:#555a59;color:#191d1e}
+body.theme-light .mood-v3-feedback strong{color:#252a2d}
+body.theme-light .mood-v3-feedback span{color:#555c5e}
+@media(max-width:370px){
+ .mood-v2 .mood-v3-options{gap:5px}
+ .mood-v2 .mood-v3-options .mood-v3-option{min-height:81px;border-radius:14px;padding:8px 1px;gap:7px}
+ .mood-v2 .mood-v3-options .mood-v3-symbol,.mood-v2 .mood-v3-options .mood-v3-symbol svg{height:24px;width:24px}
+ .mood-v2 .mood-v3-options .mood-v3-label{font-size:10px}
+}
+@media(min-width:700px){
+ .mood-v2 .mood-v3-options{gap:13px}
+ .mood-v2 .mood-v3-options .mood-v3-option{min-height:110px;border-radius:22px}
+ .mood-v2 .mood-v3-options .mood-v3-symbol,.mood-v2 .mood-v3-options .mood-v3-symbol svg{height:34px;width:34px}
+ .mood-v2 .mood-v3-options .mood-v3-label{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.mood-v2 .mood-v3-options .mood-v3-option{transition:none;transform:none}}

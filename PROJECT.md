@@ -11,3 +11,5 @@
 **Build standards:** `AGENTS.md`, nearest `CONTEXT.md` and `DESIGN.md` accompany maintained visual folders. `app/SCREENSHOT.png` and mobile/desktop variants are genuine test-browser evidence, **not** mockup images. Update after visual changes.
 
 **Run:** `cd app && npm start` · **Test:** `cd app && npm test` · **Publish:** GitHub Actions; check run status before declaring deployment done. Native device, accessibility and privacy/security review still required.
+
+**Mood screen decision (2026-10-16):** The newly approved five-card control is implemented as state changes within one `mood` route. No new face art was shipped; all states retain the existing approved hero pending proper matching portraits. See `app/docs/MOOD_SELECTOR_2026-10-16.md`. Real updated UI screenshots remain outstanding.

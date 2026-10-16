@@ -37,5 +37,7 @@ const responsive=read('responsive.css');
 if(!responsive.includes('@media (min-width:1024px){.screenfooter{display:none}}'))error.push('Desktop must hide mobile footer after baseline overrides');
 if(!sw.includes("cache:'no-store'")||!sw.includes("request.mode==='navigate'"))error.push('Core online updates must prefer the network');
 if(!sw.includes('k.startsWith(CACHE_PREFIX)'))error.push('Service worker must not delete other apps cache data');
+if(!code.includes('moodPortraitRoles')||!code.includes('paintMoodSelection()'))error.push('Reactive mood selector missing');
+if(!responsive.includes('MOOD CHOOSER — SINGLE REACTIVE SCREEN'))error.push('Reactive mood styling missing');
 if(error.length){console.error('BE YOU verification FAILED:\n - '+error.join('\n - '));process.exit(1)}
 console.log(`BE YOU unified app verified: ${destinations.length} real screens, ${approved.length} artwork roles / ${assets.length} approved images, coordinated CSS, safe PWA offline shell.`);

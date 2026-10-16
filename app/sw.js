@@ -1,6 +1,6 @@
 /* Offline shell. No analytics and no network calls made for private data. */
 const CACHE_PREFIX='be-you-';
-const CACHE='be-you-v9-safe-online-refresh';
+const CACHE='be-you-v10-reactive-mood-selector';
 const ASSETS=['./','./index.html','./ui-primitives.js','./functional.js','./app.css','./responsive.css','./responsive-nav.js','./manifest.webmanifest',
 './assets/icons/favicon.svg','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/icons/apple-touch-icon.png',
 ...['volume-01/01-contemplative-koi-and-sakura.webp',

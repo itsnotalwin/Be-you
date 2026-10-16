@@ -9,12 +9,18 @@ const app=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const files=['ui-primitives.js','functional.js'];
 const values=new Map();let local={};let errors=[];
 const nodes=new Map();
-function element(id){if(!nodes.has(id))nodes.set(id,{value:'',innerHTML:'',textContent:'',classList:{add(){},remove(){},toggle(){}},setAttribute(){},focus(){}});return nodes.get(id)}
+const moodButtons=['happy','calm','neutral','anxious','sad'].map(m=>({
+ dataset:{mood:m},pressed:false,classList:{toggle(){}},
+ setAttribute(name,value){if(name==='aria-pressed')this.pressed=String(value)==='true'}
+}));
+const moodPanel={dataset:{selectedMood:'calm'}};
+
+function element(id){if(!nodes.has(id))nodes.set(id,{value:'',innerHTML:'',textContent:'',classList:{add(){},remove(){},toggle(){}},setAttribute(name,v){this.attrs??={};this.attrs[name]=String(v)},getAttribute(name){return this.attrs?.[name]??null},focus(){}});return nodes.get(id)}
 const listeners={};
 const document={
  getElementById:element,
- querySelectorAll:()=>[],
- querySelector:()=>({setAttribute(){}}),
+ querySelectorAll:s=>s==='.mood-v2-options [data-mood]'?moodButtons:[],
+ querySelector:s=>s==='.mood-v2'?moodPanel:{setAttribute(){}},
  addEventListener:(type,fn)=>{listeners[type]=fn},
  body:{classList:{toggle(){}},append(){}},
  createElement:()=>({set href(v){},set download(v){},click(){},remove(){}})
@@ -36,6 +42,26 @@ for(const name of pages){
  for(const img of allImgs)assert(img.startsWith('assets/approved/'),`Unapproved image in ${name}: ${img}`);
 }
 function dispatch(action){const target={dataset:{action},closest:()=>target};vm.runInContext('void 0',context);vm.runInContext('routeIfClicked',context)({target,preventDefault(){}})}
+// The five cards are states of ONE page and MUST retain the same approved image.
+const moodPage=vm.runInContext('screens.mood()',context);
+assert.equal((moodPage.match(/data-mood="/g)||[]).length,5);
+assert.equal((moodPage.match(/id="mood-portrait"/g)||[]).length,1);
+const originalPortrait=vm.runInContext('moodPortraitSrc("calm")',context);
+const originalRoute=current.href;
+const originalData=local['beyou-v1-local-data'];
+for(const key of ['happy','calm','neutral','anxious','sad']){
+ const target={dataset:{mood:key},closest:()=>target};
+ vm.runInContext('routeIfClicked',context)({target,preventDefault(){}});
+ assert.equal(vm.runInContext('selectedMood',context),key);
+ assert.equal(moodPanel.dataset.selectedMood,key);
+ assert.equal(moodButtons.filter(button=>button.pressed).length,1);
+ assert.equal(moodButtons.find(button=>button.dataset.mood===key).pressed,true);
+ assert.equal(element('mood-portrait').getAttribute('src'),originalPortrait,'Do not change portrait');
+ assert.equal(element('mood-feeling-summary').textContent,vm.runInContext('moodStates['+JSON.stringify(key)+'].summary',context));
+ assert.equal(current.href,originalRoute,'No new screen when choosing a mood');
+ assert.equal(local['beyou-v1-local-data'],originalData,'Do not save until user continues and saves');
+}
+assert(vm.runInContext("screens['mood-details']()",context).includes('Low'));
 // Check-ins are saved from the real interaction handler.
 values.set('mood-note','A gentle moment');element('mood-note').value=values.get('mood-note');element('mood-energy').value='4';
 vm.runInContext("selectedMood='happy';selectedTags=['Work'];",context);
@@ -52,4 +78,4 @@ state=JSON.parse(local['beyou-v1-local-data']);assert.equal(state.journeys.trave
 assert.equal(state.journeys.travel.answers[0],'A train ride by the lake');
 // Aggregate widgets display recorded rather than sample counts.
 assert(vm.runInContext('screens.insights()',context).includes('1'));
-console.log(`BE YOU smoke: ${pages.length} real screens rendered, all images routed through approved art, mood/journal/journey persistence passed.`);
+console.log(`BE YOU smoke: ${pages.length} real screens rendered, all images routed through approved art, reactive five-state selector and mood/journal/journey persistence passed.`);

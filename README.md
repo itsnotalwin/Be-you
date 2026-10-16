@@ -14,6 +14,8 @@ The complete **23-screen BE YOU mockup collection** was approved for implementat
 
 **[Browse all 23 individual approved screens](references/approved/mockups-2026-10-15/README.md)** · [Read visual specification](references/approved/mockups-2026-10-15/DESIGN.md) · [View actual running UI capture](app/SCREENSHOT.png)
 
+**Mood selector update (2026-10-16):** Screen 05 remains **one interactive screen**, not five pages. Tapping Good, Calm, Okay, Anxious or Low instantly changes the active rounded card, its restrained accent and supporting copy. The displayed portrait remains the original approved image for all five states; the recently proposed character faces were **not** added. See [mood decision](app/docs/MOOD_SELECTOR_2026-10-16.md).
+
 The concepts guide a **single real application**. Images are not embedded as fake UI; check-ins, entries, choices and navigation remain interactive and private to the device. The eight original approved illustrations are reused throughout—no new faces or conflicting art libraries.
 
 ## Live application

@@ -23,6 +23,23 @@ const shellTile=(name,title,journey)=>`<button class="story-tile" data-journey="
 const cardLink=(text,sub,screen,icon='arrow')=>`<button class="action-card" data-screen="${screen}"><span><strong>${text}</strong><small>${sub}</small></span><span class="tiny-circle">${ico(icon)}</span></button>`;
 const moodDefs=[['happy','Good'],['calm','Calm'],['neutral','Okay'],['anxious','Anxious'],['sad','Low']];
 const moodText=m=>moodDefs.find(x=>x[0]===m)?.[1]||'Unknown';
+
+/* Screen 05 has five visual choices, not five screens.
+   Expression-specific portraits remain unapproved: retain the same original hero. */
+const moodStates=Object.freeze({
+ happy:{summary:'Joyful · Energetic · Light',note:'A little brightness can mean a lot.',icon:'sun'},
+ calm:{summary:'Peaceful · Grounded · Settled',note:'A quiet moment to feel at ease.',icon:'leaf'},
+ neutral:{summary:'Neutral · Managing · In between',note:'Being somewhere in between is enough.',icon:'neutral'},
+ anxious:{summary:'Tense · Overwhelmed · Uneasy',note:'You can take this one moment at a time.',icon:'anxious'},
+ sad:{summary:'Tired · Heavy · Withdrawn',note:'You do not need to feel different right now.',icon:'sad'}
+});
+const moodPortraitRoles=Object.freeze({
+ happy:'journey-letting-go',calm:'journey-letting-go',neutral:'journey-letting-go',
+ anxious:'journey-letting-go',sad:'journey-letting-go'
+});
+const moodPortraitSrc=m=>artwork(moodPortraitRoles[m]||'journey-letting-go');
+const moodChoiceIcon=m=>['happy','calm'].includes(m)?ico(moodStates[m].icon):moodFace(m);
+
 const affirmationList=["I am proud of how far I’ve come, and excited for what’s next.","I can begin again without starting over.","I am allowed to grow at my own pace.","I can hold hard feelings with kindness.","My worth is not measured by my productivity.","Today, I can choose one small, gentle step."];
 const journeys={
  'letting-go':{name:'Letting Go',sub:'Give yourself permission to move forward.',tag:'Release & renew',art:'journey-letting-go',description:'Make space for what matters by exploring what you are ready to release.',steps:[['What are you holding on to?','Write about a thought, person or situation that keeps weighing on you.'],['What did it mean to you?','Notice what mattered. There is no need to judge your feelings.'],['What could you loosen?','Name one expectation, worry or burden you may be ready to carry more lightly.'],['An unsent goodbye','Write a few words of closure to yourself, even if nothing outside has changed.']]},
@@ -43,14 +60,26 @@ const screens = {
   'onboard-notice':()=>`<section class="mock-onboarding mock-onboard-step">${status()}<div class="mock-onboard-content"><div class="mock-eyebrow">01 / 03 · A PLACE TO NOTICE</div><h1>Understand your<br>emotions.</h1><div class="mock-onboard-art">${art('welcome-notice','Quiet moment beside a window')}</div><p>Some days are complicated.<br>You can meet them with kindness.</p><div class="mock-onboard-dots" aria-label="Onboarding step 1 of 2">● <span>○ ○</span></div><button class="mock-cta" data-screen="onboard-grow">Continue ${ico('arrow')}</button></div></section>${homeind()}`,
   'onboard-grow':()=>`<section class="mock-onboarding mock-onboard-step">${status()}<div class="mock-onboard-content"><div class="mock-eyebrow">03 / 03 · WELCOME TO GROWTH</div><h1>Grow at your<br>own pace.</h1><div class="mock-onboard-art">${art('welcome-grow','Hopeful manga portrait with blossoms')}</div><p>Small reflections. Kinder habits.<br>One gentle day at a time.</p><div class="mock-onboard-dots" aria-label="Final onboarding step"><span>○ ○</span> ●</div><button class="mock-cta" data-screen="today">Enter my space ${ico('arrow')}</button></div></section>${homeind()}`
 };
+const moodButton=(key,label)=>`<button type="button" data-mood="${key}" aria-pressed="${selectedMood===key}" class="mooditem mood-v3-option ${selectedMood===key?'sel':''}"><span class="mood-v3-symbol" aria-hidden="true">${moodChoiceIcon(key)}</span><span class="mood-v3-label">${label}</span></button>`;
 /* Main destinations */
 screens.today=()=>foot(`<section class="mock-page mock-today"><div class="mock-eyebrow">YOUR SPACE · ${esc(_weekday().toUpperCase())}</div><h1>A little kinder,<br>today.</h1><p class="mock-lede">A small check-in can change your day.</p><button class="mock-cta mock-checkin" data-screen="mood"><span>${countToday()?'Take another moment':'How are you feeling?'}</span>${ico('arrow')}</button><div class="mock-eyebrow mock-section-cap">HEAL & GROW</div><button class="mock-feature" data-journey="travel">${art('journey-travel','Illustrated Travel Journal scene')}<span class="mock-feature-label"><strong>Travel Journal</strong><small>A little wonder, wherever you are.</small></span></button><button class="mock-line-link" data-journey="letting-go"><span>Letting Go</span>${ico('arrow')}</button><button class="mock-line-link mock-muted-link" data-screen="heal">Explore all journeys ${ico('arrow')}</button></section>`, 'today');
 screens.home=()=>foot(`<section class="mock-page mock-home"><div class="mock-eyebrow">WELCOME TO BE YOU</div><h1>Your space<br>to begin.</h1><div class="mock-tall-art">${art('welcome-be-you','A thoughtful person with koi and blossoms')}</div><h2>What do you need today?</h2><button class="mock-line-link" data-screen="mood"><span>A quiet check-in <small>Notice how you feel</small></span>${ico('arrow')}</button><button class="mock-line-link" data-screen="journal"><span>Write a reflection <small>A page just for you</small></span>${ico('arrow')}</button><button class="mock-line-link" data-screen="heal"><span>Choose a gentle path <small>Explore your journeys</small></span>${ico('arrow')}</button></section>`, 'today');
-screens.mood=()=>pane('Today','today',`<section class="mood-v2" aria-labelledby="mood-v2-title">
-<div class="eyebrow">A MOMENT TO NOTICE</div><h1 id="mood-v2-title">How are you<br>feeling today?</h1><p class="mood-v2-lede">There is no right answer. Just yours.</p>
-<div class="mood-v2-art">${art('journey-letting-go','Original black-and-ivory manga illustration of a woman with windswept hair and drifting blossoms')}</div>
-<fieldset class="mood-v2-select"><legend>Choose what feels closest</legend><div class="mood-v2-options">${moodDefs.map(([k,label])=>`<button type="button" data-mood="${k}" aria-pressed="${selectedMood===k}" class="mooditem ${selectedMood===k?'sel':''}"><span class="moodface">${moodFace(k)}</span><span>${label}</span></button>`).join('')}</div></fieldset>
-<button type="button" class="mood-v2-next" data-screen="mood-details"><span>Continue</span>${ico('arrow')}</button><p class="mood-v2-hint">You can add a little context next.</p></section>`);
+screens.mood=()=>pane('Today','today',`<section class="mood-v2" data-selected-mood="${selectedMood}" aria-labelledby="mood-v2-title">
+<div class="eyebrow">A MOMENT TO NOTICE</div>
+<h1 id="mood-v2-title">How are you<br>feeling today?</h1>
+<p class="mood-v2-lede">There is no right answer. Just yours.</p>
+<div class="mood-v2-art"><img id="mood-portrait" loading="eager" decoding="async" src="${moodPortraitSrc(selectedMood)}" alt="Original black-and-ivory manga illustration of a woman with windswept hair and drifting blossoms"></div>
+<fieldset class="mood-v2-select">
+<legend>Choose what feels closest</legend>
+<div class="mood-v2-options mood-v3-options">${moodDefs.map(([key,label])=>moodButton(key,label)).join('')}</div>
+</fieldset>
+<div class="mood-v3-feedback" role="status" aria-live="polite" aria-atomic="true">
+<strong id="mood-feeling-summary">${moodStates[selectedMood].summary}</strong>
+<span id="mood-feeling-note">${moodStates[selectedMood].note}</span>
+</div>
+<button type="button" class="mood-v2-next mood-v3-next" data-screen="mood-details"><span>Continue</span>${ico('arrow')}</button>
+<p class="mood-v2-hint">You can add a little context next.</p>
+</section>`);
 /* The previously working tags, energy, note and save flow continues here. */
 /* Approved Screen 06 — mood details. Preserves actual check-in saving on this device. */
 screens['mood-details']=()=>pane('Your check-in','mood',`<section class="mood-details-v2" aria-labelledby="mood-details-title">
@@ -97,11 +126,30 @@ screens['exercise-next']=screens.exercise;
 /* Navigation and interactions */
 function go(target,replace=false){if(!screens[target])target='today';if(page==='breathe'&&target!=='breathe')pauseBreathe();page=target;const u=new URL(location.href);u.searchParams.set('screen',target);history[replace?'replaceState':'pushState']({screen:target},'',u.pathname+u.search);draw();}
 function draw(){if(!screens[page])page='today';document.title=`Be You · ${page.replaceAll('-',' ')}`;document.getElementById('app').innerHTML=`<div class="device" data-page="${page}">${screens[page]()}</div>`;document.querySelectorAll('.status > span:first-child').forEach(n=>n.textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',hour12:false}));document.querySelectorAll('.topstatus').forEach(n=>{if(n.firstChild)n.firstChild.textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',hour12:false})+' ';});document.body.classList.toggle('theme-light',!!data.settings.light);document.body.classList.toggle('reduce-motion',!!data.settings.reduceMotion);document.body.classList.toggle('large-type',!!data.settings.largeText);const root=document.querySelector('.device');if(root)root.setAttribute('aria-label',`Be You ${page.replaceAll('-',' ')} screen`);}
+function paintMoodSelection(){
+ const panel=document.querySelector('.mood-v2');
+ if(!panel)return;
+ const state=moodStates[selectedMood];
+ panel.dataset.selectedMood=selectedMood;
+ document.querySelectorAll('.mood-v2-options [data-mood]').forEach(button=>{
+   const active=button.dataset.mood===selectedMood;
+   button.classList.toggle('sel',active);
+   button.setAttribute('aria-pressed',String(active));
+ });
+ const summary=document.getElementById('mood-feeling-summary');
+ const note=document.getElementById('mood-feeling-note');
+ if(summary)summary.textContent=state.summary;
+ if(note)note.textContent=state.note;
+ // Future art mapping is ready but the current approved image is unchanged for all moods.
+ const portrait=document.getElementById('mood-portrait');
+ const src=moodPortraitSrc(selectedMood);
+ if(portrait&&portrait.getAttribute('src')!==src)portrait.setAttribute('src',src);
+}
 function routeIfClicked(ev){const control=ev.target.closest('button[data-action],button[data-screen],button[data-mood],button[data-tag],button[data-setting],button[data-journey],button[data-edit],button[data-view]');if(!control)return;ev.preventDefault();if(control.dataset.screen){if(control.dataset.screen==='today'&&['onboard-grow','onboard-notice'].includes(page)){data.onboarded=true;save()}go(control.dataset.screen);return}
 if(control.dataset.journey){chosenJourney=control.dataset.journey;go('journey-detail');return}
 if(control.dataset.view){editingJournal=control.dataset.view;go('journal-view');return}
 if(control.dataset.edit){editingJournal=control.dataset.edit;go('journal-edit');return}
-if(control.dataset.mood){selectedMood=control.dataset.mood;document.querySelectorAll('[data-mood]').forEach(el=>{let is=el.dataset.mood===selectedMood;el.classList.toggle('sel',is);el.setAttribute('aria-pressed',is)});return}
+if(control.dataset.mood){if(!moodStates[control.dataset.mood])return;selectedMood=control.dataset.mood;paintMoodSelection();return}
 if(control.dataset.tag){const tag=control.dataset.tag;selectedTags=selectedTags.includes(tag)?selectedTags.filter(t=>t!==tag):[...selectedTags,tag];control.classList.toggle('active',selectedTags.includes(tag));control.setAttribute('aria-pressed',selectedTags.includes(tag));return}
 if(control.dataset.setting){const k=control.dataset.setting;data.settings[k]=!data.settings[k];save();draw();notice('Preference updated');return}
 const action=control.dataset.action;
