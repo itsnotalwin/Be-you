@@ -9,3 +9,5 @@ Connections: Reference targets are in `../references/approved/mockups-2026-10-15
 Change and verify: `cd app && npm test`, real Chromium mobile and desktop, verify images and navigation, confirm Pages Actions completion, and capture fresh screenshots after visual changes. Stored user data is unencrypted and device-local; preserve keys and export/import format.
 
 Screen 05 (2026-10-16): `functional.js` uses one reactive mood route and `moodPortraitRoles` for a future approved face set; all five now use separately approved WebP portraits in `assets/approved/moods/`. `responsive.css` holds distinct active-card accents and feedback. Update the screenshot and validate 320/390 px mobile and desktop after this visual change.
+
+Screen 05 image-frame update (2026-10-16): The mood art wrapper in `responsive.css` now takes its height from each approved portrait's natural aspect ratio; this eliminates internal unused margins while showing the entire face, hair, and props, with no image-file changes. At phone widths the image is deliberately portrait-shaped, not square. A genuine updated screenshot and browser/device QA are still outstanding.
