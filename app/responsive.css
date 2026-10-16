@@ -564,12 +564,14 @@ body.theme-light .mood-v3-feedback span{color:#555c5e}
 }
 @media(prefers-reduced-motion:reduce){.mood-v2 .mood-v3-options .mood-v3-option{transition:none;transform:none}}
 
-/* Approved Screen 05 art, 2026-10-16: preserve all facial features and the
-   entire flowing hair silhouette from the reviewed five-panel reference.
-   Never crop these portraits with object-fit:cover, even at narrow widths. */
+/* Screen 05 — five approved full-frame portraits.
+   The source files are tall panels (~300 x 562), not square thumbnails.
+   Let the image determine its frame height so it touches all four edges:
+   no cover-cropping, distortion, or empty letterboxing. */
 .device[data-page="mood"] .mood-v2-art{
- height:clamp(340px,108vw,485px);
- max-width:560px;
+ width:min(100%,306px);
+ max-width:100%;
+ height:auto;
  margin:18px auto 23px;
  background:#f2eee8;
  border:1px solid #75746e;
@@ -579,14 +581,14 @@ body.theme-light .mood-v3-feedback span{color:#555c5e}
 .device[data-page="mood"] .mood-v2-art img{
  display:block;
  width:100%;
- height:100%;
+ height:auto;
  object-fit:contain;
  object-position:center center;
  filter:grayscale(1);
 }
 @media(min-width:700px){
- .device[data-page="mood"] .mood-v2-art{height:510px;max-width:570px}
+ .device[data-page="mood"] .mood-v2-art{width:min(100%,330px);height:auto}
 }
 @media(max-width:370px){
- .device[data-page="mood"] .mood-v2-art{height:clamp(316px,108vw,395px)}
+ .device[data-page="mood"] .mood-v2-art{width:min(100%,276px);height:auto}
 }
