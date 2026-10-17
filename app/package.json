@@ -7,9 +7,13 @@
   "scripts": {
     "start": "node server.mjs",
     "dev": "node server.mjs",
-    "test": "node scripts/verify.mjs && node scripts/smoke.mjs"
+    "test": "node scripts/verify.mjs && node scripts/smoke.mjs",
+    "test:browser": "playwright test"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0"
   }
 }

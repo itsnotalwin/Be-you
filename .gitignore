@@ -8,3 +8,7 @@ node_modules/
 coverage/
 *.log
 *.tmp
+
+# Generated real-browser test evidence (CI uploads artifacts separately)
+app/test-results/
+app/playwright-report/

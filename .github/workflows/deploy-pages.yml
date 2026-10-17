@@ -1,4 +1,4 @@
-name: Deploy BE YOU to GitHub Pages
+name: Verify and deploy BE YOU
 
 on:
   push:
@@ -7,53 +7,129 @@ on:
       - 'app/**'
       - '.github/workflows/deploy-pages.yml'
       - 'README.md'
+      - 'PROJECT.md'
+      - 'AGENTS.md'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - '.github/workflows/deploy-pages.yml'
+      - 'README.md'
+      - 'PROJECT.md'
+      - 'AGENTS.md'
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: github-pages
+  group: be-you-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    name: Verify and publish app/
+  verify:
+    name: Source, Chromium and WebKit quality gates
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
+    timeout-minutes: 25
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-
-      - name: Check the real application
+      - name: Install pinned browser test dependency
+        working-directory: app
+        run: npm install --no-package-lock
+      - name: Verify the existing application and simulated flows
         working-directory: app
         run: npm test
+      - name: Install real browser engines
+        working-directory: app
+        run: npx playwright install --with-deps chromium webkit
+      - name: Test screen rendering, interactions, image geometry and layout
+        working-directory: app
+        env:
+          CI: 'true'
+          PLAYWRIGHT_CAPTURE: '1'
+        run: npm run test:browser -- --grep-invert @live
+      - name: Preserve genuine browser screenshots, traces and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: be-you-browser-evidence
+          path: |
+            app/test-results/
+            app/playwright-report/
+          if-no-files-found: warn
+          retention-days: 14
 
-      - name: Verify Pages entry point
+  deploy:
+    name: Publish only after all browser gates pass
+    if: github.event_name != 'pull_request'
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Pages entry point and approved original artwork
         run: |
           test -f app/index.html
           test -f app/manifest.webmanifest
           test -f app/sw.js
           test -f app/assets/approved/volume-01/01-contemplative-koi-and-sakura.webp
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload app folder as website
+          test -f app/assets/approved/moods/01-good.webp
+      - name: Embed this verified release SHA
+        env:
+          RELEASE_SHA: ${{ github.sha }}
+        run: |
+          printf '{"sha":"%s"}\n' "$RELEASE_SHA" > app/release.json
+      - uses: actions/configure-pages@v5
+      - name: Upload only the clean app (no test dependencies or reports)
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./app
-
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  live-browser:
+    name: Verify the actual published release
+    if: github.event_name != 'pull_request'
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependency
+        working-directory: app
+        run: npm install --no-package-lock
+      - name: Install production smoke browser
+        working-directory: app
+        run: npx playwright install --with-deps chromium
+      - name: Confirm release marker, artwork and live mood interaction
+        working-directory: app
+        env:
+          CI: 'true'
+          PLAYWRIGHT_BASE_URL: https://itsnotalwin.github.io/Be-you/
+          EXPECTED_SHA: ${{ github.sha }}
+          PLAYWRIGHT_CAPTURE: '1'
+        run: npm run test:browser -- --project=chromium-390 --grep @live
+      - name: Retain live browser failure evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: be-you-live-browser-evidence
+          path: |
+            app/test-results/
+            app/playwright-report/
+          if-no-files-found: warn
+          retention-days: 14
