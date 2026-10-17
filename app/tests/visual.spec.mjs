@@ -24,7 +24,7 @@ const otherWidths = {
 test.beforeEach(async ({page}) => {
   await page.clock.setFixedTime(fixedTime);
   await page.addInitScript(({key, value}) => {
-    localStorage.setItem(key, value);
+    if (localStorage.getItem(key) === null) localStorage.setItem(key, value);
   }, {key: storageKey, value: JSON.stringify(seed())});
 });
 
@@ -77,8 +77,9 @@ for (const state of ['journal-populated', 'journal-view']) {
       createdAt: Date.UTC(2026, 9, 16, 10),
       updatedAt: Date.UTC(2026, 9, 16, 10)
     });
-    await page.addInitScript(({key, data}) => localStorage.setItem(key, data),
-      {key: storageKey, data: JSON.stringify(value)});
+    await page.goto('?screen=today');
+    await page.evaluate(([key, data]) => localStorage.setItem(key, data),
+      [storageKey, JSON.stringify(value)]);
     await open(page, 'journal');
     if (state === 'journal-view') {
       await page.locator('[data-view="visual-test-entry"]').click();
