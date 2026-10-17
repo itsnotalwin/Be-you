@@ -8,6 +8,7 @@ on:
       - 'app/responsive.css'
       - 'app/functional.js'
       - 'app/tests/capture-mood-review.mjs'
+      - 'app/tests/browser.spec.mjs'
       - '.github/workflows/mood-review.yml'
 
 permissions:
