@@ -112,6 +112,37 @@ test('one reactive mood screen changes all five uncropped portraits', async ({pa
   expect(data.checkins).toHaveLength(0);
 });
 
+test('phone mood cards appear without needing to scroll past the illustration', async ({page}, testInfo) => {
+  test.skip(testInfo.project.name.includes('desktop'), 'Phone-only discovery check');
+  await visit(page, 'mood');
+  await requireImages(page);
+  const viewport = page.viewportSize();
+  const buttons = await page.locator('.mood-v2-options [data-mood]').evaluateAll(elements =>
+    elements.map(element => {
+      const b = element.getBoundingClientRect();
+      return {top:b.top, bottom:b.bottom, height:b.height};
+    })
+  );
+  expect(buttons).toHaveLength(5);
+  for (const [index, button] of buttons.entries()) {
+    expect(button.top, 'Mood choice ' + index + ' starts on screen').toBeGreaterThan(0);
+    expect(button.bottom, 'Mood choice ' + index + ' fits on first screen').toBeLessThanOrEqual(viewport.height - 8);
+    expect(button.height, 'Mood choices remain comfortably touchable').toBeGreaterThanOrEqual(75);
+  }
+  const image = page.locator('#mood-portrait');
+  const measures = await image.evaluate(img => ({
+    sourceRatio: img.naturalWidth / img.naturalHeight,
+    displayRatio: img.getBoundingClientRect().width / img.getBoundingClientRect().height,
+    fit: getComputedStyle(img).objectFit
+  }));
+  expect(measures.fit).toBe('contain');
+  expect(Math.abs(measures.sourceRatio - measures.displayRatio)).toBeLessThan(0.02);
+  await page.locator('[data-mood="sad"]').click();
+  await expect(page.locator('.mood-v2')).toHaveAttribute('data-selected-mood', 'sad');
+  await expect(page.locator('#mood-portrait')).toHaveAttribute('src', /05-low\\.webp$/);
+  await requireImages(page);
+});
+
 test('mood check-in persists only after Save', async ({page}) => {
   await visit(page, 'mood');
   await page.locator('[data-mood="happy"]').click();
