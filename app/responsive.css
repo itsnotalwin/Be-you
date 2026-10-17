@@ -618,3 +618,33 @@ body.theme-light .mood-v3-feedback span{color:#555c5e}
   }
   .device[data-page="mood"] .mood-v3-feedback { min-height:58px; margin:3px 0 6px; }
 }
+
+
+/* DESKTOP MOOD REVIEW — 2026-10-17.
+   Keep art fully visible and the same five reactive controls within the
+   first desktop viewport. Mobile preserves its vertical editorial layout. */
+@media (min-width:1024px) {
+  .device[data-page="mood"] .mood-v2 { max-width:920px; }
+  .device[data-page="mood"] .mood-v2-body {
+    display:grid;
+    grid-template-columns:minmax(230px,300px) minmax(0,1fr);
+    align-items:center;
+    gap:clamp(28px,4vw,58px);
+    margin-top:8px;
+  }
+  .device[data-page="mood"] .mood-v2-body .mood-v2-art {
+    width:min(100%,270px);
+    max-width:100%;
+    height:auto;
+    margin:0 auto;
+  }
+  .device[data-page="mood"] .mood-v2-picker {min-width:0;}
+  .device[data-page="mood"] .mood-v2-picker .mood-v2-select legend {
+    font-size:clamp(25px,2.3vw,31px);
+  }
+  .device[data-page="mood"] .mood-v2-picker .mood-v3-options {gap:8px;}
+  .device[data-page="mood"] .mood-v2-picker .mood-v3-option {
+    min-height:93px;
+    border-radius:17px;
+  }
+}
