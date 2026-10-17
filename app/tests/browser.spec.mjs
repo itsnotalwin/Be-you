@@ -164,7 +164,7 @@ test('phone mood cards appear without needing to scroll past the illustration', 
   expect(Math.abs(measures.sourceRatio - measures.displayRatio)).toBeLessThan(0.02);
   await page.locator('[data-mood="sad"]').click();
   await expect(page.locator('.mood-v2')).toHaveAttribute('data-selected-mood', 'sad');
-  await expect(page.locator('#mood-portrait')).toHaveAttribute('src', /05-low\\.webp$/);
+  await expect(page.locator('#mood-portrait')).toHaveAttribute('src', /05-low[.]webp$/);
   await requireImages(page);
 });
 
