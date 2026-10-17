@@ -129,6 +129,11 @@ test('phone mood cards appear without needing to scroll past the illustration', 
     expect(button.bottom, 'Mood choice ' + index + ' fits on first screen').toBeLessThanOrEqual(viewport.height - 8);
     expect(button.height, 'Mood choices remain comfortably touchable').toBeGreaterThanOrEqual(75);
   }
+  if (viewport.height >= 800 && !testInfo.project.name.includes('desktop')) {
+    const action = await page.locator('.mood-v2-next').boundingBox();
+    expect(action, 'Continue button must exist').not.toBeNull();
+    expect(action.y + action.height, 'Continue should fit in normal phone view').toBeLessThanOrEqual(viewport.height - 8);
+  }
   const image = page.locator('#mood-portrait');
   const measures = await image.evaluate(img => ({
     sourceRatio: img.naturalWidth / img.naturalHeight,
