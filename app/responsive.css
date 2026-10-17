@@ -592,3 +592,29 @@ body.theme-light .mood-v3-feedback span{color:#555c5e}
 @media(max-width:370px){
  .device[data-page="mood"] .mood-v2-art{width:min(100%,276px);height:auto}
 }
+
+
+/* MOOD PHONE REVIEW — 2026-10-17.
+   Preserve all five approved portraits at their natural ratio while bringing the
+   five choices into the initial phone viewport. The art is NEVER cover-cropped.
+   Scoped to Screen 05 on mobile; no changes to other art or app routes. */
+@media (max-width:699px) {
+  .device[data-page="mood"] .mood-v2 { padding-top:0; }
+  .device[data-page="mood"] .mood-v2 h1 {
+    font-size:clamp(38px,10vw,43px);
+    line-height:.96;
+    margin-bottom:9px;
+  }
+  .device[data-page="mood"] .mood-v2-lede { margin-bottom:10px; }
+  .device[data-page="mood"] .mood-v2-art {
+    width:min(50vw,220px,23dvh);
+    max-width:100%;
+    height:auto;
+    margin:11px auto 16px;
+  }
+  .device[data-page="mood"] .mood-v2-select legend {
+    font-size:clamp(23px,6vw,28px);
+    margin-bottom:10px;
+  }
+  .device[data-page="mood"] .mood-v3-feedback { min-height:58px; margin:6px 0 12px; }
+}
