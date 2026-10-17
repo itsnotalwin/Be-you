@@ -112,6 +112,26 @@ test('one reactive mood screen changes all five uncropped portraits', async ({pa
   expect(data.checkins).toHaveLength(0);
 });
 
+test('desktop mood chooser shows the portrait alongside all five choices', async ({page}, testInfo) => {
+  test.skip(!testInfo.project.name.includes('desktop'), 'Desktop-only responsive check');
+  await visit(page, 'mood');
+  await requireImages(page);
+  const viewport=page.viewportSize();
+  const portrait=await page.locator('.mood-v2-art').boundingBox();
+  const choices=await page.locator('.mood-v2-options').boundingBox();
+  const next=await page.locator('.mood-v2-next').boundingBox();
+  expect(portrait, 'Art must be rendered').not.toBeNull();
+  expect(choices, 'Choices must be rendered').not.toBeNull();
+  expect(next, 'Continue must be rendered').not.toBeNull();
+  expect(portrait.x + portrait.width).toBeLessThan(choices.x);
+  expect(choices.y).toBeGreaterThanOrEqual(0);
+  expect(choices.y + choices.height).toBeLessThan(viewport.height - 8);
+  expect(next.y + next.height).toBeLessThan(viewport.height - 8);
+  await page.locator('[data-mood="neutral"]').click();
+  await expect(page.locator('.mood-v2')).toHaveAttribute('data-selected-mood', 'neutral');
+  await expect(page.locator('.mood-v2-options [aria-pressed="true"]')).toHaveCount(1);
+});
+
 test('phone mood cards appear without needing to scroll past the illustration', async ({page}, testInfo) => {
   test.skip(testInfo.project.name.includes('desktop'), 'Phone-only discovery check');
   await visit(page, 'mood');
