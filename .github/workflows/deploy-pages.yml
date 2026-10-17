@@ -28,8 +28,8 @@ concurrency:
 
 jobs:
   verify:
-    name: Source, Chromium and WebKit quality gates
-    runs-on: ubuntu-latest
+    name: Source, browser flows and pixel-snapshot quality gates
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
@@ -90,10 +90,25 @@ jobs:
         run: |
           printf '{"sha":"%s"}\n' "$RELEASE_SHA" > app/release.json
       - uses: actions/configure-pages@v5
-      - name: Upload only the clean app (no test dependencies or reports)
+      - name: Stage the real app, excluding screenshot baselines and test tooling
+        run: |
+          mkdir -p "$RUNNER_TEMP/be-you-publish"
+          rsync -a \
+            --exclude='/tests/' \
+            --exclude='/scripts/' \
+            --exclude='/playwright.config.mjs' \
+            --exclude='/node_modules/' \
+            --exclude='/test-results/' \
+            --exclude='/playwright-report/' \
+            --exclude='/package-lock.json' \
+            app/ "$RUNNER_TEMP/be-you-publish/"
+          test -f "$RUNNER_TEMP/be-you-publish/index.html"
+          test -f "$RUNNER_TEMP/be-you-publish/functional.js"
+          test ! -d "$RUNNER_TEMP/be-you-publish/tests"
+      - name: Upload verified production-only app
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./app
+          path: ${{ runner.temp }}/be-you-publish
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,0 +1,93 @@
+name: Capture first real-app visual reference set
+
+on:
+  push:
+    branches:
+      - qa/visual-regression-baselines-20261017
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: be-you-initial-visual-candidates
+  cancel-in-progress: true
+
+jobs:
+  candidates:
+    name: Generate and validate PR-only visual candidates
+    if: github.ref == 'refs/heads/qa/visual-regression-baselines-20261017'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check whether this branch already has locked candidate PNGs
+        id: state
+        run: |
+          if test -f app/tests/visual-baselines/chromium-390-screen-today.png; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Candidates already exist: refusing to silently regenerate visual references."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Set up Node.js
+        if: steps.state.outputs.exists == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test runner
+        if: steps.state.outputs.exists == 'false'
+        working-directory: app
+        run: npm install --no-package-lock
+      - name: Verify application logic before capturing screenshots
+        if: steps.state.outputs.exists == 'false'
+        working-directory: app
+        run: npm test
+      - name: Install pinned real browsers
+        if: steps.state.outputs.exists == 'false'
+        working-directory: app
+        run: npx playwright install --with-deps chromium webkit
+      - name: Render real candidate screenshots from running BE YOU
+        if: steps.state.outputs.exists == 'false'
+        working-directory: app
+        env:
+          CI: 'true'
+        run: npm run test:browser -- --grep-invert @live --update-snapshots
+      - name: Validate generated inventory and stamp real UI screenshot
+        if: steps.state.outputs.exists == 'false'
+        run: |
+          count=$(find app/tests/visual-baselines -maxdepth 1 -type f -name '*.png' | wc -l)
+          test "$count" -eq 47 || {
+            echo "Expected 47 actual baseline images; found $count"
+            exit 1
+          }
+          cp app/tests/visual-baselines/chromium-390-screen-today.png app/tests/visual-baselines/SCREENSHOT.png
+          file app/tests/visual-baselines/*.png | grep -q 'PNG image data'
+      - name: Compare against those captures in a second clean test pass
+        if: steps.state.outputs.exists == 'false'
+        working-directory: app
+        env:
+          CI: 'true'
+        run: npm run test:browser -- --grep-invert @live
+      - name: Commit candidate screenshots only to dedicated review branch
+        if: steps.state.outputs.exists == 'false'
+        env:
+          BRANCH: qa/visual-regression-baselines-20261017
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/tests/visual-baselines/*.png
+          git diff --cached --quiet && exit 0
+          git commit -m "test: capture real UI pixel baselines for visual review"
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Retain candidate screenshots and browser evidence
+        if: always() && steps.state.outputs.exists == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: be-you-first-visual-reference-candidates
+          path: |
+            app/tests/visual-baselines/*.png
+            app/test-results/
+            app/playwright-report/
+          if-no-files-found: warn
+          retention-days: 14

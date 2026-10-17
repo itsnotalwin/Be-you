@@ -38,7 +38,7 @@ Onboarding, daily mood selection and optional notes, private journal with read/e
 
 ## Development and deployment
 
-Requires Node.js 18+. `cd app && npm start` opens `http://localhost:4173`; `cd app && npm test` checks source integrity and flows. GitHub Actions runs source and smoke tests plus Playwright real-browser checks (Chromium at 320/390/1280px and WebKit at 393px) before deploying the clean `app/` folder to [GitHub Pages](https://itsnotalwin.github.io/Be-you/). Run `cd app && npm install && npx playwright install chromium webkit && npm run test:browser` to execute browser checks locally. See [browser QA protocol](app/docs/BROWSER_TESTING.md) and [deployment workflow](.github/workflows/deploy-pages.yml).
+Requires Node.js 18+. `cd app && npm start` opens `http://localhost:4173`; `cd app && npm test` checks source integrity and flows. GitHub Actions runs source and smoke tests plus Playwright real-browser checks (Chromium at 320/390/1280px and WebKit at 393px) before deploying the clean `app/` folder to [GitHub Pages](https://itsnotalwin.github.io/Be-you/). Run `cd app && npm install && npx playwright install chromium webkit && npm run test:browser` for functional and pixel-level browser checks. The approved visual reference PNGs are kept in `app/tests/visual-baselines/` and require human review before changes are accepted. See [browser QA protocol](app/docs/BROWSER_TESTING.md) and [deployment workflow](.github/workflows/deploy-pages.yml).
 
 ## Repository structure
 

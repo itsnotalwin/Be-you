@@ -7,6 +7,7 @@ const chromium = {browserName: 'chromium', viewport: {width: 390, height: 844}};
 export default defineConfig({
   testDir: './tests',
   testMatch: '**/*.spec.mjs',
+  snapshotPathTemplate: '{testDir}/visual-baselines/{projectName}-{arg}{ext}',
   timeout: 60000,
   expect: {timeout: 10000},
   fullyParallel: false,
@@ -18,7 +19,12 @@ export default defineConfig({
     baseURL,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
-    serviceWorkers: 'block'
+    serviceWorkers: 'block',
+    locale: 'en-US',
+    timezoneId: 'UTC',
+    deviceScaleFactor: 1,
+    reducedMotion: 'reduce',
+    colorScheme: 'dark'
   },
   projects: [
     {name: 'chromium-320', use: {...chromium, viewport: {width: 320, height: 700}}},
