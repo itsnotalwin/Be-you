@@ -1,6 +1,7 @@
 import {defineConfig} from '@playwright/test';
 
-const baseURL = (process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:4173/').replace(/\\/?$/, '/');
+const rawBaseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:4173/';
+const baseURL = rawBaseURL.endsWith('/') ? rawBaseURL : rawBaseURL + '/';
 const chromium = {browserName: 'chromium', viewport: {width: 390, height: 844}};
 
 export default defineConfig({
