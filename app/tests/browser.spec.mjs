@@ -112,6 +112,62 @@ test('one reactive mood screen changes all five uncropped portraits', async ({pa
   expect(data.checkins).toHaveLength(0);
 });
 
+test('desktop mood chooser shows the portrait alongside all five choices', async ({page}, testInfo) => {
+  test.skip(!testInfo.project.name.includes('desktop'), 'Desktop-only responsive check');
+  await visit(page, 'mood');
+  await requireImages(page);
+  const viewport=page.viewportSize();
+  const portrait=await page.locator('.mood-v2-art').boundingBox();
+  const choices=await page.locator('.mood-v2-options').boundingBox();
+  const next=await page.locator('.mood-v2-next').boundingBox();
+  expect(portrait, 'Art must be rendered').not.toBeNull();
+  expect(choices, 'Choices must be rendered').not.toBeNull();
+  expect(next, 'Continue must be rendered').not.toBeNull();
+  expect(portrait.x + portrait.width).toBeLessThan(choices.x);
+  expect(choices.y).toBeGreaterThanOrEqual(0);
+  expect(choices.y + choices.height).toBeLessThan(viewport.height - 8);
+  expect(next.y + next.height).toBeLessThan(viewport.height - 8);
+  await page.locator('[data-mood="neutral"]').click();
+  await expect(page.locator('.mood-v2')).toHaveAttribute('data-selected-mood', 'neutral');
+  await expect(page.locator('.mood-v2-options [aria-pressed="true"]')).toHaveCount(1);
+});
+
+test('phone mood cards appear without needing to scroll past the illustration', async ({page}, testInfo) => {
+  test.skip(testInfo.project.name.includes('desktop'), 'Phone-only discovery check');
+  await visit(page, 'mood');
+  await requireImages(page);
+  const viewport = page.viewportSize();
+  const buttons = await page.locator('.mood-v2-options [data-mood]').evaluateAll(elements =>
+    elements.map(element => {
+      const b = element.getBoundingClientRect();
+      return {top:b.top, bottom:b.bottom, height:b.height};
+    })
+  );
+  expect(buttons).toHaveLength(5);
+  for (const [index, button] of buttons.entries()) {
+    expect(button.top, 'Mood choice ' + index + ' starts on screen').toBeGreaterThan(0);
+    expect(button.bottom, 'Mood choice ' + index + ' fits on first screen').toBeLessThanOrEqual(viewport.height - 8);
+    expect(button.height, 'Mood choices remain comfortably touchable').toBeGreaterThanOrEqual(75);
+  }
+  if (viewport.height >= 800 && !testInfo.project.name.includes('desktop')) {
+    const action = await page.locator('.mood-v2-next').boundingBox();
+    expect(action, 'Continue button must exist').not.toBeNull();
+    expect(action.y + action.height, 'Continue should fit in normal phone view').toBeLessThanOrEqual(viewport.height - 8);
+  }
+  const image = page.locator('#mood-portrait');
+  const measures = await image.evaluate(img => ({
+    sourceRatio: img.naturalWidth / img.naturalHeight,
+    displayRatio: img.getBoundingClientRect().width / img.getBoundingClientRect().height,
+    fit: getComputedStyle(img).objectFit
+  }));
+  expect(measures.fit).toBe('contain');
+  expect(Math.abs(measures.sourceRatio - measures.displayRatio)).toBeLessThan(0.02);
+  await page.locator('[data-mood="sad"]').click();
+  await expect(page.locator('.mood-v2')).toHaveAttribute('data-selected-mood', 'sad');
+  await expect(page.locator('#mood-portrait')).toHaveAttribute('src', /05-low[.]webp$/);
+  await requireImages(page);
+});
+
 test('mood check-in persists only after Save', async ({page}) => {
   await visit(page, 'mood');
   await page.locator('[data-mood="happy"]').click();
